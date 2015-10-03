@@ -57,7 +57,7 @@
             this.donorIdComboBox.FormattingEnabled = true;
             this.donorIdComboBox.Location = new System.Drawing.Point(88, 35);
             this.donorIdComboBox.Name = "donorIdComboBox";
-            this.donorIdComboBox.Size = new System.Drawing.Size(156, 25);
+            this.donorIdComboBox.Size = new System.Drawing.Size(156, 26);
             this.donorIdComboBox.TabIndex = 2;
             this.donorIdComboBox.SelectedIndexChanged += new System.EventHandler(this.donorIdComboBox_SelectedIndexChanged);
             // 
@@ -83,12 +83,12 @@
             this.surname,
             this.Column1,
             this.address});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 139);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 139);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(878, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(931, 150);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -156,7 +156,7 @@
             this.citiComboBox.FormattingEnabled = true;
             this.citiComboBox.Location = new System.Drawing.Point(88, 85);
             this.citiComboBox.Name = "citiComboBox";
-            this.citiComboBox.Size = new System.Drawing.Size(156, 25);
+            this.citiComboBox.Size = new System.Drawing.Size(156, 26);
             this.citiComboBox.TabIndex = 10;
             // 
             // mrNumberComboBox
@@ -164,9 +164,9 @@
             this.mrNumberComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.mrNumberComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.mrNumberComboBox.FormattingEnabled = true;
-            this.mrNumberComboBox.Location = new System.Drawing.Point(361, 85);
+            this.mrNumberComboBox.Location = new System.Drawing.Point(374, 82);
             this.mrNumberComboBox.Name = "mrNumberComboBox";
-            this.mrNumberComboBox.Size = new System.Drawing.Size(156, 25);
+            this.mrNumberComboBox.Size = new System.Drawing.Size(156, 26);
             this.mrNumberComboBox.TabIndex = 12;
             // 
             // gpbEnquiry
@@ -182,10 +182,10 @@
             this.gpbEnquiry.Controls.Add(this.button2);
             this.gpbEnquiry.Controls.Add(this.button1);
             this.gpbEnquiry.Controls.Add(this.donorIdComboBox);
-            this.gpbEnquiry.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbEnquiry.Location = new System.Drawing.Point(12, -1);
+            this.gpbEnquiry.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbEnquiry.Location = new System.Drawing.Point(-1, -1);
             this.gpbEnquiry.Name = "gpbEnquiry";
-            this.gpbEnquiry.Size = new System.Drawing.Size(878, 339);
+            this.gpbEnquiry.Size = new System.Drawing.Size(932, 339);
             this.gpbEnquiry.TabIndex = 13;
             this.gpbEnquiry.TabStop = false;
             this.gpbEnquiry.Text = "Enquiry";
@@ -249,7 +249,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 340);
+            this.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
+            this.ClientSize = new System.Drawing.Size(933, 340);
             this.Controls.Add(this.phoneNumberComboBox);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.donorNameComboBox);

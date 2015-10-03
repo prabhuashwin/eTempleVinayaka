@@ -9,13 +9,13 @@
               <Width>3.29863cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.29316cm</Width>
+              <Width>6.02858cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.29263cm</Width>
+              <Width>3.89576cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.33953cm</Width>
+              <Width>2.54578cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -129,7 +129,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -169,7 +169,7 @@
         <Top>0.10583cm</Top>
         <Left>0.09233cm</Left>
         <Height>0.69129cm</Height>
-        <Width>17.22395cm</Width>
+        <Width>15.76874cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -197,7 +197,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>SRI VENKATESWARA SWAMY VARI DEVASTHANAM</Value>
+                  <Value>SRI VIGNESWARA SWAMY VARI DEVASTHANAM</Value>
                   <Style>
                     <FontSize>18pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -209,14 +209,14 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value xml:space="preserve">           </Value>
+                  <Value xml:space="preserve">          </Value>
                   <Style>
                     <FontSize>18pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
                 <TextRun>
-                  <Value>DWARAKA TIRUMALA, WEST GODAVARI Dist.</Value>
+                  <Value>AINAVILLI MANDAL, EAST GODAVARI Dist.</Value>
                   <Style>
                     <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>

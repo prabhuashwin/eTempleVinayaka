@@ -151,9 +151,9 @@ namespace eTemple.UI
                 //date = date.ToString("yyyy/mm/dd");
                 if (fetchMRNO.Tables[0].Rows.Count > 0)
                 {
-                    int Id = Convert.ToInt32(fetchMRNO.Tables[0].Rows[0]["donroId"]);
+                    int Id = Convert.ToInt32(fetchMRNO.Tables[0].Rows[0]["donroMRNo"]);
                     if (Id == 0)
-                        maxMRNO = 15000;
+                        maxMRNO = 15001;
                     else
                     maxMRNO = Id + 1;
                 }

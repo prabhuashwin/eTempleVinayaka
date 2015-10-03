@@ -75,7 +75,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(963, 261);
             this.Controls.Add(this.reportViewer1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DonorReportForm";
             this.Text = "DonorReportForm";
             this.Load += new System.EventHandler(this.DonorReportForm_Load);

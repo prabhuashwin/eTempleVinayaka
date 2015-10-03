@@ -114,9 +114,9 @@
             // 
             this.pictureBox1.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.testlogo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(165, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(256, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(594, 46);
+            this.pictureBox1.Size = new System.Drawing.Size(450, 46);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 

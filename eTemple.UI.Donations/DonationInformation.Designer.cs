@@ -905,6 +905,7 @@
             this.btnQuickDailyAnna.TabIndex = 201;
             this.btnQuickDailyAnna.Text = "Daily Annadanam";
             this.btnQuickDailyAnna.UseVisualStyleBackColor = true;
+            this.btnQuickDailyAnna.Visible = false;
             this.btnQuickDailyAnna.Click += new System.EventHandler(this.btnQuickDailyAnna_Click);
             // 
             // DonationInformation

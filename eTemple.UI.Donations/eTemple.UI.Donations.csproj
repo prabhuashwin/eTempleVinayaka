@@ -196,6 +196,7 @@
     <Content Include="Resources\swamyoutline.png" />
     <Content Include="Resources\temple_logo.png" />
     <Content Include="Resources\temple_logo_small.png" />
+    <Content Include="Resources\temple_logo_small_12.png" />
     <Content Include="Resources\testlogo.jpg" />
     <Content Include="Resources\Theme1.jpg" />
     <Content Include="Resources\Theme10.jpg" />

@@ -48,7 +48,7 @@ namespace eTemple.Data.Repositories
         {
             using (MySqlConnection conn = new MySqlConnection(strConn))
             {
-                using (MySqlCommand cmd = new MySqlCommand("SELECT coalesce(MAX(MR_No), 0) AS donroId FROM donors", conn))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT coalesce(MAX(MR_No), 0) AS donroMRNo FROM donors", conn))
                 {
                     using (MySqlDataAdapter da = new MySqlDataAdapter())
                     {

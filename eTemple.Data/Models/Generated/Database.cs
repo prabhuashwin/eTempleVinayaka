@@ -18,333 +18,445 @@ using PetaPoco;
 
 namespace eTemple.Data.Models
 {
-	public partial class eTempleDbDB : Database
-	{
-		public eTempleDbDB() 
-			: base("eTempleDb")
-		{
-			CommonConstruct();
-		}
-
-		public eTempleDbDB(string connectionStringName) 
-			: base(connectionStringName)
-		{
-			CommonConstruct();
-		}
-		
-		partial void CommonConstruct();
-		
-		public interface IFactory
-		{
-			eTempleDbDB GetInstance();
-		}
-		
-		public static IFactory Factory { get; set; }
-        public static eTempleDbDB GetInstance()
+    public partial class eTempleDbDB : Database
+    {
+        public eTempleDbDB()
+            : base("eTempleDb")
         {
-			if (_instance!=null)
-				return _instance;
-				
-			if (Factory!=null)
-				return Factory.GetInstance();
-			else
-				return new eTempleDbDB();
+            CommonConstruct();
         }
 
-		[ThreadStatic] static eTempleDbDB _instance;
-		
-		public override void OnBeginTransaction()
-		{
-			if (_instance==null)
-				_instance=this;
-		}
-		
-		public override void OnEndTransaction()
-		{
-			if (_instance==this)
-				_instance=null;
-		}
-        
-		public class Record<T> where T:new()
-		{
-			public static eTempleDbDB repo { get { return eTempleDbDB.GetInstance(); } }
-			public bool IsNew() { return repo.IsNew(this); }
-			public object Insert() { return repo.Insert(this); }
-			public void Save() { repo.Save(this); }
-			public int Update() { return repo.Update(this); }
-			public int Update(IEnumerable<string> columns) { return repo.Update(this, columns); }
-			public static int Update(string sql, params object[] args) { return repo.Update<T>(sql, args); }
-			public static int Update(Sql sql) { return repo.Update<T>(sql); }
-			public int Delete() { return repo.Delete(this); }
-			public static int Delete(string sql, params object[] args) { return repo.Delete<T>(sql, args); }
-			public static int Delete(Sql sql) { return repo.Delete<T>(sql); }
-			public static int Delete(object primaryKey) { return repo.Delete<T>(primaryKey); }
-			public static bool Exists(object primaryKey) { return repo.Exists<T>(primaryKey); }
-			public static bool Exists(string sql, params object[] args) { return repo.Exists<T>(sql, args); }
-			public static T SingleOrDefault(object primaryKey) { return repo.SingleOrDefault<T>(primaryKey); }
-			public static T SingleOrDefault(string sql, params object[] args) { return repo.SingleOrDefault<T>(sql, args); }
-			public static T SingleOrDefault(Sql sql) { return repo.SingleOrDefault<T>(sql); }
-			public static T FirstOrDefault(string sql, params object[] args) { return repo.FirstOrDefault<T>(sql, args); }
-			public static T FirstOrDefault(Sql sql) { return repo.FirstOrDefault<T>(sql); }
-			public static T Single(object primaryKey) { return repo.Single<T>(primaryKey); }
-			public static T Single(string sql, params object[] args) { return repo.Single<T>(sql, args); }
-			public static T Single(Sql sql) { return repo.Single<T>(sql); }
-			public static T First(string sql, params object[] args) { return repo.First<T>(sql, args); }
-			public static T First(Sql sql) { return repo.First<T>(sql); }
-			public static List<T> Fetch(string sql, params object[] args) { return repo.Fetch<T>(sql, args); }
-			public static List<T> Fetch(Sql sql) { return repo.Fetch<T>(sql); }
-			public static List<T> Fetch(long page, long itemsPerPage, string sql, params object[] args) { return repo.Fetch<T>(page, itemsPerPage, sql, args); }
-			public static List<T> Fetch(long page, long itemsPerPage, Sql sql) { return repo.Fetch<T>(page, itemsPerPage, sql); }
-			public static List<T> SkipTake(long skip, long take, string sql, params object[] args) { return repo.SkipTake<T>(skip, take, sql, args); }
-			public static List<T> SkipTake(long skip, long take, Sql sql) { return repo.SkipTake<T>(skip, take, sql); }
-			public static Page<T> Page(long page, long itemsPerPage, string sql, params object[] args) { return repo.Page<T>(page, itemsPerPage, sql, args); }
-			public static Page<T> Page(long page, long itemsPerPage, Sql sql) { return repo.Page<T>(page, itemsPerPage, sql); }
-			public static IEnumerable<T> Query(string sql, params object[] args) { return repo.Query<T>(sql, args); }
-			public static IEnumerable<T> Query(Sql sql) { return repo.Query<T>(sql); }
-		}
-	}
-	
+        public eTempleDbDB(string connectionStringName)
+            : base(connectionStringName)
+        {
+            CommonConstruct();
+        }
 
-    
-	[TableName("dailyannadanam")]
-	[PrimaryKey("Id")]
-	[ExplicitColumns]
-    public partial class dailyannadanam : eTempleDbDB.Record<dailyannadanam>  
+        partial void CommonConstruct();
+
+        public interface IFactory
+        {
+            eTempleDbDB GetInstance();
+        }
+
+        public static IFactory Factory { get; set; }
+        public static eTempleDbDB GetInstance()
+        {
+            if (_instance != null)
+                return _instance;
+
+            if (Factory != null)
+                return Factory.GetInstance();
+            else
+                return new eTempleDbDB();
+        }
+
+        [ThreadStatic]
+        static eTempleDbDB _instance;
+
+        public override void OnBeginTransaction()
+        {
+            if (_instance == null)
+                _instance = this;
+        }
+
+        public override void OnEndTransaction()
+        {
+            if (_instance == this)
+                _instance = null;
+        }
+
+        public class Record<T> where T : new()
+        {
+            public static eTempleDbDB repo { get { return eTempleDbDB.GetInstance(); } }
+            public bool IsNew() { return repo.IsNew(this); }
+            public object Insert() { return repo.Insert(this); }
+            public void Save() { repo.Save(this); }
+            public int Update() { return repo.Update(this); }
+            public int Update(IEnumerable<string> columns) { return repo.Update(this, columns); }
+            public static int Update(string sql, params object[] args) { return repo.Update<T>(sql, args); }
+            public static int Update(Sql sql) { return repo.Update<T>(sql); }
+            public int Delete() { return repo.Delete(this); }
+            public static int Delete(string sql, params object[] args) { return repo.Delete<T>(sql, args); }
+            public static int Delete(Sql sql) { return repo.Delete<T>(sql); }
+            public static int Delete(object primaryKey) { return repo.Delete<T>(primaryKey); }
+            public static bool Exists(object primaryKey) { return repo.Exists<T>(primaryKey); }
+            public static bool Exists(string sql, params object[] args) { return repo.Exists<T>(sql, args); }
+            public static T SingleOrDefault(object primaryKey) { return repo.SingleOrDefault<T>(primaryKey); }
+            public static T SingleOrDefault(string sql, params object[] args) { return repo.SingleOrDefault<T>(sql, args); }
+            public static T SingleOrDefault(Sql sql) { return repo.SingleOrDefault<T>(sql); }
+            public static T FirstOrDefault(string sql, params object[] args) { return repo.FirstOrDefault<T>(sql, args); }
+            public static T FirstOrDefault(Sql sql) { return repo.FirstOrDefault<T>(sql); }
+            public static T Single(object primaryKey) { return repo.Single<T>(primaryKey); }
+            public static T Single(string sql, params object[] args) { return repo.Single<T>(sql, args); }
+            public static T Single(Sql sql) { return repo.Single<T>(sql); }
+            public static T First(string sql, params object[] args) { return repo.First<T>(sql, args); }
+            public static T First(Sql sql) { return repo.First<T>(sql); }
+            public static List<T> Fetch(string sql, params object[] args) { return repo.Fetch<T>(sql, args); }
+            public static List<T> Fetch(Sql sql) { return repo.Fetch<T>(sql); }
+            public static List<T> Fetch(long page, long itemsPerPage, string sql, params object[] args) { return repo.Fetch<T>(page, itemsPerPage, sql, args); }
+            public static List<T> Fetch(long page, long itemsPerPage, Sql sql) { return repo.Fetch<T>(page, itemsPerPage, sql); }
+            public static List<T> SkipTake(long skip, long take, string sql, params object[] args) { return repo.SkipTake<T>(skip, take, sql, args); }
+            public static List<T> SkipTake(long skip, long take, Sql sql) { return repo.SkipTake<T>(skip, take, sql); }
+            public static Page<T> Page(long page, long itemsPerPage, string sql, params object[] args) { return repo.Page<T>(page, itemsPerPage, sql, args); }
+            public static Page<T> Page(long page, long itemsPerPage, Sql sql) { return repo.Page<T>(page, itemsPerPage, sql); }
+            public static IEnumerable<T> Query(string sql, params object[] args) { return repo.Query<T>(sql, args); }
+            public static IEnumerable<T> Query(Sql sql) { return repo.Query<T>(sql); }
+        }
+    }
+
+
+
+    [TableName("dailyannadanam")]
+    [PrimaryKey("Id")]
+    [ExplicitColumns]
+    public partial class dailyannadanam : eTempleDbDB.Record<dailyannadanam>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-		[Column] public string PhoneNumber { get; set; }
-		[Column] public string Gothram { get; set; }
-		[Column] public string VillageName { get; set; }
-		[Column] public string DonatedDate { get; set; }
-	}
-    
-	[TableName("datetype")]
-	[PrimaryKey("Id", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class datetype : eTempleDbDB.Record<datetype>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+        [Column]
+        public string PhoneNumber { get; set; }
+        [Column]
+        public string Gothram { get; set; }
+        [Column]
+        public string VillageName { get; set; }
+        [Column]
+        public string DonatedDate { get; set; }
+    }
+
+    [TableName("datetype")]
+    [PrimaryKey("Id", autoIncrement = false)]
+    [ExplicitColumns]
+    public partial class datetype : eTempleDbDB.Record<datetype>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-	}
-    
-	[TableName("designations")]
-	[PrimaryKey("Id")]
-	[ExplicitColumns]
-    public partial class designation : eTempleDbDB.Record<designation>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+    }
+
+    [TableName("designations")]
+    [PrimaryKey("Id")]
+    [ExplicitColumns]
+    public partial class designation : eTempleDbDB.Record<designation>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-	}
-    
-	[TableName("donors")]
-	[PrimaryKey("Id", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class donor : eTempleDbDB.Record<donor>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+    }
+
+    [TableName("donors")]
+    [PrimaryKey("Id", autoIncrement = false)]
+    [ExplicitColumns]
+    public partial class donor : eTempleDbDB.Record<donor>
     {
-		[Column] public string Id { get; set; }
-		[Column] public DateTime Donordate { get; set; }
-		[Column] public string Address { get; set; }
-		[Column] public string Surname { get; set; }
-		[Column] public string DonorName { get; set; }
-		[Column] public string DistrictName { get; set; }
-		[Column] public string City { get; set; }
-		[Column] public string Pin { get; set; }
-		[Column] public string State { get; set; }
-		[Column] public string Country { get; set; }
-		[Column] public string NameOn { get; set; }
-		[Column] public int? Star { get; set; }
-		[Column] public string Occassion { get; set; }
-		[Column] public string Gothram { get; set; }
-		[Column] public decimal Amount { get; set; }
-		[Column] public string MR_No { get; set; }
-		[Column] public string Remarks { get; set; }
-		[Column] public string Landline { get; set; }
-		[Column] public int? SpecialDayId { get; set; }
-		[Column] public int? ServiceTypeId { get; set; }
-		[Column] public int? ServiceNameId { get; set; }
-		[Column] public int? DateTypeId { get; set; }
-		[Column] public string PerformDate { get; set; }
-		[Column] public string EmailId { get; set; }
-		[Column] public int? DonorMonth { get; set; }
-		[Column] public int? Thidhi { get; set; }
-		[Column] public int? DonorDay { get; set; }
-		[Column] public string Mobile { get; set; }
-		[Column] public int? DonorThithi { get; set; }
-	}
-    
-	[TableName("donors_backup")]
-	[PrimaryKey("Id", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class donors_backup : eTempleDbDB.Record<donors_backup>  
+        [Column]
+        public string Id { get; set; }
+        [Column]
+        public DateTime Donordate { get; set; }
+        [Column]
+        public string Address { get; set; }
+        [Column]
+        public string Surname { get; set; }
+        [Column]
+        public string DonorName { get; set; }
+        [Column]
+        public string DistrictName { get; set; }
+        [Column]
+        public string City { get; set; }
+        [Column]
+        public string Pin { get; set; }
+        [Column]
+        public string State { get; set; }
+        [Column]
+        public string Country { get; set; }
+        [Column]
+        public string NameOn { get; set; }
+        [Column]
+        public int? Star { get; set; }
+        [Column]
+        public string Occassion { get; set; }
+        [Column]
+        public string Gothram { get; set; }
+        [Column]
+        public decimal Amount { get; set; }
+        [Column]
+        public string MR_No { get; set; }
+        [Column]
+        public string Remarks { get; set; }
+        [Column]
+        public string Landline { get; set; }
+        [Column]
+        public int? SpecialDayId { get; set; }
+        [Column]
+        public int? ServiceTypeId { get; set; }
+        [Column]
+        public int? ServiceNameId { get; set; }
+        [Column]
+        public int? DateTypeId { get; set; }
+        [Column]
+        public string PerformDate { get; set; }
+        [Column]
+        public string EmailId { get; set; }
+        [Column]
+        public int? DonorMonth { get; set; }
+        [Column]
+        public int? Thidhi { get; set; }
+        [Column]
+        public int? DonorDay { get; set; }
+        [Column]
+        public string Mobile { get; set; }
+        [Column]
+        public int? DonorThithi { get; set; }
+    }
+
+    [TableName("donors_backup")]
+    [PrimaryKey("Id", autoIncrement = false)]
+    [ExplicitColumns]
+    public partial class donors_backup : eTempleDbDB.Record<donors_backup>
     {
-		[Column] public int Id { get; set; }
-		[Column] public DateTime date { get; set; }
-		[Column] public string Address { get; set; }
-		[Column] public string Surname { get; set; }
-		[Column] public string Name { get; set; }
-		[Column] public string DistrictName { get; set; }
-		[Column] public string City { get; set; }
-		[Column] public int? Pin { get; set; }
-		[Column] public string State { get; set; }
-		[Column] public string Country { get; set; }
-		[Column] public string NameOn { get; set; }
-		[Column] public int? Star { get; set; }
-		[Column] public string Occassion { get; set; }
-		[Column] public string Gothram { get; set; }
-		[Column] public int Amount { get; set; }
-		[Column] public int MR_No { get; set; }
-		[Column] public string Remarks { get; set; }
-		[Column] public string PhoneNumber { get; set; }
-		[Column] public int? SpecialDayId { get; set; }
-		[Column] public int? ServiceTypeId { get; set; }
-		[Column] public int? ServiceNameId { get; set; }
-		[Column] public int? DateTypeId { get; set; }
-		[Column] public DateTime? PerformDate { get; set; }
-		[Column] public string EmailId { get; set; }
-		[Column] public string Paksha { get; set; }
-		[Column] public int? Month { get; set; }
-		[Column] public int? Thidhi { get; set; }
-		[Column] public int? Day { get; set; }
-	}
-    
-	[TableName("employees")]
-	[PrimaryKey("Id")]
-	[ExplicitColumns]
-    public partial class employee : eTempleDbDB.Record<employee>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public DateTime date { get; set; }
+        [Column]
+        public string Address { get; set; }
+        [Column]
+        public string Surname { get; set; }
+        [Column]
+        public string Name { get; set; }
+        [Column]
+        public string DistrictName { get; set; }
+        [Column]
+        public string City { get; set; }
+        [Column]
+        public int? Pin { get; set; }
+        [Column]
+        public string State { get; set; }
+        [Column]
+        public string Country { get; set; }
+        [Column]
+        public string NameOn { get; set; }
+        [Column]
+        public int? Star { get; set; }
+        [Column]
+        public string Occassion { get; set; }
+        [Column]
+        public string Gothram { get; set; }
+        [Column]
+        public int Amount { get; set; }
+        [Column]
+        public int MR_No { get; set; }
+        [Column]
+        public string Remarks { get; set; }
+        [Column]
+        public string PhoneNumber { get; set; }
+        [Column]
+        public int? SpecialDayId { get; set; }
+        [Column]
+        public int? ServiceTypeId { get; set; }
+        [Column]
+        public int? ServiceNameId { get; set; }
+        [Column]
+        public int? DateTypeId { get; set; }
+        [Column]
+        public DateTime? PerformDate { get; set; }
+        [Column]
+        public string EmailId { get; set; }
+        [Column]
+        public string Paksha { get; set; }
+        [Column]
+        public int? Month { get; set; }
+        [Column]
+        public int? Thidhi { get; set; }
+        [Column]
+        public int? Day { get; set; }
+    }
+
+    [TableName("employees")]
+    [PrimaryKey("Id")]
+    [ExplicitColumns]
+    public partial class employee : eTempleDbDB.Record<employee>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-		[Column] public int Designation { get; set; }
-		[Column] public int Role { get; set; }
-		[Column] public sbyte AllowLogin { get; set; }
-		[Column] public string LoginId { get; set; }
-		[Column] public string Password { get; set; }
-		[Column] public sbyte IsDeleted { get; set; }
-		[Column] public int? CreatedBy { get; set; }
-		[Column] public DateTime? CreatedOn { get; set; }
-		[Column] public DateTime? ModifiedOn { get; set; }
-		[Column] public int? ModifiedBy { get; set; }
-	}
-    
-	[TableName("gothrams")]
-	[PrimaryKey("Id")]
-	[ExplicitColumns]
-    public partial class gothram : eTempleDbDB.Record<gothram>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+        [Column]
+        public int Designation { get; set; }
+        [Column]
+        public int Role { get; set; }
+        [Column]
+        public sbyte AllowLogin { get; set; }
+        [Column]
+        public string LoginId { get; set; }
+        [Column]
+        public string Password { get; set; }
+        [Column]
+        public sbyte IsDeleted { get; set; }
+        [Column]
+        public int? CreatedBy { get; set; }
+        [Column]
+        public DateTime? CreatedOn { get; set; }
+        [Column]
+        public DateTime? ModifiedOn { get; set; }
+        [Column]
+        public int? ModifiedBy { get; set; }
+    }
+
+    [TableName("gothrams")]
+    [PrimaryKey("Id")]
+    [ExplicitColumns]
+    public partial class gothram : eTempleDbDB.Record<gothram>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-	}
-    
-	[TableName("month")]
-	[PrimaryKey("Id", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class month : eTempleDbDB.Record<month>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+    }
+
+    [TableName("month")]
+    [PrimaryKey("Id", autoIncrement = false)]
+    [ExplicitColumns]
+    public partial class month : eTempleDbDB.Record<month>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-	}
-    
-	[TableName("monthlyannadanamtbl")]
-	[PrimaryKey("Id", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class monthlyannadanamtbl : eTempleDbDB.Record<monthlyannadanamtbl>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+    }
+
+    [TableName("monthlyannadanamtbl")]
+    [PrimaryKey("Id", autoIncrement = false)]
+    [ExplicitColumns]
+    public partial class monthlyannadanamtbl : eTempleDbDB.Record<monthlyannadanamtbl>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Day { get; set; }
-	}
-    
-	[TableName("paksha")]
-	[PrimaryKey("Id", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class paksha : eTempleDbDB.Record<paksha>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Day { get; set; }
+    }
+
+    [TableName("paksha")]
+    [PrimaryKey("Id", autoIncrement = false)]
+    [ExplicitColumns]
+    public partial class paksha : eTempleDbDB.Record<paksha>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-	}
-    
-	[TableName("prefixes")]
-	[PrimaryKey("Id")]
-	[ExplicitColumns]
-    public partial class prefix : eTempleDbDB.Record<prefix>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+    }
+
+    [TableName("prefixes")]
+    [PrimaryKey("Id")]
+    [ExplicitColumns]
+    public partial class prefix : eTempleDbDB.Record<prefix>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-	}
-    
-	[TableName("roles")]
-	[PrimaryKey("Id")]
-	[ExplicitColumns]
-    public partial class role : eTempleDbDB.Record<role>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+    }
+
+    [TableName("roles")]
+    [PrimaryKey("Id")]
+    [ExplicitColumns]
+    public partial class role : eTempleDbDB.Record<role>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-	}
-    
-	[TableName("servicename")]
-	[PrimaryKey("Id", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class servicename : eTempleDbDB.Record<servicename>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+    }
+
+    [TableName("servicename")]
+    [PrimaryKey("Id", autoIncrement = false)]
+    [ExplicitColumns]
+    public partial class servicename : eTempleDbDB.Record<servicename>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-		[Column] public int ServiceTypeId { get; set; }
-		[Column] public int IsDateRelated { get; set; }
-	}
-    
-	[TableName("servicetypes")]
-	[PrimaryKey("Id", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class servicetype : eTempleDbDB.Record<servicetype>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+        [Column]
+        public int ServiceTypeId { get; set; }
+        [Column]
+        public int IsDateRelated { get; set; }
+        [Column]
+        public int OrderId { get; set; }
+    }
+
+    [TableName("servicetypes")]
+    [PrimaryKey("Id", autoIncrement = false)]
+    [ExplicitColumns]
+    public partial class servicetype : eTempleDbDB.Record<servicetype>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-		[Column] public int IsDateRelated { get; set; }
-	}
-    
-	[TableName("specialday")]
-	[PrimaryKey("Id", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class specialday : eTempleDbDB.Record<specialday>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+        [Column]
+        public int IsDateRelated { get; set; }
+        [Column]
+        public int Cost { get; set; }
+    }
+
+    [TableName("specialday")]
+    [PrimaryKey("Id", autoIncrement = false)]
+    [ExplicitColumns]
+    public partial class specialday : eTempleDbDB.Record<specialday>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-	}
-    
-	[TableName("stars")]
-	[PrimaryKey("Id", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class star : eTempleDbDB.Record<star>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+    }
+
+    [TableName("stars")]
+    [PrimaryKey("Id", autoIncrement = false)]
+    [ExplicitColumns]
+    public partial class star : eTempleDbDB.Record<star>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-	}
-    
-	[TableName("telugucalendar")]
-	[PrimaryKey("EnglishDate", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class telugucalendar : eTempleDbDB.Record<telugucalendar>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+    }
+
+    [TableName("telugucalendar")]
+    [PrimaryKey("EnglishDate", autoIncrement = false)]
+    [ExplicitColumns]
+    public partial class telugucalendar : eTempleDbDB.Record<telugucalendar>
     {
-		[Column] public DateTime EnglishDate { get; set; }
-		[Column] public int Masam { get; set; }
-		[Column] public int Thidhi { get; set; }
-	}
-    
-	[TableName("thidhi")]
-	[PrimaryKey("Id", autoIncrement=false)]
-	[ExplicitColumns]
-    public partial class thidhi : eTempleDbDB.Record<thidhi>  
+        [Column]
+        public DateTime EnglishDate { get; set; }
+        [Column]
+        public int Masam { get; set; }
+        [Column]
+        public int Thidhi { get; set; }
+    }
+
+    [TableName("thidhi")]
+    [PrimaryKey("Id", autoIncrement = false)]
+    [ExplicitColumns]
+    public partial class thidhi : eTempleDbDB.Record<thidhi>
     {
-		[Column] public int Id { get; set; }
-		[Column] public string Name { get; set; }
-	}
-    
-	    
-	[TableName("countrylanguage")]
-	[ExplicitColumns]
-    public partial class countrylanguage : eTempleDbDB.Record<countrylanguage>  
+        [Column]
+        public int Id { get; set; }
+        [Column]
+        public string Name { get; set; }
+    }
+
+
+    [TableName("countrylanguage")]
+    [ExplicitColumns]
+    public partial class countrylanguage : eTempleDbDB.Record<countrylanguage>
     {
-	}
+    }
 }
 
 

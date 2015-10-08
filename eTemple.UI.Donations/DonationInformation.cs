@@ -14,6 +14,7 @@ using eTemple.UI.Donations;
 using eTemple.Data.Models;
 using System.Net.Http;
 using System.Configuration;
+using eTemple.Data.Utilities;
 
 namespace eTemple.UI
 {
@@ -35,6 +36,7 @@ namespace eTemple.UI
         private MonthlyAnnaRepository monthlyAnnaRepo;
         public GothramsRepository gothramRepo;
         public List<Gothrams> lstGothrams = null;
+        public List<TokenPrint> lstTokenPrint = null;
         public DonationInformation()
         {
             //dtpDate.MinDate = DateTime.Now;
@@ -62,6 +64,7 @@ namespace eTemple.UI
             thithiRepo = new ThidhiRepository();
             monthlyAnnaRepo = new MonthlyAnnaRepository();
             gothramRepo = new GothramsRepository();
+            lstTokenPrint = new List<TokenPrint>();
 
             bindData();
             btnUpdate.Visible = false;
@@ -127,7 +130,7 @@ namespace eTemple.UI
 
                 string maxIDFormat = DateForId(donorDate);
 
-                #region AutoGenerate DonorId
+                #region AutoGenerate Id
                 var maxDonorId = donorRepo.getMaxIdFromDonor(maxIDFormat);
                 int maxId = 0;
                 //date = date.ToString("yyyy/mm/dd");
@@ -142,8 +145,6 @@ namespace eTemple.UI
                 string uniqueDonorId = DateForId(donorDate) + " " + maxId;
 
                 #endregion
-
-
                 #region AutoGenerate MRNo
 
                 var fetchMRNO = donorRepo.getMaxMRNoFromDonor();
@@ -155,7 +156,7 @@ namespace eTemple.UI
                     if (Id == 0)
                         maxMRNO = 15001;
                     else
-                    maxMRNO = Id + 1;
+                        maxMRNO = Id + 1;
                 }
                 //}
                 //else
@@ -164,8 +165,6 @@ namespace eTemple.UI
                 string uniqueMRNo = Convert.ToString(maxMRNO);
 
                 #endregion
-
-
                 if (cmbServiceName.Enabled == false)
                     selectedServiceNameId = 0;
 
@@ -217,6 +216,19 @@ namespace eTemple.UI
                     Mobile = txtMobile.Text,
                     DonorThithi = selectedDonorThithi
                 };
+                string performDate_ForPrint = string.Empty;
+
+                var selectedServiceType = cmbServiceType.SelectedItem as ServiceTypes;
+                TokenPrint oTokenPrint = new TokenPrint
+                {
+                    Id = txtMRNo.Text,
+                    Name = txtNameOn.Text,
+                    PhoneNumber = txtMobile.Text,
+                    Gothram = txtGothram.Text,
+                    VillageName = txtCity.Text,
+                    ServiceType = selectedServiceType.Name,
+                    Cost =  Convert.ToDouble(txtAmount.Text)
+                };
 
                 //check if gothra exists
                 var checkIfExists = gothramRepo.checkIfGothramExists(txtGothram.Text);
@@ -230,17 +242,20 @@ namespace eTemple.UI
                 //Insert the Donor Information
                 string strInsertStatus = donorRepo.insertDonorInformation(donorInfo);
 
-                var selectedServiceType = cmbServiceType.SelectedItem as ServiceTypes;
+                //var selectedServiceType = cmbServiceType.SelectedItem as ServiceTypes;
 
-                string smsMessage = "Thanks " + donorInfo.NameOn+ " we have recieved an amount of Rs."+donorInfo.Amount+"/- towards " + selectedServiceType.Name;
-
+                string smsMessage = "Thanks " + donorInfo.NameOn + " we have recieved an amount of Rs." + donorInfo.Amount + "/- towards " + selectedServiceType.Name;
 
                 if (strInsertStatus == "Success")
                 {
                     MessageBox.Show("Data inserted successfully.");
                     CleareAllcontrolsRecursive();
                     loadGothramAutoComplete();
-                    //sendSMS("91" + donorInfo.Mobile, smsMessage);
+                    SMSHelper smshelper = new SMSHelper();
+                    smshelper.sendSMS("91" + donorInfo.Mobile, smsMessage);
+                    PrintHelper oPrintHelper = new PrintHelper();
+                    lstTokenPrint.Add(oTokenPrint);
+                    oPrintHelper.PrintTokens(lstTokenPrint, this);
                 }
                 else
                     MessageBox.Show("There was a problem inserting data, kindly try again to save the record");
@@ -256,17 +271,6 @@ namespace eTemple.UI
             if (value == null)
                 return defaultValue;
             return Convert.ToInt32(value);
-        }
-
-        public void sendSMS(string phone,string smsMessage)
-        {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri(ConfigurationManager.AppSettings["SvcpvdrAPI"]);
-            // Usage
-            HttpResponseMessage response = client.GetAsync("?User=" + ConfigurationManager.AppSettings["User"] +
-                "&passwd=" + ConfigurationManager.AppSettings["passwd"] + "&mobilenumber=" + phone + "&message=" +
-                smsMessage + "&sid=" + ConfigurationManager.AppSettings["sid"] +
-                "&mtype=" + ConfigurationManager.AppSettings["mtype"] + "&DR=" + ConfigurationManager.AppSettings["DR"] + "").Result;
         }
 
         private int SelectedDateTypeId(out int selectedServiceTypeId, out int selectedServiceNameId,
@@ -839,6 +843,7 @@ namespace eTemple.UI
         public bool validation()
         {
             bool needValidate = true;
+            var servicetypeId = cmbServiceType.SelectedItem as ServiceTypes;
 
             if (dtpDate.Text == "" || dtpDate.Text == string.Empty)
             {
@@ -951,6 +956,13 @@ namespace eTemple.UI
                 needValidate = false;
                 return needValidate;
             }
+            else if ((servicetypeId.Id == 1) && (Convert.ToInt32(txtAmount.Text) < 1116))
+            {
+                errorProvider1.SetError(txtAmount, "Amount cannot be less than Rs.1,116 for selected service type");
+                needValidate = false;
+                return needValidate;
+            }
+
             else
                 errorProvider1.Clear();
             //if (txtMRNo.Text == "" || txtMRNo.Text == string.Empty)
@@ -1106,6 +1118,16 @@ namespace eTemple.UI
             var serviceType = cmbServiceType.SelectedItem as ServiceTypes;
             if (serviceType != null)
             {
+                if (serviceType.Cost != 0)
+                {
+                    txtAmount.Text = serviceType.Cost.ToString();
+                    txtAmount.Enabled = false;
+                }
+                else
+                {
+                    txtAmount.Text = string.Empty;
+                    txtAmount.Enabled = true;
+                }
                 cmbServiceName.DataSource = null;
 
                 var ServiceTypeData = serviceNameRepo.GetAllAsQuerable().Where(sType => sType.ServiceTypeId == serviceType.Id).ToList();
@@ -1287,7 +1309,7 @@ namespace eTemple.UI
 
 
         public void CleareAllcontrolsRecursive()
-        {           
+        {
             txtNameOn.Enabled = true;
             txtAmount.Enabled = true;
             txtMRNo.Enabled = true;

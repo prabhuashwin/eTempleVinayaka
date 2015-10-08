@@ -10,14 +10,15 @@ namespace eTemple.Data.Models
 {
     public partial class ServiceName : IEntity
     {
-        
+
         public int Id { get; set; }
 
-        
+
         public string Name { get; set; }
 
-        
-        public int ServiceTypeId { get; set; } 
+        public int OrderId { get; set; }
+
+        public int ServiceTypeId { get; set; }
 
         public int IsDateRelated { get; set; }
     }

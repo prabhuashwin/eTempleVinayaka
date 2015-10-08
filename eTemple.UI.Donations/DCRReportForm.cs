@@ -31,7 +31,10 @@ namespace eTemple.UI.Donations
 
         private void DonorReportForm_Load(object sender, EventArgs e)
         {
-            DataSet DonorRecs = oDonorRepository.getTotalAmountperSVC(DateTime.Now.ToString("yyyy-MM-dd"));
+            DataSet DonorRecs = oDonorRepository.getTotalAmountpbySVC(DateTime.Now.ToString("yyyy-MM-dd"));
+            //Getting cost for daily annadanam
+            DataSet svcCost = oDonorRepository.getCostbyId("10");
+           // double dailyanndanamCost = Convert.ToDouble(svcCost.Tables[0].Rows[0][0]);
             int count = 0;
             double totalAmount = 0;
             string perfrmDate = DateTime.Now.ToString("dd-MM-yyyy");
@@ -49,9 +52,9 @@ namespace eTemple.UI.Donations
             {
                 DataRow drNew = DCRVals.NewRow();
                 drNew["PerformDate"] = perfrmDate;
-                drNew["Sno"] = count+1;
+                drNew["Sno"] = count + 1;
                 drNew["ServiceType"] = dr["ServiceType"];
-                drNew["CostPerUnit"] = "0.00";
+                drNew["CostPerUnit"] = string.Format("{0:0.00}", dr["cost"]);
                 drNew["Start"] = "0";
                 drNew["End"] = "0";
                 drNew["Quantity"] = dr["cnt"];
@@ -65,14 +68,16 @@ namespace eTemple.UI.Donations
             {
                 DataRow drDailyAnndnmRow = DCRVals.NewRow();
                 drDailyAnndnmRow["PerformDate"] = perfrmDate;
-                drDailyAnndnmRow["Sno"] = count+1;
+                drDailyAnndnmRow["Sno"] = count + 1;
                 drDailyAnndnmRow["ServiceType"] = "Daily Annadanam";
-                drDailyAnndnmRow["CostPerUnit"] = "116";
+                drDailyAnndnmRow["CostPerUnit"] = string.Format("{0:0.00}", "123");
                 drDailyAnndnmRow["Start"] = "0";
                 drDailyAnndnmRow["End"] = "0";
                 drDailyAnndnmRow["Quantity"] = qty;
-                totalAmount = totalAmount + (qty * Convert.ToDouble(drDailyAnndnmRow["CostPerUnit"]));
-                drDailyAnndnmRow["TotalCost"] = totalAmount;
+                double totalCost = qty * Convert.ToDouble(drDailyAnndnmRow["CostPerUnit"]);
+                drDailyAnndnmRow["TotalCost"] = string.Format("{0:0.00}", totalCost);
+                totalAmount = totalAmount + Convert.ToDouble(totalCost);
+
                 DCRVals.Rows.Add(drDailyAnndnmRow);
             }
             DataRow drTotalRow = DCRVals.NewRow();

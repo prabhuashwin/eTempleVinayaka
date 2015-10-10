@@ -255,7 +255,7 @@ namespace eTemple.UI
                     smshelper.sendSMS("91" + donorInfo.Mobile, smsMessage);
                     PrintHelper oPrintHelper = new PrintHelper();
                     lstTokenPrint.Add(oTokenPrint);
-                    oPrintHelper.PrintTokens(lstTokenPrint, this);
+                    oPrintHelper.PrintTokens(lstTokenPrint, this, ConfigurationManager.AppSettings["PrinterName"].ToString(),Convert.ToBoolean(ConfigurationManager.AppSettings["ShowPrintPreview"]));
                 }
                 else
                     MessageBox.Show("There was a problem inserting data, kindly try again to save the record");
@@ -1121,12 +1121,12 @@ namespace eTemple.UI
                 if (serviceType.Cost != 0)
                 {
                     txtAmount.Text = serviceType.Cost.ToString();
-                    txtAmount.Enabled = false;
+                    //txtAmount.Enabled = false;
                 }
                 else
                 {
                     txtAmount.Text = string.Empty;
-                    txtAmount.Enabled = true;
+                    //txtAmount.Enabled = true;
                 }
                 cmbServiceName.DataSource = null;
 

@@ -14,18 +14,18 @@ namespace eTemple.Data.Utilities
     {
         #region Printing Related
 
-        public void PrintTokens(List<TokenPrint> tokens, Form parentDialog)
+        public void PrintTokens(List<TokenPrint> tokens, Form parentDialog, string PrinterName, bool showPrintPreview)
         {
             _tokensToPrint = tokens;
             _pageCounter = 0;
-            bool showPrintPreview = true;
+            //bool showPrintPreview = true;
             PrintDocument pd = new PrintDocument();
             PrintDocument pd1 = new PrintDocument();
 
 
             pd.DefaultPageSettings.PaperSize = paperSize;
             pd.PrintPage += printDoc_PrintPage;
-            pd.PrinterSettings.PrinterName = "HP Deskjet 1510 series";
+            pd.PrinterSettings.PrinterName = PrinterName;
 
             //ToDo: can remove preview in the actual production.
             if (showPrintPreview)

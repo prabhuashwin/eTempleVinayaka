@@ -79,9 +79,9 @@
             this.rbdMRNO.Location = new System.Drawing.Point(414, 51);
             this.rbdMRNO.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbdMRNO.Name = "rbdMRNO";
-            this.rbdMRNO.Size = new System.Drawing.Size(74, 21);
+            this.rbdMRNO.Size = new System.Drawing.Size(98, 21);
             this.rbdMRNO.TabIndex = 2;
-            this.rbdMRNO.Text = "MR NO";
+            this.rbdMRNO.Text = "Receipt No";
             this.rbdMRNO.UseVisualStyleBackColor = false;
             this.rbdMRNO.CheckedChanged += new System.EventHandler(this.rbdMRNO_CheckedChanged);
             // 

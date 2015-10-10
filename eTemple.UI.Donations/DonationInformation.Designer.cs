@@ -189,9 +189,9 @@
             this.lblMRNo.Location = new System.Drawing.Point(17, 245);
             this.lblMRNo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMRNo.Name = "lblMRNo";
-            this.lblMRNo.Size = new System.Drawing.Size(52, 17);
+            this.lblMRNo.Size = new System.Drawing.Size(80, 17);
             this.lblMRNo.TabIndex = 10;
-            this.lblMRNo.Text = "MR No";
+            this.lblMRNo.Text = "Receipt No";
             // 
             // txtOccassion
             // 

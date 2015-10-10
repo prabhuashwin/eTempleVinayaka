@@ -197,9 +197,10 @@
             this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(263, 85);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 17);
+            this.label4.Size = new System.Drawing.Size(80, 17);
             this.label4.TabIndex = 17;
-            this.label4.Text = "MR NO";
+            this.label4.Text = "Receipt No";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 

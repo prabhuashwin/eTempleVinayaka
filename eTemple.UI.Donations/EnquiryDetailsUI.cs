@@ -33,12 +33,12 @@ namespace eTemple.UI.Donations
         private void LoadDataAndRenderInUI()
         {
          
-            var distinctDonors = donors.GroupBy(donor => donor.DonorName).ToList().Select(
+            var distinctDonors = donors.GroupBy(donor => donor.NameOn).ToList().Select(
                                                  x => new SelectedDonor
                                                  {
                                                      Name = x.Key,
                                                      Id = x.Select(y => y.Id).FirstOrDefault(),
-                                                     PhoneNumber = x.Select(y => y.Landline).FirstOrDefault(),
+                                                     PhoneNumber = x.Select(y => y.Mobile).FirstOrDefault(),
                                                      Mr_Number = x.Select(y => y.MR_No).FirstOrDefault().ToString(),
                                                      City = x.Select(y => y.City).FirstOrDefault(),
                                                  }).ToList();
@@ -63,7 +63,7 @@ namespace eTemple.UI.Donations
             var selectedDonor = donorNameComboBox.SelectedItem as SelectedDonor;
             if(selectedDonor != null)
             {
-                var matchedDonors = donors.Where(donor => donor.DonorName == selectedDonor.Name);
+                var matchedDonors = donors.Where(donor => donor.NameOn == selectedDonor.Name);
                 AddMatchedDonorsToGrid(matchedDonors.ToList());
             }
 
@@ -115,6 +115,11 @@ namespace eTemple.UI.Donations
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gpbEnquiry_Enter(object sender, EventArgs e)
         {
 
         }

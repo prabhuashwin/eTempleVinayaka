@@ -35,6 +35,8 @@ namespace eTemple.UI
         private ThidhiRepository thithiRepo;
         private MonthlyAnnaRepository monthlyAnnaRepo;
         public GothramsRepository gothramRepo;
+        public StateRepository stateRepo;
+        public List<State> lstStates = null;
         public List<Gothrams> lstGothrams = null;
         public List<TokenPrint> lstTokenPrint = null;
         public DonationInformation()
@@ -45,7 +47,7 @@ namespace eTemple.UI
 
             dtpEnglishDateType.Format = DateTimePickerFormat.Custom;
             dtpEnglishDateType.CustomFormat = "dd/MM";
-
+            txtCountry.Text = "India";
 
 
 
@@ -65,6 +67,8 @@ namespace eTemple.UI
             monthlyAnnaRepo = new MonthlyAnnaRepository();
             gothramRepo = new GothramsRepository();
             lstTokenPrint = new List<TokenPrint>();
+            stateRepo = new StateRepository();
+            lstStates = new List<State>();
 
             bindData();
             btnUpdate.Visible = false;
@@ -262,7 +266,7 @@ namespace eTemple.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There was a problem inserting data, kindly try again to save the record");
+                MessageBox.Show("There was a problem inserting data, kindly try again to save the record "+ex.Message);
             }
         }
 
@@ -1380,6 +1384,7 @@ namespace eTemple.UI
         private void DonationInformation_Load(object sender, EventArgs e)
         {
             loadGothramAutoComplete();
+            loadStateAutoComplete();
             rbdEnglish.Visible = false;
             rbdTelugu.Visible = false;
         }
@@ -1395,6 +1400,19 @@ namespace eTemple.UI
             txtGothram.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtGothram.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txtGothram.AutoCompleteCustomSource = strcoll;
+        }
+
+        private void loadStateAutoComplete()
+        {
+            lstStates = stateRepo.GetAllAsQuerable().ToList();
+            AutoCompleteStringCollection strcoll = new AutoCompleteStringCollection();
+            foreach (State ostate in lstStates)
+            {
+                strcoll.Add(ostate.Name);
+            }
+            txtState.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtState.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtState.AutoCompleteCustomSource = strcoll;
         }
 
 

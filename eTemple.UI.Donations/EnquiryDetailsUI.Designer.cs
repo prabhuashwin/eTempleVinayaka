@@ -35,7 +35,6 @@
             this.surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.phoneNumberComboBox = new System.Windows.Forms.ComboBox();
             this.citiComboBox = new System.Windows.Forms.ComboBox();
@@ -120,19 +119,9 @@
             this.address.Name = "address";
             this.address.ReadOnly = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(291, 296);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 30);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Show";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(454, 296);
+            this.button2.Location = new System.Drawing.Point(365, 299);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 30);
             this.button2.TabIndex = 6;
@@ -142,6 +131,8 @@
             // 
             // phoneNumberComboBox
             // 
+            this.phoneNumberComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.phoneNumberComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.phoneNumberComboBox.FormattingEnabled = true;
             this.phoneNumberComboBox.Location = new System.Drawing.Point(673, 35);
             this.phoneNumberComboBox.Name = "phoneNumberComboBox";
@@ -180,7 +171,6 @@
             this.gpbEnquiry.Controls.Add(this.mrNumberComboBox);
             this.gpbEnquiry.Controls.Add(this.citiComboBox);
             this.gpbEnquiry.Controls.Add(this.button2);
-            this.gpbEnquiry.Controls.Add(this.button1);
             this.gpbEnquiry.Controls.Add(this.donorIdComboBox);
             this.gpbEnquiry.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbEnquiry.Location = new System.Drawing.Point(-1, -1);
@@ -189,6 +179,7 @@
             this.gpbEnquiry.TabIndex = 13;
             this.gpbEnquiry.TabStop = false;
             this.gpbEnquiry.Text = "Enquiry";
+            this.gpbEnquiry.Enter += new System.EventHandler(this.gpbEnquiry_Enter);
             // 
             // label4
             // 
@@ -271,7 +262,6 @@
         private System.Windows.Forms.ComboBox donorIdComboBox;
         private System.Windows.Forms.ComboBox donorNameComboBox;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox phoneNumberComboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn donorId;

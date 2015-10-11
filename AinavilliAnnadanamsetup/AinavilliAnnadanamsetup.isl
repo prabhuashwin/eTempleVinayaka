@@ -2613,7 +2613,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>AspireTechnologies</td><td>0</td><td/><td>757290218</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>AspireTechnologies</td><td>0</td><td/><td>1428414319</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>623107634</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>623107634</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_OS</td><td>1033</td><td>The operating system is not adequate for running [ProductName].</td><td>0</td><td/><td>623107634</td></row>
@@ -3425,7 +3425,7 @@
 		<row><td>IDS_PROGMSG_XML_UPDATE_FILE</td><td>1033</td><td>Updating XML file %s...</td><td>0</td><td/><td>623107634</td></row>
 		<row><td>IDS_SETUPEXE_EXPIRE_MSG</td><td>1033</td><td>This setup works until %s. The setup will now exit.</td><td>0</td><td/><td>623107634</td></row>
 		<row><td>IDS_SETUPEXE_LAUNCH_COND_E</td><td>1033</td><td>This setup was built with an evaluation version of InstallShield and can only be launched from setup.exe.</td><td>0</td><td/><td>623107634</td></row>
-		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>LAUNCH~1.EXE|Launch eTemple.UI.Donations.exe</td><td>0</td><td/><td>623087282</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>Annadanam</td><td>0</td><td/><td>1428381551</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>623107634</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>623107634</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>623107634</td></row>
@@ -3714,8 +3714,8 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>623107634</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>623107634</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>623107634</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.AspireTechnologies.com</td><td>0</td><td/><td>757290218</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>AspireTechnologies</td><td>0</td><td/><td>757290218</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://www.AspireTechnologies.com</td><td>0</td><td/><td>1428414319</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>AspireTechnologies</td><td>0</td><td/><td>1428414319</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>LAUNCH~1.EXE|Launch eTemple.UI.Donations.exe</td><td>0</td><td/><td>623091378</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>623107634</td></row>
 	</table>
@@ -3830,9 +3830,9 @@
 		<col def="V0">Data</col>
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
-		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
+		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;VSSolutionFolder&gt;\eTemple\Resources\Mouse.ico</td><td>0</td></row>
+		<row><td>eTemple.UI.Donatio_12988FCAD0144E07ADBED774C03D9888.exe</td><td/><td>&lt;VSSolutionFolder&gt;\eTemple\Resources\Mouse.ico</td><td>0</td></row>
 		<row><td>eTemple.UI.Donatio_9701429EA2BD46A990E9EE9EAA516CE0.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
-		<row><td>eTemple.UI.Donatio_E30A30EBB3DA43C795F2994F06239D34.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -3965,7 +3965,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{2DBC4222-F107-4C97-9283-DB3C9F9CD0AA}</td></row>
 		<row><td>ISUSSignature</td><td>{59383245-0EFD-495F-84B6-8424B82DEEE5}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewRelease,viewProject,viewUpgradePaths</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewRelease,viewProject,viewUpgradePaths,viewUI,viewTextMessages,viewShortcuts</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4503,7 +4503,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
 		<row><td>eTemple.UI.Donations.exe</td><td>ainavi_1_ainavilliannadanamsetup</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>eTemple.UI.Donations.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>eTemple.UI.Donatio_9701429EA2BD46A990E9EE9EAA516CE0.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>eTemple.UI.Donations.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>eTemple.UI.Donations.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>eTemple.UI.Donatio_E30A30EBB3DA43C795F2994F06239D34.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>eTemple.UI.Donations.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>eTemple.UI.Donations.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>eTemple.UI.Donatio_12988FCAD0144E07ADBED774C03D9888.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

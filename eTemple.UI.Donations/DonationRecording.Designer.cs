@@ -73,8 +73,8 @@
             // enquiryToolStripMenuItem
             // 
             this.enquiryToolStripMenuItem.Name = "enquiryToolStripMenuItem";
-            this.enquiryToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.enquiryToolStripMenuItem.Text = "Enquiry";
+            this.enquiryToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.enquiryToolStripMenuItem.Text = "Search";
             this.enquiryToolStripMenuItem.Click += new System.EventHandler(this.enquiryToolStripMenuItem_Click);
             // 
             // eitToolStripMenuItem

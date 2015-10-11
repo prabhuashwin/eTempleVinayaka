@@ -221,12 +221,34 @@ namespace eTemple.UI
                     DonorThithi = selectedDonorThithi
                 };
                 string performDate_ForPrint = string.Empty;
-
+                var selecteddtType=cmbDateType.SelectedItem as DateType;
+                var selectedMonth=cmbMonth.SelectedItem as Months;
+                var selectdThidhi = cmbThithi.SelectedItem  as Thidhi;
+                var selectdspDay = cmbSpecialDay.SelectedItem  as SpecialDay;
+                var selectedStar = cmbStar.SelectedItem as Stars;
+                if (cmbDateType.Enabled == true)
+                {
+                    switch (selecteddtType.Id)
+                    {
+                        case 1:
+                            performDate_ForPrint = selectedMonth.Name + "  " + selectdThidhi.Name;
+                            break;
+                        case 2:
+                            performDate_ForPrint = dtpEnglishDateType.Value.ToString("dd-MMM");
+                            break;
+                        case 3:
+                            performDate_ForPrint = selectdspDay.Name;
+                            break;
+                    }
+                }
                 var selectedServiceType = cmbServiceType.SelectedItem as ServiceTypes;
                 TokenPrint oTokenPrint = new TokenPrint
                 {
                     Id = txtMRNo.Text,
-                    Name = txtNameOn.Text,
+                    Name = txtName.Text,
+                    NameOn=txtNameOn.Text,
+                    PerformDate=performDate_ForPrint,
+                    Star = (selectedStar.Id==0)?"":selectedStar.Name,
                     PhoneNumber = txtMobile.Text,
                     Gothram = txtGothram.Text,
                     VillageName = txtCity.Text,
@@ -258,6 +280,7 @@ namespace eTemple.UI
                     SMSHelper smshelper = new SMSHelper();
                     smshelper.sendSMS("91" + donorInfo.Mobile, smsMessage);
                     PrintHelper oPrintHelper = new PrintHelper();
+                    lstTokenPrint.Clear();
                     lstTokenPrint.Add(oTokenPrint);
                     oPrintHelper.PrintTokens(lstTokenPrint, this, ConfigurationManager.AppSettings["PrinterName"].ToString(),Convert.ToBoolean(ConfigurationManager.AppSettings["ShowPrintPreview"]));
                 }
@@ -1127,11 +1150,11 @@ namespace eTemple.UI
                     txtAmount.Text = serviceType.Cost.ToString();
                     //txtAmount.Enabled = false;
                 }
-                else
-                {
-                    txtAmount.Text = string.Empty;
-                    //txtAmount.Enabled = true;
-                }
+                //else
+                //{
+                //    txtAmount.Text = string.Empty;
+                //    //txtAmount.Enabled = true;
+                //}
                 cmbServiceName.DataSource = null;
 
                 var ServiceTypeData = serviceNameRepo.GetAllAsQuerable().Where(sType => sType.ServiceTypeId == serviceType.Id).ToList();

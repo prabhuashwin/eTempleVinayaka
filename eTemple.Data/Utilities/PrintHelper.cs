@@ -52,6 +52,9 @@ namespace eTemple.Data.Utilities
             string PerformDate = string.Empty;
             string DailyNum = string.Empty;
             string CDate = string.Empty;
+            string Name = string.Empty;
+            string NameOn = string.Empty;
+            string Star = string.Empty;
             sb.AppendLine();
             sb.AppendLine();
             sb.AppendLine();
@@ -60,47 +63,66 @@ namespace eTemple.Data.Utilities
             sb.AppendLine();
             DailyNum = string.Format("{0}", token.Id).PadRight(_lineWidth / 2);
             CDate = string.Format("Date : {0:dd/MM/yyyy h:mm tt}  ", System.DateTime.Now).PadRight(_lineWidth / 2);
+            purpose = string.Format("Service Type: {0}", token.ServiceType).PadLeft(_lineWidth / 2);
             line = DailyNum;
             if (token.Id != string.Empty && token.Id != "")
             {
                 sb.AppendLine(line);
             }
             line = string.Empty;
-            line = CDate;
+            line = CDate+purpose;
             sb.AppendLine(line);
             line = string.Empty;
 
-            purpose = string.Format(token.ServiceType).PadLeft(20);
+            if (token.Name != null && token.Name != string.Empty && token.Name != "")
+            {
+                Name = string.Format("Name: {0}", token.Name).PadRight(_lineWidth / 2);
+                line = string.Empty;
+                line = Name;
+                sb.AppendLine(line);
+            }
+
+            if (token.NameOn != null && token.NameOn != string.Empty && token.NameOn != "")
+            {
+                NameOn = string.Format("On Whose Name: {0}", token.NameOn).PadRight(_lineWidth / 2);
+                line = string.Empty;
+                line = NameOn;
+                sb.AppendLine(line);
+            }
+
+            if (token.PerformDate != null && token.PerformDate != string.Empty && token.PerformDate != "")
+            {
+                PerformDate = token.PerformDate;
+            }
+            string tempPerformDate = string.Format("Performance Date: {0}", PerformDate = token.PerformDate).PadRight(_lineWidth / 2);
+           
+            line = string.Empty;
+            line = tempPerformDate;
+            sb.AppendLine(line);
+
+           
 
             // PerformDate = string.Format("Perform Date : {0:dd/MM/yyyy}", token.DonatedDate).PadLeft(_lineWidth / 2);
 
 
             //line = string.Format("{0}", token.Name).PadRight(60);
-            if (purpose != "")
-            {
-                line = line + purpose;
-            }
-            sb.AppendLine(line);
 
-
-            if (token.VillageName != "")
+            if (token.Star != null && token.Star != string.Empty && token.Star != "")
             {
-                line = string.Format("City : {0}", token.VillageName).PadRight(_lineWidth / 2);
+                Star = "/"+token.Star;
             }
 
-            line = string.Format("Gotram : {0}", token.Gothram).PadRight(_lineWidth / 2);
+
+            line = string.Format("Gotram/Star : {0}", token.Gothram + Star).PadRight(_lineWidth / 2);
 
 
-            if (PerformDate != "")
-            {
-                line = line + PerformDate;
-            }
-            sb.AppendLine(line);
-            line = "";
+           
+            //sb.AppendLine(line);
+            //line = "";
 
 
            // int totalCost = 116;
-            line = line + string.Format("Amt : {0:F}  ", token.Cost).PadLeft(_lineWidth);
+            line = line + string.Format("Amt : {0:F}  ", token.Cost).PadLeft(_lineWidth/2);
 
             sb.AppendLine(line);
             sb.AppendLine();

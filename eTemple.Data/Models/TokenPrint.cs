@@ -10,8 +10,11 @@ namespace eTemple.Data.Models
     {
         public string Id { get; set; }
         public string Name { get; set; }
+        public string NameOn { get; set; }
+        public string PerformDate { get; set; }
         public string PhoneNumber { get; set; }
         public string Gothram { get; set; }
+        public string Star { get; set; }
         public string VillageName { get; set; }
         public string DonatedDate { get; set; }
         public string ServiceType { get; set; }

@@ -277,8 +277,15 @@ namespace eTemple.UI
                     MessageBox.Show("Data inserted successfully.");
                     CleareAllcontrolsRecursive();
                     loadGothramAutoComplete();
-                    SMSHelper smshelper = new SMSHelper();
-                    smshelper.sendSMS("91" + donorInfo.Mobile, smsMessage);
+                    try
+                    {
+                        SMSHelper smshelper = new SMSHelper();
+                        smshelper.sendSMS("91" + donorInfo.Mobile, smsMessage);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("There was a problem sending SMS to the recipients.");
+                    }
                     PrintHelper oPrintHelper = new PrintHelper();
                     lstTokenPrint.Clear();
                     lstTokenPrint.Add(oTokenPrint);
@@ -1536,6 +1543,46 @@ namespace eTemple.UI
             cmbMonthyAnnaThithi.DataSource = bindThithi;
             cmbMonthyAnnaThithi.DisplayMember = "Name";
             #endregion
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBindDataFromPhone_Click(object sender, EventArgs e)
+        {
+            if (txtMobile.Text != "")
+            {
+                var donorExists = donorRepo.fetchDataFromMobileNumber(txtMobile.Text);
+                if (donorExists !=null)
+                {
+                    txtAddress.Text = donorExists.Address;
+                    txtSurname.Text = donorExists.Surname;
+                    txtName.Text = donorExists.DonorName;
+                    txtDistrict.Text = donorExists.DistrictName;
+                    txtCity.Text = donorExists.City;
+                    txtPin.Text = donorExists.Pin;
+                    txtState.Text = donorExists.State;
+                    txtCountry.Text = donorExists.Country;
+
+                    txtNameOn.Text = donorExists.NameOn;
+                    
+                    //Get Star Info
+                    var bindStarName = starRepo.GetAllAsQuerable(donorExists.Star);
+                    string[] starNameValue = bindStarName.Select(p => p.Name).ToArray();
+                    cmbStar.SelectedIndex = cmbStar.FindString(starNameValue[0]);
+
+                    txtOccassion.Text = donorExists.Occassion;
+                    txtGothram.Text = donorExists.Gothram;
+                                        
+                    txtRemarks.Text = donorExists.Remarks;
+                    txtLandline.Text = donorExists.Landline;
+                    txtMobile.Text = donorExists.Mobile;
+                    txtEmailId.Text = donorExists.EmailId;
+                }
+            }
+            else
+                MessageBox.Show("No data found for the provided mobile number");
         }
     }
 }

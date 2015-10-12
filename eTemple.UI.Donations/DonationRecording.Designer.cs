@@ -37,6 +37,8 @@
             this.pnlBody = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.serviceReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviceReportWithAddressesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,6 +81,9 @@
             // 
             // eitToolStripMenuItem
             // 
+            this.eitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.serviceReportToolStripMenuItem,
+            this.serviceReportWithAddressesToolStripMenuItem});
             this.eitToolStripMenuItem.Name = "eitToolStripMenuItem";
             this.eitToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
             this.eitToolStripMenuItem.Text = "DCR";
@@ -120,6 +125,19 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // serviceReportToolStripMenuItem
+            // 
+            this.serviceReportToolStripMenuItem.Name = "serviceReportToolStripMenuItem";
+            this.serviceReportToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.serviceReportToolStripMenuItem.Text = "Service Report";
+            this.serviceReportToolStripMenuItem.Click += new System.EventHandler(this.serviceReportToolStripMenuItem_Click);
+            // 
+            // serviceReportWithAddressesToolStripMenuItem
+            // 
+            this.serviceReportWithAddressesToolStripMenuItem.Name = "serviceReportWithAddressesToolStripMenuItem";
+            this.serviceReportWithAddressesToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.serviceReportWithAddressesToolStripMenuItem.Text = "Service Report with Addresses";
+            // 
             // DonationRecording
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,6 +146,7 @@
             this.Controls.Add(this.pnlBody);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "DonationRecording";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -153,5 +172,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlBody;
+        private System.Windows.Forms.ToolStripMenuItem serviceReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serviceReportWithAddressesToolStripMenuItem;
     }
 }

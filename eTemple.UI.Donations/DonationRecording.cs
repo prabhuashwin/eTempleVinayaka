@@ -18,6 +18,7 @@ namespace eTemple.UI.Donations
         private DonorMasterReportUI oDonorReprt;
         private DCRReportForm oDCRReportForm;
         private DonationRecording oDonationRecording;
+        private ServiceReportForm oServiceReportForm;
         public DonationRecording()
         {
             InitializeComponent();
@@ -57,7 +58,10 @@ namespace eTemple.UI.Donations
             oDCRReportForm.TopLevel = false;
             pnlBody.Controls.Add(oDCRReportForm);
             oDCRReportForm.Location = new Point(0, 0);
+            //oDCRReportForm.MdiParent = this;
+            oDCRReportForm.WindowState = FormWindowState.Maximized;
             oDCRReportForm.Show();
+           
         }
 
         private void masterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -108,6 +112,18 @@ namespace eTemple.UI.Donations
         public void getDataFromChildWindow(Donors donor)
         {
             oDonationInfo.getDataFromChildWindow(donor);
+        }
+
+        private void serviceReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formDispose();
+            oServiceReportForm = new ServiceReportForm();
+            oServiceReportForm.TopLevel = false;
+            pnlBody.Controls.Add(oServiceReportForm);
+            oServiceReportForm.Location = new Point(0, 0);
+            //oDCRReportForm.MdiParent = this;
+            oServiceReportForm.WindowState = FormWindowState.Maximized;
+            oServiceReportForm.Show();
         }
 
     }

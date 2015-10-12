@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvServiceReport = new System.Windows.Forms.DataGridView();
+            this.TicketID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceiptID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gothram = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DevoteeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServicePErformDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedOn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,13 +47,6 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.cmbServiceType = new System.Windows.Forms.ComboBox();
-            this.TicketID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReceiptID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gothram = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DevoteeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ServicePErformDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedOn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServiceReport)).BeginInit();
             this.panel1.SuspendLayout();
@@ -84,6 +84,70 @@
             this.dgvServiceReport.RowHeadersVisible = false;
             this.dgvServiceReport.Size = new System.Drawing.Size(904, 365);
             this.dgvServiceReport.TabIndex = 0;
+            // 
+            // TicketID
+            // 
+            this.TicketID.DataPropertyName = "TicketID";
+            this.TicketID.FillWeight = 15.38554F;
+            this.TicketID.HeaderText = "TicketID";
+            this.TicketID.Name = "TicketID";
+            this.TicketID.ReadOnly = true;
+            // 
+            // ReceiptID
+            // 
+            this.ReceiptID.DataPropertyName = "ReceiptID";
+            this.ReceiptID.FillWeight = 23.07832F;
+            this.ReceiptID.HeaderText = "ReceiptID";
+            this.ReceiptID.Name = "ReceiptID";
+            this.ReceiptID.ReadOnly = true;
+            this.ReceiptID.ToolTipText = "ReceiptID";
+            // 
+            // Gothram
+            // 
+            this.Gothram.DataPropertyName = "Gothram";
+            this.Gothram.FillWeight = 30.77109F;
+            this.Gothram.HeaderText = "Gothram";
+            this.Gothram.Name = "Gothram";
+            this.Gothram.ReadOnly = true;
+            // 
+            // DevoteeName
+            // 
+            this.DevoteeName.DataPropertyName = "DevoteeName";
+            this.DevoteeName.FillWeight = 46.15664F;
+            this.DevoteeName.HeaderText = "DevoteeName";
+            this.DevoteeName.Name = "DevoteeName";
+            this.DevoteeName.ReadOnly = true;
+            // 
+            // TotalCost
+            // 
+            this.TotalCost.DataPropertyName = "Amount";
+            this.TotalCost.FillWeight = 20.00121F;
+            this.TotalCost.HeaderText = "Amount";
+            this.TotalCost.Name = "TotalCost";
+            this.TotalCost.ReadOnly = true;
+            // 
+            // ServicePErformDate
+            // 
+            this.ServicePErformDate.DataPropertyName = "performDate";
+            dataGridViewCellStyle7.Format = "d";
+            dataGridViewCellStyle7.NullValue = null;
+            this.ServicePErformDate.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ServicePErformDate.FillWeight = 33.8482F;
+            this.ServicePErformDate.HeaderText = "Perform Date";
+            this.ServicePErformDate.Name = "ServicePErformDate";
+            this.ServicePErformDate.ReadOnly = true;
+            // 
+            // CreatedOn
+            // 
+            this.CreatedOn.DataPropertyName = "CreatedOn";
+            dataGridViewCellStyle8.Format = "G";
+            dataGridViewCellStyle8.NullValue = null;
+            this.CreatedOn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.CreatedOn.FillWeight = 30.77109F;
+            this.CreatedOn.HeaderText = "CreatedOn";
+            this.CreatedOn.Name = "CreatedOn";
+            this.CreatedOn.ReadOnly = true;
+            this.CreatedOn.ToolTipText = "CreatedOn";
             // 
             // panel1
             // 
@@ -167,6 +231,7 @@
             this.btnPrint.TabIndex = 6;
             this.btnPrint.Text = "&Print";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // cmbServiceType
             // 
@@ -181,70 +246,6 @@
             this.cmbServiceType.Size = new System.Drawing.Size(287, 23);
             this.cmbServiceType.TabIndex = 1;
             this.cmbServiceType.ValueMember = "Id";
-            // 
-            // TicketID
-            // 
-            this.TicketID.DataPropertyName = "TicketID";
-            this.TicketID.FillWeight = 15.38554F;
-            this.TicketID.HeaderText = "TicketID";
-            this.TicketID.Name = "TicketID";
-            this.TicketID.ReadOnly = true;
-            // 
-            // ReceiptID
-            // 
-            this.ReceiptID.DataPropertyName = "ReceiptID";
-            this.ReceiptID.FillWeight = 23.07832F;
-            this.ReceiptID.HeaderText = "ReceiptID";
-            this.ReceiptID.Name = "ReceiptID";
-            this.ReceiptID.ReadOnly = true;
-            this.ReceiptID.ToolTipText = "ReceiptID";
-            // 
-            // Gothram
-            // 
-            this.Gothram.DataPropertyName = "Gothram";
-            this.Gothram.FillWeight = 30.77109F;
-            this.Gothram.HeaderText = "Gothram";
-            this.Gothram.Name = "Gothram";
-            this.Gothram.ReadOnly = true;
-            // 
-            // DevoteeName
-            // 
-            this.DevoteeName.DataPropertyName = "DevoteeName";
-            this.DevoteeName.FillWeight = 46.15664F;
-            this.DevoteeName.HeaderText = "DevoteeName";
-            this.DevoteeName.Name = "DevoteeName";
-            this.DevoteeName.ReadOnly = true;
-            // 
-            // TotalCost
-            // 
-            this.TotalCost.DataPropertyName = "Amount";
-            this.TotalCost.FillWeight = 20.00121F;
-            this.TotalCost.HeaderText = "Amount";
-            this.TotalCost.Name = "TotalCost";
-            this.TotalCost.ReadOnly = true;
-            // 
-            // ServicePErformDate
-            // 
-            this.ServicePErformDate.DataPropertyName = "performDate";
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.ServicePErformDate.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ServicePErformDate.FillWeight = 33.8482F;
-            this.ServicePErformDate.HeaderText = "Perform Date";
-            this.ServicePErformDate.Name = "ServicePErformDate";
-            this.ServicePErformDate.ReadOnly = true;
-            // 
-            // CreatedOn
-            // 
-            this.CreatedOn.DataPropertyName = "CreatedOn";
-            dataGridViewCellStyle2.Format = "G";
-            dataGridViewCellStyle2.NullValue = null;
-            this.CreatedOn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.CreatedOn.FillWeight = 30.77109F;
-            this.CreatedOn.HeaderText = "CreatedOn";
-            this.CreatedOn.Name = "CreatedOn";
-            this.CreatedOn.ReadOnly = true;
-            this.CreatedOn.ToolTipText = "CreatedOn";
             // 
             // ServiceReportForm
             // 

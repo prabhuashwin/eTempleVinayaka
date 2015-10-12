@@ -19,6 +19,7 @@ namespace eTemple.UI.Donations
         private DCRReportForm oDCRReportForm;
         private DonationRecording oDonationRecording;
         private ServiceReportForm oServiceReportForm;
+        private ServerReportAddresses oServerReportAddresses;
         public DonationRecording()
         {
             InitializeComponent();
@@ -53,15 +54,7 @@ namespace eTemple.UI.Donations
 
         private void eitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formDispose();
-            oDCRReportForm = new DCRReportForm();
-            oDCRReportForm.TopLevel = false;
-            pnlBody.Controls.Add(oDCRReportForm);
-            oDCRReportForm.Location = new Point(0, 0);
-            //oDCRReportForm.MdiParent = this;
-            oDCRReportForm.WindowState = FormWindowState.Maximized;
-            oDCRReportForm.Show();
-           
+            
         }
 
         private void masterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -117,6 +110,20 @@ namespace eTemple.UI.Donations
         private void serviceReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formDispose();
+            oDCRReportForm = new DCRReportForm();
+            oDCRReportForm.TopLevel = false;
+            pnlBody.Controls.Add(oDCRReportForm);
+            oDCRReportForm.Location = new Point(0, 0);
+            //oDCRReportForm.MdiParent = this;
+            oDCRReportForm.WindowState = FormWindowState.Maximized;
+            oDCRReportForm.Show();
+           
+        }
+
+        private void serviceReportWithAddressesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            formDispose();
             oServiceReportForm = new ServiceReportForm();
             oServiceReportForm.TopLevel = false;
             pnlBody.Controls.Add(oServiceReportForm);
@@ -124,6 +131,18 @@ namespace eTemple.UI.Donations
             //oDCRReportForm.MdiParent = this;
             oServiceReportForm.WindowState = FormWindowState.Maximized;
             oServiceReportForm.Show();
+        }
+
+        private void serviceReportWithAddressesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formDispose();
+            oServerReportAddresses = new ServerReportAddresses();
+            oServerReportAddresses.TopLevel = false;
+            pnlBody.Controls.Add(oServerReportAddresses);
+            oServerReportAddresses.Location = new Point(0, 0);
+            //oDCRReportForm.MdiParent = this;
+            oServerReportAddresses.WindowState = FormWindowState.Maximized;
+            oServerReportAddresses.Show();
         }
 
     }

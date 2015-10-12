@@ -33,12 +33,13 @@
             this.masterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enquiryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviceReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviceReportWithAddressesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.serviceReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.serviceReportWithAddressesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviceReportWithAddressesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -83,11 +84,26 @@
             // 
             this.eitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serviceReportToolStripMenuItem,
-            this.serviceReportWithAddressesToolStripMenuItem});
+            this.serviceReportWithAddressesToolStripMenuItem,
+            this.serviceReportWithAddressesToolStripMenuItem1});
             this.eitToolStripMenuItem.Name = "eitToolStripMenuItem";
-            this.eitToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
-            this.eitToolStripMenuItem.Text = "DCR";
+            this.eitToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.eitToolStripMenuItem.Text = "Reports";
             this.eitToolStripMenuItem.Click += new System.EventHandler(this.eitToolStripMenuItem_Click);
+            // 
+            // serviceReportToolStripMenuItem
+            // 
+            this.serviceReportToolStripMenuItem.Name = "serviceReportToolStripMenuItem";
+            this.serviceReportToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.serviceReportToolStripMenuItem.Text = "DCR";
+            this.serviceReportToolStripMenuItem.Click += new System.EventHandler(this.serviceReportToolStripMenuItem_Click);
+            // 
+            // serviceReportWithAddressesToolStripMenuItem
+            // 
+            this.serviceReportWithAddressesToolStripMenuItem.Name = "serviceReportWithAddressesToolStripMenuItem";
+            this.serviceReportWithAddressesToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.serviceReportWithAddressesToolStripMenuItem.Text = "Service Report";
+            this.serviceReportWithAddressesToolStripMenuItem.Click += new System.EventHandler(this.serviceReportWithAddressesToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -125,18 +141,12 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // serviceReportToolStripMenuItem
+            // serviceReportWithAddressesToolStripMenuItem1
             // 
-            this.serviceReportToolStripMenuItem.Name = "serviceReportToolStripMenuItem";
-            this.serviceReportToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.serviceReportToolStripMenuItem.Text = "Service Report";
-            this.serviceReportToolStripMenuItem.Click += new System.EventHandler(this.serviceReportToolStripMenuItem_Click);
-            // 
-            // serviceReportWithAddressesToolStripMenuItem
-            // 
-            this.serviceReportWithAddressesToolStripMenuItem.Name = "serviceReportWithAddressesToolStripMenuItem";
-            this.serviceReportWithAddressesToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.serviceReportWithAddressesToolStripMenuItem.Text = "Service Report with Addresses";
+            this.serviceReportWithAddressesToolStripMenuItem1.Name = "serviceReportWithAddressesToolStripMenuItem1";
+            this.serviceReportWithAddressesToolStripMenuItem1.Size = new System.Drawing.Size(231, 22);
+            this.serviceReportWithAddressesToolStripMenuItem1.Text = "Service Report with Addresses";
+            this.serviceReportWithAddressesToolStripMenuItem1.Click += new System.EventHandler(this.serviceReportWithAddressesToolStripMenuItem1_Click);
             // 
             // DonationRecording
             // 
@@ -174,5 +184,6 @@
         private System.Windows.Forms.Panel pnlBody;
         private System.Windows.Forms.ToolStripMenuItem serviceReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serviceReportWithAddressesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serviceReportWithAddressesToolStripMenuItem1;
     }
 }

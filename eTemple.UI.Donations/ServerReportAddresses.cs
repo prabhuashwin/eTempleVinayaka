@@ -13,13 +13,12 @@ using System.Drawing.Printing;
 
 namespace eTemple.UI.Donations
 {
-    public partial class ServiceReportForm : Form
+    public partial class ServerReportAddresses : Form
     {
         public ServiceTypeRepository oServiceTypeRep = null;
         public List<ServiceTypes> lstServiceType = null;
         public DonorRepository oDonorRepo = null;
-
-        public ServiceReportForm()
+        public ServerReportAddresses()
         {
             InitializeComponent();
             oServiceTypeRep = new ServiceTypeRepository();
@@ -32,12 +31,6 @@ namespace eTemple.UI.Donations
             this.Close();
         }
 
-        private void ServiceReportForm_Load(object sender, EventArgs e)
-        {
-            cmbServiceType.DataSource = lstServiceType;
-            cmbServiceType.DisplayMember = "Name";
-        }
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (cmbServiceType.SelectedIndex != 0)
@@ -45,13 +38,13 @@ namespace eTemple.UI.Donations
                 var servceType = cmbServiceType.SelectedItem as ServiceTypes;
 
                 String dtval = string.Format("{0:yyyy-MM-dd}", Convert.ToDateTime(dtValue.Text));
-                
+
                 dgvServiceReport.AutoGenerateColumns = false;
                 DataSet data = oDonorRepo.getServiceReport(servceType.Id.ToString(), dtval);
                 DataRow dr = data.Tables[0].NewRow();
-                dr["DevoteeName"] = "Totals";
-                dr["Amount"] = data.Tables[0].Compute("sum(amount)","");
-                data.Tables[0].Rows.Add(dr);
+                //dr["DevoteeName"] = "Totals";
+                //dr["Amount"] = data.Tables[0].Compute("sum(amount)", "");
+                //data.Tables[0].Rows.Add(dr);
                 dgvServiceReport.DataSource = data.Tables[0];
             }
             else
@@ -73,7 +66,12 @@ namespace eTemple.UI.Donations
             }
             else
                 MessageBox.Show("Please select a service type..");
+        }
 
+        private void ServerReportAddresses_Load(object sender, EventArgs e)
+        {
+            cmbServiceType.DataSource = lstServiceType;
+            cmbServiceType.DisplayMember = "Name";
         }
     }
 }

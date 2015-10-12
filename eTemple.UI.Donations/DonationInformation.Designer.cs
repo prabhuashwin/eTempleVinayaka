@@ -490,6 +490,7 @@
             // grpBoxGeneralInfo
             // 
             this.grpBoxGeneralInfo.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
+            this.grpBoxGeneralInfo.Controls.Add(this.btnBindDataFromPhone);
             this.grpBoxGeneralInfo.Controls.Add(this.label3);
             this.grpBoxGeneralInfo.Controls.Add(this.txtEmailId);
             this.grpBoxGeneralInfo.Controls.Add(this.label1);
@@ -547,7 +548,7 @@
             this.txtMobile.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtMobile.MaxLength = 10;
             this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Size = new System.Drawing.Size(200, 25);
+            this.txtMobile.Size = new System.Drawing.Size(150, 25);
             this.txtMobile.TabIndex = 15;
             this.txtMobile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile_KeyPress);
             // 
@@ -913,12 +914,12 @@
             // btnBindDataFromPhone
             // 
             this.btnBindDataFromPhone.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBindDataFromPhone.Location = new System.Drawing.Point(773, 519);
+            this.btnBindDataFromPhone.Location = new System.Drawing.Point(558, 286);
             this.btnBindDataFromPhone.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnBindDataFromPhone.Name = "btnBindDataFromPhone";
-            this.btnBindDataFromPhone.Size = new System.Drawing.Size(136, 30);
+            this.btnBindDataFromPhone.Size = new System.Drawing.Size(60, 26);
             this.btnBindDataFromPhone.TabIndex = 501;
-            this.btnBindDataFromPhone.Text = "Fetch Data";
+            this.btnBindDataFromPhone.Text = "Load";
             this.btnBindDataFromPhone.UseVisualStyleBackColor = true;
             this.btnBindDataFromPhone.Click += new System.EventHandler(this.btnBindDataFromPhone_Click);
             // 
@@ -928,7 +929,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.ClientSize = new System.Drawing.Size(935, 558);
-            this.Controls.Add(this.btnBindDataFromPhone);
             this.Controls.Add(this.btnQuickDailyAnna);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnModify);

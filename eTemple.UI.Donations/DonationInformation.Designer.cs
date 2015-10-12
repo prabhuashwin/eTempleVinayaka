@@ -98,6 +98,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnQuickDailyAnna = new System.Windows.Forms.Button();
+            this.btnBindDataFromPhone = new System.Windows.Forms.Button();
             this.grpBoxGeneralInfo.SuspendLayout();
             this.grpServiceInfo.SuspendLayout();
             this.grpOtherInfo.SuspendLayout();
@@ -526,7 +527,6 @@
             this.txtEmailId.Name = "txtEmailId";
             this.txtEmailId.Size = new System.Drawing.Size(200, 25);
             this.txtEmailId.TabIndex = 16;
-            this.txtEmailId.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -910,12 +910,25 @@
             this.btnQuickDailyAnna.Visible = false;
             this.btnQuickDailyAnna.Click += new System.EventHandler(this.btnQuickDailyAnna_Click);
             // 
+            // btnBindDataFromPhone
+            // 
+            this.btnBindDataFromPhone.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBindDataFromPhone.Location = new System.Drawing.Point(773, 519);
+            this.btnBindDataFromPhone.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnBindDataFromPhone.Name = "btnBindDataFromPhone";
+            this.btnBindDataFromPhone.Size = new System.Drawing.Size(136, 30);
+            this.btnBindDataFromPhone.TabIndex = 501;
+            this.btnBindDataFromPhone.Text = "Fetch Data";
+            this.btnBindDataFromPhone.UseVisualStyleBackColor = true;
+            this.btnBindDataFromPhone.Click += new System.EventHandler(this.btnBindDataFromPhone_Click);
+            // 
             // DonationInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.ClientSize = new System.Drawing.Size(935, 558);
+            this.Controls.Add(this.btnBindDataFromPhone);
             this.Controls.Add(this.btnQuickDailyAnna);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnModify);
@@ -1048,5 +1061,6 @@
         private System.Windows.Forms.RadioButton rbdTelugu;
         private System.Windows.Forms.Label lblMonthyAnnaThithi;
         private System.Windows.Forms.ComboBox cmbMonthyAnnaThithi;
+        private System.Windows.Forms.Button btnBindDataFromPhone;
     }
 }

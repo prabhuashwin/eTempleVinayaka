@@ -156,6 +156,18 @@ namespace eTemple.Data.Repositories
             }
         }
 
+        public Donors fetchDataFromMobileNumber(string chkMobile)
+        {
+            var donors = TempleDb.SingleOrDefault<Donors>("Select * from Donors where Mobile=@0", chkMobile);
+            if (donors != null && donors.MR_No != string.Empty)
+            {
+                return donors;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public string insertDonorInformation(Donors donor)
         {

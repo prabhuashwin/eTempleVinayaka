@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvServiceReport = new System.Windows.Forms.DataGridView();
             this.TicketID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,9 +129,9 @@
             // ServicePErformDate
             // 
             this.ServicePErformDate.DataPropertyName = "performDate";
-            dataGridViewCellStyle7.Format = "d";
-            dataGridViewCellStyle7.NullValue = null;
-            this.ServicePErformDate.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.ServicePErformDate.DefaultCellStyle = dataGridViewCellStyle1;
             this.ServicePErformDate.FillWeight = 33.8482F;
             this.ServicePErformDate.HeaderText = "Perform Date";
             this.ServicePErformDate.Name = "ServicePErformDate";
@@ -140,9 +140,9 @@
             // CreatedOn
             // 
             this.CreatedOn.DataPropertyName = "CreatedOn";
-            dataGridViewCellStyle8.Format = "G";
-            dataGridViewCellStyle8.NullValue = null;
-            this.CreatedOn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Format = "G";
+            dataGridViewCellStyle2.NullValue = null;
+            this.CreatedOn.DefaultCellStyle = dataGridViewCellStyle2;
             this.CreatedOn.FillWeight = 30.77109F;
             this.CreatedOn.HeaderText = "CreatedOn";
             this.CreatedOn.Name = "CreatedOn";
@@ -173,7 +173,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnPrint, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.cmbServiceType, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(35, 17);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));

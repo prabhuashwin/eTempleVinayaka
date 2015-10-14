@@ -42,7 +42,7 @@ namespace eTemple.UI.Donations
                 dgvServiceReport.AutoGenerateColumns = false;
                 DataSet data = oDonorRepo.getServiceReport(servceType.Id.ToString(), dtval);
                 DataRow dr = data.Tables[0].NewRow();
-                //dr["DevoteeName"] = "Totals";
+                //dr["DevoteeName"] = "Totals"; 
                 //dr["Amount"] = data.Tables[0].Compute("sum(amount)", "");
                 //data.Tables[0].Rows.Add(dr);
                 dgvServiceReport.DataSource = data.Tables[0];

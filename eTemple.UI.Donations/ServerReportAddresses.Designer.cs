@@ -30,14 +30,6 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvServiceReport = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbServiceType = new System.Windows.Forms.ComboBox();
-            this.dtValue = new System.Windows.Forms.DateTimePicker();
-            this.btnSubmit = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.DailyNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gothram = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +40,14 @@
             this.StateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OtherDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbServiceType = new System.Windows.Forms.ComboBox();
+            this.dtValue = new System.Windows.Forms.DateTimePicker();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServiceReport)).BeginInit();
             this.panel1.SuspendLayout();
@@ -89,6 +89,76 @@
             this.dgvServiceReport.Size = new System.Drawing.Size(904, 348);
             this.dgvServiceReport.TabIndex = 0;
             // 
+            // DailyNumber
+            // 
+            this.DailyNumber.DataPropertyName = "TicketID";
+            this.DailyNumber.HeaderText = "TicketID";
+            this.DailyNumber.Name = "DailyNumber";
+            this.DailyNumber.ReadOnly = true;
+            // 
+            // ServiceID
+            // 
+            this.ServiceID.DataPropertyName = "ServiceID";
+            this.ServiceID.HeaderText = "ServiceID";
+            this.ServiceID.Name = "ServiceID";
+            this.ServiceID.ReadOnly = true;
+            // 
+            // Gothram
+            // 
+            this.Gothram.DataPropertyName = "Gothram";
+            this.Gothram.HeaderText = "Gothram";
+            this.Gothram.Name = "Gothram";
+            this.Gothram.ReadOnly = true;
+            // 
+            // DevoteeName
+            // 
+            this.DevoteeName.DataPropertyName = "DevoteeName";
+            this.DevoteeName.HeaderText = "DevoteeName";
+            this.DevoteeName.Name = "DevoteeName";
+            this.DevoteeName.ReadOnly = true;
+            // 
+            // TotalCost
+            // 
+            this.TotalCost.DataPropertyName = "Amount";
+            this.TotalCost.HeaderText = "Amount";
+            this.TotalCost.Name = "TotalCost";
+            this.TotalCost.ReadOnly = true;
+            // 
+            // DoorNumber
+            // 
+            this.DoorNumber.DataPropertyName = "address";
+            this.DoorNumber.HeaderText = "Address";
+            this.DoorNumber.Name = "DoorNumber";
+            this.DoorNumber.ReadOnly = true;
+            // 
+            // DistrictName
+            // 
+            this.DistrictName.DataPropertyName = "DistrictName";
+            this.DistrictName.HeaderText = "DistrictName";
+            this.DistrictName.Name = "DistrictName";
+            this.DistrictName.ReadOnly = true;
+            // 
+            // StateName
+            // 
+            this.StateName.DataPropertyName = "statename";
+            this.StateName.HeaderText = "StateName";
+            this.StateName.Name = "StateName";
+            this.StateName.ReadOnly = true;
+            // 
+            // OtherDetails
+            // 
+            this.OtherDetails.DataPropertyName = "OtherDetails";
+            this.OtherDetails.HeaderText = "OtherDetails";
+            this.OtherDetails.Name = "OtherDetails";
+            this.OtherDetails.ReadOnly = true;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.DataPropertyName = "PhoneNumber";
+            this.PhoneNumber.HeaderText = "PhoneNumber";
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.ReadOnly = true;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel1);
@@ -113,7 +183,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnSubmit, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnPrint, 5, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 30);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 22);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -189,76 +259,6 @@
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // DailyNumber
-            // 
-            this.DailyNumber.DataPropertyName = "TicketID";
-            this.DailyNumber.HeaderText = "TicketID";
-            this.DailyNumber.Name = "DailyNumber";
-            this.DailyNumber.ReadOnly = true;
-            // 
-            // ServiceID
-            // 
-            this.ServiceID.DataPropertyName = "ServiceID";
-            this.ServiceID.HeaderText = "ServiceID";
-            this.ServiceID.Name = "ServiceID";
-            this.ServiceID.ReadOnly = true;
-            // 
-            // Gothram
-            // 
-            this.Gothram.DataPropertyName = "Gothram";
-            this.Gothram.HeaderText = "Gothram";
-            this.Gothram.Name = "Gothram";
-            this.Gothram.ReadOnly = true;
-            // 
-            // DevoteeName
-            // 
-            this.DevoteeName.DataPropertyName = "DevoteeName";
-            this.DevoteeName.HeaderText = "DevoteeName";
-            this.DevoteeName.Name = "DevoteeName";
-            this.DevoteeName.ReadOnly = true;
-            // 
-            // TotalCost
-            // 
-            this.TotalCost.DataPropertyName = "Amount";
-            this.TotalCost.HeaderText = "Amount";
-            this.TotalCost.Name = "TotalCost";
-            this.TotalCost.ReadOnly = true;
-            // 
-            // DoorNumber
-            // 
-            this.DoorNumber.DataPropertyName = "address";
-            this.DoorNumber.HeaderText = "Address";
-            this.DoorNumber.Name = "DoorNumber";
-            this.DoorNumber.ReadOnly = true;
-            // 
-            // DistrictName
-            // 
-            this.DistrictName.DataPropertyName = "DistrictName";
-            this.DistrictName.HeaderText = "DistrictName";
-            this.DistrictName.Name = "DistrictName";
-            this.DistrictName.ReadOnly = true;
-            // 
-            // StateName
-            // 
-            this.StateName.DataPropertyName = "statename";
-            this.StateName.HeaderText = "StateName";
-            this.StateName.Name = "StateName";
-            this.StateName.ReadOnly = true;
-            // 
-            // OtherDetails
-            // 
-            this.OtherDetails.DataPropertyName = "OtherDetails";
-            this.OtherDetails.HeaderText = "OtherDetails";
-            this.OtherDetails.Name = "OtherDetails";
-            this.OtherDetails.ReadOnly = true;
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.DataPropertyName = "PhoneNumber";
-            this.PhoneNumber.HeaderText = "PhoneNumber";
-            this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.ReadOnly = true;
             // 
             // ServerReportAddresses
             // 

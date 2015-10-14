@@ -41,7 +41,6 @@
             this.OtherDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbServiceType = new System.Windows.Forms.ComboBox();
             this.dtValue = new System.Windows.Forms.DateTimePicker();
@@ -51,16 +50,16 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServiceReport)).BeginInit();
             this.panel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dgvServiceReport);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 94);
+            this.panel2.Location = new System.Drawing.Point(0, 123);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(904, 348);
+            this.panel2.Size = new System.Drawing.Size(1205, 455);
             this.panel2.TabIndex = 3;
             // 
             // dgvServiceReport
@@ -83,10 +82,11 @@
             this.PhoneNumber});
             this.dgvServiceReport.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvServiceReport.Location = new System.Drawing.Point(0, 0);
+            this.dgvServiceReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvServiceReport.Name = "dgvServiceReport";
             this.dgvServiceReport.ReadOnly = true;
             this.dgvServiceReport.RowHeadersVisible = false;
-            this.dgvServiceReport.Size = new System.Drawing.Size(904, 348);
+            this.dgvServiceReport.Size = new System.Drawing.Size(1205, 455);
             this.dgvServiceReport.TabIndex = 0;
             // 
             // DailyNumber
@@ -161,42 +161,27 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Controls.Add(this.btnPrint);
+            this.panel1.Controls.Add(this.btnSubmit);
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Controls.Add(this.dtValue);
+            this.panel1.Controls.Add(this.cmbServiceType);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(904, 94);
+            this.panel1.Size = new System.Drawing.Size(1205, 123);
             this.panel1.TabIndex = 2;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 6;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.070707F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.74414F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.82942F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.30704F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.275053F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.594883F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cmbServiceType, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dtValue, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnSubmit, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnClose, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnPrint, 5, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 22);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(778, 40);
-            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 13);
+            this.label1.Location = new System.Drawing.Point(16, 50);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.Size = new System.Drawing.Size(57, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Service";
             // 
@@ -207,18 +192,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbServiceType.DisplayMember = "Name";
             this.cmbServiceType.FormattingEnabled = true;
-            this.cmbServiceType.Location = new System.Drawing.Point(58, 3);
+            this.cmbServiceType.Location = new System.Drawing.Point(81, 44);
+            this.cmbServiceType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbServiceType.Name = "cmbServiceType";
-            this.cmbServiceType.Size = new System.Drawing.Size(225, 21);
+            this.cmbServiceType.Size = new System.Drawing.Size(299, 25);
             this.cmbServiceType.TabIndex = 1;
             this.cmbServiceType.ValueMember = "Id";
             // 
             // dtValue
             // 
             this.dtValue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtValue.Location = new System.Drawing.Point(289, 3);
+            this.dtValue.Location = new System.Drawing.Point(401, 44);
+            this.dtValue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtValue.Name = "dtValue";
-            this.dtValue.Size = new System.Drawing.Size(148, 20);
+            this.dtValue.Size = new System.Drawing.Size(196, 25);
             this.dtValue.TabIndex = 3;
             // 
             // btnSubmit
@@ -226,9 +213,10 @@
             this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSubmit.Location = new System.Drawing.Point(443, 3);
+            this.btnSubmit.Location = new System.Drawing.Point(607, 35);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(183, 34);
+            this.btnSubmit.Size = new System.Drawing.Size(115, 44);
             this.btnSubmit.TabIndex = 4;
             this.btnSubmit.Text = "Show Report";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -239,9 +227,10 @@
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(632, 3);
+            this.btnClose.Location = new System.Drawing.Point(749, 35);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(66, 34);
+            this.btnClose.Size = new System.Drawing.Size(115, 44);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -252,9 +241,10 @@
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.Location = new System.Drawing.Point(704, 3);
+            this.btnPrint.Location = new System.Drawing.Point(892, 35);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(71, 34);
+            this.btnPrint.Size = new System.Drawing.Size(115, 44);
             this.btnPrint.TabIndex = 6;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -262,19 +252,20 @@
             // 
             // ServerReportAddresses
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 442);
+            this.ClientSize = new System.Drawing.Size(1205, 578);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ServerReportAddresses";
             this.Text = "ServerReportAddresses";
             this.Load += new System.EventHandler(this.ServerReportAddresses_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvServiceReport)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -284,7 +275,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvServiceReport;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbServiceType;
         private System.Windows.Forms.DateTimePicker dtValue;

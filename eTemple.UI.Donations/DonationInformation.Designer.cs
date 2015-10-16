@@ -484,7 +484,7 @@
             this.btnBindDataFromPhone.Location = new System.Drawing.Point(593, 37);
             this.btnBindDataFromPhone.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnBindDataFromPhone.Name = "btnBindDataFromPhone";
-            this.btnBindDataFromPhone.Size = new System.Drawing.Size(47, 28);
+            this.btnBindDataFromPhone.Size = new System.Drawing.Size(48, 28);
             this.btnBindDataFromPhone.TabIndex = 501;
             this.btnBindDataFromPhone.Text = "Load";
             this.btnBindDataFromPhone.UseVisualStyleBackColor = true;

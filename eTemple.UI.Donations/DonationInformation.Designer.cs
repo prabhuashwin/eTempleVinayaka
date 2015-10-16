@@ -29,20 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblDonorId = new System.Windows.Forms.Label();
-            this.txtDonorId = new System.Windows.Forms.TextBox();
-            this.txtSurname = new System.Windows.Forms.TextBox();
-            this.lblSurname = new System.Windows.Forms.Label();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.lblCity = new System.Windows.Forms.Label();
-            this.txtMRNo = new System.Windows.Forms.TextBox();
-            this.lblMRNo = new System.Windows.Forms.Label();
-            this.txtOccassion = new System.Windows.Forms.TextBox();
+            this.txtPurpose = new System.Windows.Forms.TextBox();
             this.lblOccassion = new System.Windows.Forms.Label();
-            this.txtCountry = new System.Windows.Forms.TextBox();
-            this.lblCountry = new System.Windows.Forms.Label();
-            this.txtRemarks = new System.Windows.Forms.TextBox();
-            this.lblRemarks = new System.Windows.Forms.Label();
             this.txtGothram = new System.Windows.Forms.TextBox();
             this.lblGothram = new System.Windows.Forms.Label();
             this.txtNameOn = new System.Windows.Forms.TextBox();
@@ -58,12 +48,20 @@
             this.lblState = new System.Windows.Forms.Label();
             this.txtDistrict = new System.Windows.Forms.TextBox();
             this.lblDistrict = new System.Windows.Forms.Label();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.lblAddress = new System.Windows.Forms.Label();
-            this.txtAmount = new System.Windows.Forms.TextBox();
-            this.lblAmount = new System.Windows.Forms.Label();
+            this.lblAmountType = new System.Windows.Forms.Label();
             this.cmbStar = new System.Windows.Forms.ComboBox();
             this.grpBoxGeneralInfo = new System.Windows.Forms.GroupBox();
+            this.lblTransactionID = new System.Windows.Forms.Label();
+            this.txtMandal = new System.Windows.Forms.TextBox();
+            this.lblMandal = new System.Windows.Forms.Label();
+            this.txtDoorNo = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbTransactionDate = new System.Windows.Forms.DateTimePicker();
+            this.lblTransactionDate = new System.Windows.Forms.Label();
+            this.txtTransaction = new System.Windows.Forms.TextBox();
+            this.lblNumberBank = new System.Windows.Forms.Label();
+            this.cmbTransaction = new System.Windows.Forms.ComboBox();
+            this.btnBindDataFromPhone = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtEmailId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -98,61 +96,18 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnQuickDailyAnna = new System.Windows.Forms.Button();
-            this.btnBindDataFromPhone = new System.Windows.Forms.Button();
+            this.lblAmount = new System.Windows.Forms.Label();
+            this.txtAmount = new System.Windows.Forms.TextBox();
             this.grpBoxGeneralInfo.SuspendLayout();
             this.grpServiceInfo.SuspendLayout();
             this.grpOtherInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblDonorId
-            // 
-            this.lblDonorId.AutoSize = true;
-            this.lblDonorId.BackColor = System.Drawing.Color.Transparent;
-            this.lblDonorId.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDonorId.Location = new System.Drawing.Point(18, 38);
-            this.lblDonorId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDonorId.Name = "lblDonorId";
-            this.lblDonorId.Size = new System.Drawing.Size(66, 17);
-            this.lblDonorId.TabIndex = 0;
-            this.lblDonorId.Text = "Donor ID";
-            // 
-            // txtDonorId
-            // 
-            this.txtDonorId.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDonorId.Location = new System.Drawing.Point(104, 38);
-            this.txtDonorId.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtDonorId.Name = "txtDonorId";
-            this.txtDonorId.ReadOnly = true;
-            this.txtDonorId.Size = new System.Drawing.Size(200, 25);
-            this.txtDonorId.TabIndex = 200;
-            // 
-            // txtSurname
-            // 
-            this.txtSurname.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSurname.Location = new System.Drawing.Point(104, 78);
-            this.txtSurname.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtSurname.MaxLength = 100;
-            this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(200, 25);
-            this.txtSurname.TabIndex = 2;
-            // 
-            // lblSurname
-            // 
-            this.lblSurname.AutoSize = true;
-            this.lblSurname.BackColor = System.Drawing.Color.Transparent;
-            this.lblSurname.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSurname.Location = new System.Drawing.Point(18, 78);
-            this.lblSurname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(68, 17);
-            this.lblSurname.TabIndex = 2;
-            this.lblSurname.Text = "Surname";
-            // 
             // txtCity
             // 
             this.txtCity.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCity.Location = new System.Drawing.Point(104, 120);
+            this.txtCity.Location = new System.Drawing.Point(101, 231);
             this.txtCity.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtCity.MaxLength = 100;
             this.txtCity.Name = "txtCity";
@@ -164,108 +119,39 @@
             this.lblCity.AutoSize = true;
             this.lblCity.BackColor = System.Drawing.Color.Transparent;
             this.lblCity.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCity.Location = new System.Drawing.Point(18, 120);
+            this.lblCity.Location = new System.Drawing.Point(7, 235);
             this.lblCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(33, 17);
+            this.lblCity.Size = new System.Drawing.Size(79, 17);
             this.lblCity.TabIndex = 4;
-            this.lblCity.Text = "City";
+            this.lblCity.Text = "City/Village";
             // 
-            // txtMRNo
+            // txtPurpose
             // 
-            this.txtMRNo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMRNo.Location = new System.Drawing.Point(104, 245);
-            this.txtMRNo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtMRNo.MaxLength = 20;
-            this.txtMRNo.Name = "txtMRNo";
-            this.txtMRNo.ReadOnly = true;
-            this.txtMRNo.Size = new System.Drawing.Size(200, 25);
-            this.txtMRNo.TabIndex = 500;
-            // 
-            // lblMRNo
-            // 
-            this.lblMRNo.AutoSize = true;
-            this.lblMRNo.BackColor = System.Drawing.Color.Transparent;
-            this.lblMRNo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMRNo.Location = new System.Drawing.Point(17, 245);
-            this.lblMRNo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblMRNo.Name = "lblMRNo";
-            this.lblMRNo.Size = new System.Drawing.Size(80, 17);
-            this.lblMRNo.TabIndex = 10;
-            this.lblMRNo.Text = "Receipt No";
-            // 
-            // txtOccassion
-            // 
-            this.txtOccassion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOccassion.Location = new System.Drawing.Point(104, 203);
-            this.txtOccassion.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtOccassion.MaxLength = 200;
-            this.txtOccassion.Name = "txtOccassion";
-            this.txtOccassion.Size = new System.Drawing.Size(200, 25);
-            this.txtOccassion.TabIndex = 10;
+            this.txtPurpose.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPurpose.Location = new System.Drawing.Point(101, 183);
+            this.txtPurpose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtPurpose.MaxLength = 200;
+            this.txtPurpose.Name = "txtPurpose";
+            this.txtPurpose.Size = new System.Drawing.Size(200, 25);
+            this.txtPurpose.TabIndex = 10;
             // 
             // lblOccassion
             // 
             this.lblOccassion.AutoSize = true;
             this.lblOccassion.BackColor = System.Drawing.Color.Transparent;
             this.lblOccassion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOccassion.Location = new System.Drawing.Point(17, 203);
+            this.lblOccassion.Location = new System.Drawing.Point(7, 183);
             this.lblOccassion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblOccassion.Name = "lblOccassion";
-            this.lblOccassion.Size = new System.Drawing.Size(79, 17);
+            this.lblOccassion.Size = new System.Drawing.Size(63, 17);
             this.lblOccassion.TabIndex = 8;
-            this.lblOccassion.Text = "Occassion";
-            // 
-            // txtCountry
-            // 
-            this.txtCountry.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCountry.Location = new System.Drawing.Point(104, 163);
-            this.txtCountry.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtCountry.MaxLength = 200;
-            this.txtCountry.Name = "txtCountry";
-            this.txtCountry.ReadOnly = true;
-            this.txtCountry.Size = new System.Drawing.Size(200, 25);
-            this.txtCountry.TabIndex = 300;
-            // 
-            // lblCountry
-            // 
-            this.lblCountry.AutoSize = true;
-            this.lblCountry.BackColor = System.Drawing.Color.Transparent;
-            this.lblCountry.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountry.Location = new System.Drawing.Point(17, 163);
-            this.lblCountry.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(59, 17);
-            this.lblCountry.TabIndex = 6;
-            this.lblCountry.Text = "Country";
-            // 
-            // txtRemarks
-            // 
-            this.txtRemarks.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRemarks.Location = new System.Drawing.Point(410, 245);
-            this.txtRemarks.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtRemarks.MaxLength = 2800;
-            this.txtRemarks.Multiline = true;
-            this.txtRemarks.Name = "txtRemarks";
-            this.txtRemarks.Size = new System.Drawing.Size(498, 27);
-            this.txtRemarks.TabIndex = 13;
-            // 
-            // lblRemarks
-            // 
-            this.lblRemarks.AutoSize = true;
-            this.lblRemarks.BackColor = System.Drawing.Color.Transparent;
-            this.lblRemarks.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRemarks.Location = new System.Drawing.Point(332, 245);
-            this.lblRemarks.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblRemarks.Name = "lblRemarks";
-            this.lblRemarks.Size = new System.Drawing.Size(68, 17);
-            this.lblRemarks.TabIndex = 32;
-            this.lblRemarks.Text = "Remarks";
+            this.lblOccassion.Text = "Purpose";
             // 
             // txtGothram
             // 
             this.txtGothram.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGothram.Location = new System.Drawing.Point(410, 203);
+            this.txtGothram.Location = new System.Drawing.Point(441, 183);
             this.txtGothram.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtGothram.MaxLength = 200;
             this.txtGothram.Name = "txtGothram";
@@ -277,7 +163,7 @@
             this.lblGothram.AutoSize = true;
             this.lblGothram.BackColor = System.Drawing.Color.Transparent;
             this.lblGothram.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGothram.Location = new System.Drawing.Point(332, 203);
+            this.lblGothram.Location = new System.Drawing.Point(317, 183);
             this.lblGothram.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGothram.Name = "lblGothram";
             this.lblGothram.Size = new System.Drawing.Size(65, 17);
@@ -287,7 +173,7 @@
             // txtNameOn
             // 
             this.txtNameOn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameOn.Location = new System.Drawing.Point(410, 163);
+            this.txtNameOn.Location = new System.Drawing.Point(441, 82);
             this.txtNameOn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNameOn.MaxLength = 200;
             this.txtNameOn.Name = "txtNameOn";
@@ -299,17 +185,17 @@
             this.lblNameOn.AutoSize = true;
             this.lblNameOn.BackColor = System.Drawing.Color.Transparent;
             this.lblNameOn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameOn.Location = new System.Drawing.Point(332, 163);
+            this.lblNameOn.Location = new System.Drawing.Point(317, 82);
             this.lblNameOn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNameOn.Name = "lblNameOn";
-            this.lblNameOn.Size = new System.Drawing.Size(71, 17);
+            this.lblNameOn.Size = new System.Drawing.Size(122, 17);
             this.lblNameOn.TabIndex = 18;
-            this.lblNameOn.Text = "Name On";
+            this.lblNameOn.Text = "On Whose Name";
             // 
             // txtPin
             // 
             this.txtPin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPin.Location = new System.Drawing.Point(410, 120);
+            this.txtPin.Location = new System.Drawing.Point(102, 280);
             this.txtPin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtPin.MaxLength = 10;
             this.txtPin.Name = "txtPin";
@@ -322,7 +208,7 @@
             this.lblPin.AutoSize = true;
             this.lblPin.BackColor = System.Drawing.Color.Transparent;
             this.lblPin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPin.Location = new System.Drawing.Point(332, 120);
+            this.lblPin.Location = new System.Drawing.Point(7, 280);
             this.lblPin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPin.Name = "lblPin";
             this.lblPin.Size = new System.Drawing.Size(29, 17);
@@ -332,7 +218,7 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(410, 78);
+            this.txtName.Location = new System.Drawing.Point(102, 82);
             this.txtName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtName.MaxLength = 200;
             this.txtName.Name = "txtName";
@@ -344,7 +230,7 @@
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(332, 78);
+            this.lblName.Location = new System.Drawing.Point(7, 82);
             this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(47, 17);
@@ -356,7 +242,7 @@
             this.lblDate.AutoSize = true;
             this.lblDate.BackColor = System.Drawing.Color.Transparent;
             this.lblDate.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(332, 38);
+            this.lblDate.Location = new System.Drawing.Point(7, 37);
             this.lblDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(39, 17);
@@ -367,7 +253,7 @@
             // 
             this.dtpDate.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDate.Location = new System.Drawing.Point(410, 38);
+            this.dtpDate.Location = new System.Drawing.Point(102, 37);
             this.dtpDate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(200, 25);
@@ -378,7 +264,7 @@
             this.lblStar.AutoSize = true;
             this.lblStar.BackColor = System.Drawing.Color.Transparent;
             this.lblStar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStar.Location = new System.Drawing.Point(631, 163);
+            this.lblStar.Location = new System.Drawing.Point(658, 183);
             this.lblStar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStar.Name = "lblStar";
             this.lblStar.Size = new System.Drawing.Size(35, 17);
@@ -388,7 +274,7 @@
             // txtState
             // 
             this.txtState.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtState.Location = new System.Drawing.Point(708, 123);
+            this.txtState.Location = new System.Drawing.Point(718, 280);
             this.txtState.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtState.MaxLength = 200;
             this.txtState.Name = "txtState";
@@ -400,7 +286,7 @@
             this.lblState.AutoSize = true;
             this.lblState.BackColor = System.Drawing.Color.Transparent;
             this.lblState.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblState.Location = new System.Drawing.Point(631, 123);
+            this.lblState.Location = new System.Drawing.Point(658, 280);
             this.lblState.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblState.Name = "lblState";
             this.lblState.Size = new System.Drawing.Size(42, 17);
@@ -410,7 +296,7 @@
             // txtDistrict
             // 
             this.txtDistrict.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDistrict.Location = new System.Drawing.Point(709, 85);
+            this.txtDistrict.Location = new System.Drawing.Point(441, 280);
             this.txtDistrict.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtDistrict.MaxLength = 200;
             this.txtDistrict.Name = "txtDistrict";
@@ -422,58 +308,24 @@
             this.lblDistrict.AutoSize = true;
             this.lblDistrict.BackColor = System.Drawing.Color.Transparent;
             this.lblDistrict.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDistrict.Location = new System.Drawing.Point(631, 85);
+            this.lblDistrict.Location = new System.Drawing.Point(317, 280);
             this.lblDistrict.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDistrict.Name = "lblDistrict";
             this.lblDistrict.Size = new System.Drawing.Size(54, 17);
             this.lblDistrict.TabIndex = 24;
             this.lblDistrict.Text = "District";
             // 
-            // txtAddress
+            // lblAmountType
             // 
-            this.txtAddress.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(709, 38);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtAddress.MaxLength = 2900;
-            this.txtAddress.Multiline = true;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(200, 36);
-            this.txtAddress.TabIndex = 1;
-            // 
-            // lblAddress
-            // 
-            this.lblAddress.AutoSize = true;
-            this.lblAddress.BackColor = System.Drawing.Color.Transparent;
-            this.lblAddress.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.Location = new System.Drawing.Point(631, 38);
-            this.lblAddress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(62, 17);
-            this.lblAddress.TabIndex = 22;
-            this.lblAddress.Text = "Address";
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmount.Location = new System.Drawing.Point(708, 203);
-            this.txtAmount.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtAmount.MaxLength = 20;
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(200, 25);
-            this.txtAmount.TabIndex = 12;
-            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
-            // 
-            // lblAmount
-            // 
-            this.lblAmount.AutoSize = true;
-            this.lblAmount.BackColor = System.Drawing.Color.Transparent;
-            this.lblAmount.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmount.Location = new System.Drawing.Point(631, 203);
-            this.lblAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(58, 17);
-            this.lblAmount.TabIndex = 30;
-            this.lblAmount.Text = "Amount";
+            this.lblAmountType.AutoSize = true;
+            this.lblAmountType.BackColor = System.Drawing.Color.Transparent;
+            this.lblAmountType.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmountType.Location = new System.Drawing.Point(7, 131);
+            this.lblAmountType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAmountType.Name = "lblAmountType";
+            this.lblAmountType.Size = new System.Drawing.Size(93, 17);
+            this.lblAmountType.TabIndex = 30;
+            this.lblAmountType.Text = "Amount Type";
             // 
             // cmbStar
             // 
@@ -481,7 +333,7 @@
             this.cmbStar.FormattingEnabled = true;
             this.cmbStar.Items.AddRange(new object[] {
             "Select"});
-            this.cmbStar.Location = new System.Drawing.Point(708, 163);
+            this.cmbStar.Location = new System.Drawing.Point(718, 183);
             this.cmbStar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbStar.Name = "cmbStar";
             this.cmbStar.Size = new System.Drawing.Size(200, 25);
@@ -489,30 +341,161 @@
             // 
             // grpBoxGeneralInfo
             // 
-            this.grpBoxGeneralInfo.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
+            this.grpBoxGeneralInfo.Controls.Add(this.txtAmount);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblAmount);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblTransactionID);
+            this.grpBoxGeneralInfo.Controls.Add(this.txtMandal);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblMandal);
+            this.grpBoxGeneralInfo.Controls.Add(this.txtDoorNo);
+            this.grpBoxGeneralInfo.Controls.Add(this.label6);
+            this.grpBoxGeneralInfo.Controls.Add(this.cmbTransactionDate);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblTransactionDate);
+            this.grpBoxGeneralInfo.Controls.Add(this.txtTransaction);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblNumberBank);
+            this.grpBoxGeneralInfo.Controls.Add(this.cmbTransaction);
             this.grpBoxGeneralInfo.Controls.Add(this.btnBindDataFromPhone);
+            this.grpBoxGeneralInfo.Controls.Add(this.txtPurpose);
             this.grpBoxGeneralInfo.Controls.Add(this.label3);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblOccassion);
             this.grpBoxGeneralInfo.Controls.Add(this.txtEmailId);
             this.grpBoxGeneralInfo.Controls.Add(this.label1);
             this.grpBoxGeneralInfo.Controls.Add(this.txtMobile);
             this.grpBoxGeneralInfo.Controls.Add(this.label2);
+            this.grpBoxGeneralInfo.Controls.Add(this.cmbStar);
             this.grpBoxGeneralInfo.Controls.Add(this.txtLandline);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblAmountType);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblStar);
+            this.grpBoxGeneralInfo.Controls.Add(this.dtpDate);
+            this.grpBoxGeneralInfo.Controls.Add(this.txtState);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblDate);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblState);
+            this.grpBoxGeneralInfo.Controls.Add(this.txtDistrict);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblDistrict);
+            this.grpBoxGeneralInfo.Controls.Add(this.txtName);
+            this.grpBoxGeneralInfo.Controls.Add(this.txtGothram);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblCity);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblGothram);
+            this.grpBoxGeneralInfo.Controls.Add(this.txtCity);
+            this.grpBoxGeneralInfo.Controls.Add(this.txtNameOn);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblNameOn);
+            this.grpBoxGeneralInfo.Controls.Add(this.txtPin);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblName);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblPin);
             this.grpBoxGeneralInfo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBoxGeneralInfo.Location = new System.Drawing.Point(2, 3);
             this.grpBoxGeneralInfo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.grpBoxGeneralInfo.Name = "grpBoxGeneralInfo";
             this.grpBoxGeneralInfo.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.grpBoxGeneralInfo.Size = new System.Drawing.Size(930, 327);
+            this.grpBoxGeneralInfo.Size = new System.Drawing.Size(938, 352);
             this.grpBoxGeneralInfo.TabIndex = 36;
             this.grpBoxGeneralInfo.TabStop = false;
             this.grpBoxGeneralInfo.Text = "General Information";
+            // 
+            // lblTransactionID
+            // 
+            this.lblTransactionID.AutoSize = true;
+            this.lblTransactionID.Location = new System.Drawing.Point(327, 131);
+            this.lblTransactionID.Name = "lblTransactionID";
+            this.lblTransactionID.Size = new System.Drawing.Size(102, 17);
+            this.lblTransactionID.TabIndex = 511;
+            this.lblTransactionID.Text = "Transaction ID";
+            this.lblTransactionID.Visible = false;
+            // 
+            // txtMandal
+            // 
+            this.txtMandal.Location = new System.Drawing.Point(718, 231);
+            this.txtMandal.Name = "txtMandal";
+            this.txtMandal.Size = new System.Drawing.Size(200, 25);
+            this.txtMandal.TabIndex = 510;
+            // 
+            // lblMandal
+            // 
+            this.lblMandal.AutoSize = true;
+            this.lblMandal.Location = new System.Drawing.Point(658, 231);
+            this.lblMandal.Name = "lblMandal";
+            this.lblMandal.Size = new System.Drawing.Size(54, 17);
+            this.lblMandal.TabIndex = 509;
+            this.lblMandal.Text = "Mandal";
+            // 
+            // txtDoorNo
+            // 
+            this.txtDoorNo.Location = new System.Drawing.Point(441, 231);
+            this.txtDoorNo.Name = "txtDoorNo";
+            this.txtDoorNo.Size = new System.Drawing.Size(199, 25);
+            this.txtDoorNo.TabIndex = 508;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(317, 235);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 17);
+            this.label6.TabIndex = 507;
+            this.label6.Text = "Door No";
+            // 
+            // cmbTransactionDate
+            // 
+            this.cmbTransactionDate.Location = new System.Drawing.Point(718, 131);
+            this.cmbTransactionDate.Name = "cmbTransactionDate";
+            this.cmbTransactionDate.Size = new System.Drawing.Size(200, 25);
+            this.cmbTransactionDate.TabIndex = 506;
+            this.cmbTransactionDate.Visible = false;
+            // 
+            // lblTransactionDate
+            // 
+            this.lblTransactionDate.AutoSize = true;
+            this.lblTransactionDate.Location = new System.Drawing.Point(658, 131);
+            this.lblTransactionDate.Name = "lblTransactionDate";
+            this.lblTransactionDate.Size = new System.Drawing.Size(39, 17);
+            this.lblTransactionDate.TabIndex = 505;
+            this.lblTransactionDate.Text = "Date";
+            this.lblTransactionDate.Visible = false;
+            // 
+            // txtTransaction
+            // 
+            this.txtTransaction.Location = new System.Drawing.Point(441, 131);
+            this.txtTransaction.Name = "txtTransaction";
+            this.txtTransaction.Size = new System.Drawing.Size(200, 25);
+            this.txtTransaction.TabIndex = 504;
+            this.txtTransaction.Visible = false;
+            // 
+            // lblNumberBank
+            // 
+            this.lblNumberBank.AutoSize = true;
+            this.lblNumberBank.Location = new System.Drawing.Point(317, 131);
+            this.lblNumberBank.Name = "lblNumberBank";
+            this.lblNumberBank.Size = new System.Drawing.Size(125, 17);
+            this.lblNumberBank.TabIndex = 503;
+            this.lblNumberBank.Text = "Number and Bank";
+            this.lblNumberBank.Visible = false;
+            // 
+            // cmbTransaction
+            // 
+            this.cmbTransaction.FormattingEnabled = true;
+            this.cmbTransaction.Location = new System.Drawing.Point(102, 131);
+            this.cmbTransaction.Name = "cmbTransaction";
+            this.cmbTransaction.Size = new System.Drawing.Size(199, 25);
+            this.cmbTransaction.TabIndex = 502;
+            this.cmbTransaction.SelectedIndexChanged += new System.EventHandler(this.cmbTransaction_SelectedIndexChanged);
+            // 
+            // btnBindDataFromPhone
+            // 
+            this.btnBindDataFromPhone.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBindDataFromPhone.Location = new System.Drawing.Point(593, 37);
+            this.btnBindDataFromPhone.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnBindDataFromPhone.Name = "btnBindDataFromPhone";
+            this.btnBindDataFromPhone.Size = new System.Drawing.Size(47, 28);
+            this.btnBindDataFromPhone.TabIndex = 501;
+            this.btnBindDataFromPhone.Text = "Load";
+            this.btnBindDataFromPhone.UseVisualStyleBackColor = true;
+            this.btnBindDataFromPhone.Click += new System.EventHandler(this.btnBindDataFromPhone_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(626, 290);
+            this.label3.Location = new System.Drawing.Point(7, 325);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 17);
@@ -522,7 +505,7 @@
             // txtEmailId
             // 
             this.txtEmailId.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmailId.Location = new System.Drawing.Point(704, 287);
+            this.txtEmailId.Location = new System.Drawing.Point(102, 325);
             this.txtEmailId.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtEmailId.MaxLength = 50;
             this.txtEmailId.Name = "txtEmailId";
@@ -534,7 +517,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(330, 290);
+            this.label1.Location = new System.Drawing.Point(317, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 17);
@@ -544,7 +527,7 @@
             // txtMobile
             // 
             this.txtMobile.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobile.Location = new System.Drawing.Point(407, 287);
+            this.txtMobile.Location = new System.Drawing.Point(441, 37);
             this.txtMobile.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtMobile.MaxLength = 10;
             this.txtMobile.Name = "txtMobile";
@@ -557,7 +540,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 290);
+            this.label2.Location = new System.Drawing.Point(658, 37);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 17);
@@ -567,7 +550,7 @@
             // txtLandline
             // 
             this.txtLandline.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLandline.Location = new System.Drawing.Point(101, 287);
+            this.txtLandline.Location = new System.Drawing.Point(718, 37);
             this.txtLandline.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtLandline.MaxLength = 20;
             this.txtLandline.Name = "txtLandline";
@@ -576,17 +559,16 @@
             // 
             // grpServiceInfo
             // 
-            this.grpServiceInfo.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.grpServiceInfo.Controls.Add(this.cmbServiceName);
             this.grpServiceInfo.Controls.Add(this.lblServiceName);
             this.grpServiceInfo.Controls.Add(this.cmbServiceType);
             this.grpServiceInfo.Controls.Add(this.lblServiceType);
             this.grpServiceInfo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpServiceInfo.Location = new System.Drawing.Point(2, 332);
+            this.grpServiceInfo.Location = new System.Drawing.Point(2, 357);
             this.grpServiceInfo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.grpServiceInfo.Name = "grpServiceInfo";
             this.grpServiceInfo.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.grpServiceInfo.Size = new System.Drawing.Size(930, 65);
+            this.grpServiceInfo.Size = new System.Drawing.Size(938, 70);
             this.grpServiceInfo.TabIndex = 37;
             this.grpServiceInfo.TabStop = false;
             this.grpServiceInfo.Text = "Service Information";
@@ -595,7 +577,7 @@
             // 
             this.cmbServiceName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbServiceName.FormattingEnabled = true;
-            this.cmbServiceName.Location = new System.Drawing.Point(606, 30);
+            this.cmbServiceName.Location = new System.Drawing.Point(606, 33);
             this.cmbServiceName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbServiceName.Name = "cmbServiceName";
             this.cmbServiceName.Size = new System.Drawing.Size(200, 25);
@@ -607,7 +589,7 @@
             this.lblServiceName.AutoSize = true;
             this.lblServiceName.BackColor = System.Drawing.Color.Transparent;
             this.lblServiceName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServiceName.Location = new System.Drawing.Point(458, 30);
+            this.lblServiceName.Location = new System.Drawing.Point(458, 33);
             this.lblServiceName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblServiceName.Name = "lblServiceName";
             this.lblServiceName.Size = new System.Drawing.Size(100, 17);
@@ -618,7 +600,7 @@
             // 
             this.cmbServiceType.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbServiceType.FormattingEnabled = true;
-            this.cmbServiceType.Location = new System.Drawing.Point(184, 30);
+            this.cmbServiceType.Location = new System.Drawing.Point(184, 33);
             this.cmbServiceType.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbServiceType.Name = "cmbServiceType";
             this.cmbServiceType.Size = new System.Drawing.Size(200, 25);
@@ -630,7 +612,7 @@
             this.lblServiceType.AutoSize = true;
             this.lblServiceType.BackColor = System.Drawing.Color.Transparent;
             this.lblServiceType.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServiceType.Location = new System.Drawing.Point(74, 30);
+            this.lblServiceType.Location = new System.Drawing.Point(74, 33);
             this.lblServiceType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblServiceType.Name = "lblServiceType";
             this.lblServiceType.Size = new System.Drawing.Size(92, 17);
@@ -639,7 +621,6 @@
             // 
             // grpOtherInfo
             // 
-            this.grpOtherInfo.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.grpOtherInfo.Controls.Add(this.cmbMonthyAnnaThithi);
             this.grpOtherInfo.Controls.Add(this.lblMonthyAnnaThithi);
             this.grpOtherInfo.Controls.Add(this.rbdTelugu);
@@ -657,11 +638,11 @@
             this.grpOtherInfo.Controls.Add(this.cmbDateType);
             this.grpOtherInfo.Controls.Add(this.lblDateType);
             this.grpOtherInfo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpOtherInfo.Location = new System.Drawing.Point(2, 400);
+            this.grpOtherInfo.Location = new System.Drawing.Point(2, 431);
             this.grpOtherInfo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.grpOtherInfo.Name = "grpOtherInfo";
             this.grpOtherInfo.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.grpOtherInfo.Size = new System.Drawing.Size(930, 110);
+            this.grpOtherInfo.Size = new System.Drawing.Size(938, 119);
             this.grpOtherInfo.TabIndex = 42;
             this.grpOtherInfo.TabStop = false;
             this.grpOtherInfo.Text = "Other Information";
@@ -670,7 +651,7 @@
             // 
             this.cmbMonthyAnnaThithi.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMonthyAnnaThithi.FormattingEnabled = true;
-            this.cmbMonthyAnnaThithi.Location = new System.Drawing.Point(408, 64);
+            this.cmbMonthyAnnaThithi.Location = new System.Drawing.Point(408, 69);
             this.cmbMonthyAnnaThithi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbMonthyAnnaThithi.Name = "cmbMonthyAnnaThithi";
             this.cmbMonthyAnnaThithi.Size = new System.Drawing.Size(200, 25);
@@ -681,7 +662,7 @@
             this.lblMonthyAnnaThithi.AutoSize = true;
             this.lblMonthyAnnaThithi.BackColor = System.Drawing.Color.Transparent;
             this.lblMonthyAnnaThithi.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonthyAnnaThithi.Location = new System.Drawing.Point(305, 64);
+            this.lblMonthyAnnaThithi.Location = new System.Drawing.Point(305, 69);
             this.lblMonthyAnnaThithi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMonthyAnnaThithi.Name = "lblMonthyAnnaThithi";
             this.lblMonthyAnnaThithi.Size = new System.Drawing.Size(43, 17);
@@ -693,7 +674,7 @@
             this.rbdTelugu.AutoSize = true;
             this.rbdTelugu.BackColor = System.Drawing.Color.Transparent;
             this.rbdTelugu.Checked = true;
-            this.rbdTelugu.Location = new System.Drawing.Point(428, 19);
+            this.rbdTelugu.Location = new System.Drawing.Point(428, 21);
             this.rbdTelugu.Name = "rbdTelugu";
             this.rbdTelugu.Size = new System.Drawing.Size(68, 21);
             this.rbdTelugu.TabIndex = 205;
@@ -706,7 +687,7 @@
             // 
             this.rbdEnglish.AutoSize = true;
             this.rbdEnglish.BackColor = System.Drawing.Color.Transparent;
-            this.rbdEnglish.Location = new System.Drawing.Point(308, 19);
+            this.rbdEnglish.Location = new System.Drawing.Point(308, 21);
             this.rbdEnglish.Name = "rbdEnglish";
             this.rbdEnglish.Size = new System.Drawing.Size(74, 21);
             this.rbdEnglish.TabIndex = 204;
@@ -718,7 +699,7 @@
             // 
             this.cmbMonthlyAnna.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMonthlyAnna.FormattingEnabled = true;
-            this.cmbMonthlyAnna.Location = new System.Drawing.Point(407, 64);
+            this.cmbMonthlyAnna.Location = new System.Drawing.Point(407, 69);
             this.cmbMonthlyAnna.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbMonthlyAnna.Name = "cmbMonthlyAnna";
             this.cmbMonthlyAnna.Size = new System.Drawing.Size(200, 25);
@@ -729,7 +710,7 @@
             this.lblMonthlyAnna.AutoSize = true;
             this.lblMonthlyAnna.BackColor = System.Drawing.Color.Transparent;
             this.lblMonthlyAnna.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonthlyAnna.Location = new System.Drawing.Point(302, 64);
+            this.lblMonthlyAnna.Location = new System.Drawing.Point(302, 69);
             this.lblMonthlyAnna.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMonthlyAnna.Name = "lblMonthlyAnna";
             this.lblMonthlyAnna.Size = new System.Drawing.Size(91, 17);
@@ -739,7 +720,7 @@
             // dtpEnglishDateType
             // 
             this.dtpEnglishDateType.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpEnglishDateType.Location = new System.Drawing.Point(606, 33);
+            this.dtpEnglishDateType.Location = new System.Drawing.Point(606, 35);
             this.dtpEnglishDateType.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtpEnglishDateType.Name = "dtpEnglishDateType";
             this.dtpEnglishDateType.Size = new System.Drawing.Size(200, 25);
@@ -750,7 +731,7 @@
             this.lblEnglishDatetype.AutoSize = true;
             this.lblEnglishDatetype.BackColor = System.Drawing.Color.Transparent;
             this.lblEnglishDatetype.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnglishDatetype.Location = new System.Drawing.Point(461, 33);
+            this.lblEnglishDatetype.Location = new System.Drawing.Point(461, 35);
             this.lblEnglishDatetype.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEnglishDatetype.Name = "lblEnglishDatetype";
             this.lblEnglishDatetype.Size = new System.Drawing.Size(96, 17);
@@ -761,7 +742,7 @@
             // 
             this.cmbThithi.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbThithi.FormattingEnabled = true;
-            this.cmbThithi.Location = new System.Drawing.Point(606, 70);
+            this.cmbThithi.Location = new System.Drawing.Point(606, 76);
             this.cmbThithi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbThithi.Name = "cmbThithi";
             this.cmbThithi.Size = new System.Drawing.Size(200, 25);
@@ -772,7 +753,7 @@
             this.lblThithi.AutoSize = true;
             this.lblThithi.BackColor = System.Drawing.Color.Transparent;
             this.lblThithi.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThithi.Location = new System.Drawing.Point(458, 75);
+            this.lblThithi.Location = new System.Drawing.Point(458, 81);
             this.lblThithi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblThithi.Name = "lblThithi";
             this.lblThithi.Size = new System.Drawing.Size(43, 17);
@@ -783,7 +764,7 @@
             // 
             this.cmbMonth.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMonth.FormattingEnabled = true;
-            this.cmbMonth.Location = new System.Drawing.Point(184, 75);
+            this.cmbMonth.Location = new System.Drawing.Point(184, 81);
             this.cmbMonth.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbMonth.Name = "cmbMonth";
             this.cmbMonth.Size = new System.Drawing.Size(200, 25);
@@ -794,7 +775,7 @@
             this.lblMonth.AutoSize = true;
             this.lblMonth.BackColor = System.Drawing.Color.Transparent;
             this.lblMonth.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonth.Location = new System.Drawing.Point(74, 75);
+            this.lblMonth.Location = new System.Drawing.Point(74, 81);
             this.lblMonth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMonth.Name = "lblMonth";
             this.lblMonth.Size = new System.Drawing.Size(47, 17);
@@ -805,7 +786,7 @@
             // 
             this.cmbSpecialDay.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSpecialDay.FormattingEnabled = true;
-            this.cmbSpecialDay.Location = new System.Drawing.Point(606, 28);
+            this.cmbSpecialDay.Location = new System.Drawing.Point(606, 30);
             this.cmbSpecialDay.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbSpecialDay.Name = "cmbSpecialDay";
             this.cmbSpecialDay.Size = new System.Drawing.Size(200, 25);
@@ -816,7 +797,7 @@
             this.lblSpecialDay.AutoSize = true;
             this.lblSpecialDay.BackColor = System.Drawing.Color.Transparent;
             this.lblSpecialDay.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.lblSpecialDay.Location = new System.Drawing.Point(458, 33);
+            this.lblSpecialDay.Location = new System.Drawing.Point(458, 35);
             this.lblSpecialDay.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSpecialDay.Name = "lblSpecialDay";
             this.lblSpecialDay.Size = new System.Drawing.Size(87, 20);
@@ -827,7 +808,7 @@
             // 
             this.cmbDateType.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDateType.FormattingEnabled = true;
-            this.cmbDateType.Location = new System.Drawing.Point(184, 33);
+            this.cmbDateType.Location = new System.Drawing.Point(184, 35);
             this.cmbDateType.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbDateType.Name = "cmbDateType";
             this.cmbDateType.Size = new System.Drawing.Size(200, 25);
@@ -839,7 +820,7 @@
             this.lblDateType.AutoSize = true;
             this.lblDateType.BackColor = System.Drawing.Color.Transparent;
             this.lblDateType.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateType.Location = new System.Drawing.Point(74, 33);
+            this.lblDateType.Location = new System.Drawing.Point(74, 35);
             this.lblDateType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDateType.Name = "lblDateType";
             this.lblDateType.Size = new System.Drawing.Size(74, 17);
@@ -849,10 +830,10 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(344, 519);
+            this.btnAdd.Location = new System.Drawing.Point(344, 559);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(136, 30);
+            this.btnAdd.Size = new System.Drawing.Size(136, 33);
             this.btnAdd.TabIndex = 50;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -861,10 +842,10 @@
             // btnModify
             // 
             this.btnModify.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModify.Location = new System.Drawing.Point(500, 519);
+            this.btnModify.Location = new System.Drawing.Point(500, 559);
             this.btnModify.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(136, 30);
+            this.btnModify.Size = new System.Drawing.Size(136, 33);
             this.btnModify.TabIndex = 44;
             this.btnModify.Text = "Modify";
             this.btnModify.UseVisualStyleBackColor = true;
@@ -873,10 +854,10 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(344, 519);
+            this.btnUpdate.Location = new System.Drawing.Point(344, 559);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(136, 30);
+            this.btnUpdate.Size = new System.Drawing.Size(136, 33);
             this.btnUpdate.TabIndex = 45;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -885,10 +866,10 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(500, 519);
+            this.btnCancel.Location = new System.Drawing.Point(500, 559);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(136, 30);
+            this.btnCancel.Size = new System.Drawing.Size(136, 33);
             this.btnCancel.TabIndex = 46;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -901,76 +882,46 @@
             // btnQuickDailyAnna
             // 
             this.btnQuickDailyAnna.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuickDailyAnna.Location = new System.Drawing.Point(2, 521);
+            this.btnQuickDailyAnna.Location = new System.Drawing.Point(2, 561);
             this.btnQuickDailyAnna.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnQuickDailyAnna.Name = "btnQuickDailyAnna";
-            this.btnQuickDailyAnna.Size = new System.Drawing.Size(136, 30);
+            this.btnQuickDailyAnna.Size = new System.Drawing.Size(136, 33);
             this.btnQuickDailyAnna.TabIndex = 201;
             this.btnQuickDailyAnna.Text = "Daily Annadanam";
             this.btnQuickDailyAnna.UseVisualStyleBackColor = true;
             this.btnQuickDailyAnna.Visible = false;
             this.btnQuickDailyAnna.Click += new System.EventHandler(this.btnQuickDailyAnna_Click);
             // 
-            // btnBindDataFromPhone
+            // lblAmount
             // 
-            this.btnBindDataFromPhone.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBindDataFromPhone.Location = new System.Drawing.Point(558, 286);
-            this.btnBindDataFromPhone.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnBindDataFromPhone.Name = "btnBindDataFromPhone";
-            this.btnBindDataFromPhone.Size = new System.Drawing.Size(60, 26);
-            this.btnBindDataFromPhone.TabIndex = 501;
-            this.btnBindDataFromPhone.Text = "Load";
-            this.btnBindDataFromPhone.UseVisualStyleBackColor = true;
-            this.btnBindDataFromPhone.Click += new System.EventHandler(this.btnBindDataFromPhone_Click);
+            this.lblAmount.AutoSize = true;
+            this.lblAmount.Location = new System.Drawing.Point(658, 82);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(58, 17);
+            this.lblAmount.TabIndex = 512;
+            this.lblAmount.Text = "Amount";
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Location = new System.Drawing.Point(718, 79);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(200, 25);
+            this.txtAmount.TabIndex = 513;
             // 
             // DonationInformation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
-            this.ClientSize = new System.Drawing.Size(935, 558);
+            this.ClientSize = new System.Drawing.Size(946, 601);
             this.Controls.Add(this.btnQuickDailyAnna);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.grpOtherInfo);
             this.Controls.Add(this.grpServiceInfo);
-            this.Controls.Add(this.cmbStar);
-            this.Controls.Add(this.txtAmount);
-            this.Controls.Add(this.lblAmount);
-            this.Controls.Add(this.lblStar);
-            this.Controls.Add(this.txtState);
-            this.Controls.Add(this.lblState);
-            this.Controls.Add(this.txtDistrict);
-            this.Controls.Add(this.lblDistrict);
-            this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.lblAddress);
-            this.Controls.Add(this.dtpDate);
-            this.Controls.Add(this.txtRemarks);
-            this.Controls.Add(this.lblRemarks);
-            this.Controls.Add(this.txtGothram);
-            this.Controls.Add(this.lblGothram);
-            this.Controls.Add(this.txtNameOn);
-            this.Controls.Add(this.lblNameOn);
-            this.Controls.Add(this.txtPin);
-            this.Controls.Add(this.lblPin);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.lblDate);
-            this.Controls.Add(this.txtMRNo);
-            this.Controls.Add(this.lblMRNo);
-            this.Controls.Add(this.txtOccassion);
-            this.Controls.Add(this.lblOccassion);
-            this.Controls.Add(this.txtCountry);
-            this.Controls.Add(this.lblCountry);
-            this.Controls.Add(this.txtCity);
-            this.Controls.Add(this.lblCity);
-            this.Controls.Add(this.txtSurname);
-            this.Controls.Add(this.lblSurname);
-            this.Controls.Add(this.txtDonorId);
-            this.Controls.Add(this.lblDonorId);
             this.Controls.Add(this.grpBoxGeneralInfo);
             this.Controls.Add(this.btnUpdate);
+            this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MinimizeBox = false;
@@ -986,26 +937,14 @@
             this.grpOtherInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblDonorId;
-        private System.Windows.Forms.TextBox txtDonorId;
-        private System.Windows.Forms.TextBox txtSurname;
-        private System.Windows.Forms.Label lblSurname;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.Label lblCity;
-        private System.Windows.Forms.TextBox txtMRNo;
-        private System.Windows.Forms.Label lblMRNo;
-        private System.Windows.Forms.TextBox txtOccassion;
+        private System.Windows.Forms.TextBox txtPurpose;
         private System.Windows.Forms.Label lblOccassion;
-        private System.Windows.Forms.TextBox txtCountry;
-        private System.Windows.Forms.Label lblCountry;
-        private System.Windows.Forms.TextBox txtRemarks;
-        private System.Windows.Forms.Label lblRemarks;
         private System.Windows.Forms.TextBox txtGothram;
         private System.Windows.Forms.Label lblGothram;
         private System.Windows.Forms.TextBox txtNameOn;
@@ -1021,10 +960,7 @@
         private System.Windows.Forms.Label lblState;
         private System.Windows.Forms.TextBox txtDistrict;
         private System.Windows.Forms.Label lblDistrict;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.Label lblAddress;
-        private System.Windows.Forms.TextBox txtAmount;
-        private System.Windows.Forms.Label lblAmount;
+        private System.Windows.Forms.Label lblAmountType;
         private System.Windows.Forms.ComboBox cmbStar;
         private System.Windows.Forms.GroupBox grpBoxGeneralInfo;
         private System.Windows.Forms.GroupBox grpServiceInfo;
@@ -1062,5 +998,17 @@
         private System.Windows.Forms.Label lblMonthyAnnaThithi;
         private System.Windows.Forms.ComboBox cmbMonthyAnnaThithi;
         private System.Windows.Forms.Button btnBindDataFromPhone;
+        private System.Windows.Forms.DateTimePicker cmbTransactionDate;
+        private System.Windows.Forms.Label lblTransactionDate;
+        private System.Windows.Forms.TextBox txtTransaction;
+        private System.Windows.Forms.Label lblNumberBank;
+        private System.Windows.Forms.ComboBox cmbTransaction;
+        private System.Windows.Forms.Label lblMandal;
+        private System.Windows.Forms.TextBox txtDoorNo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtMandal;
+        private System.Windows.Forms.Label lblTransactionID;
+        private System.Windows.Forms.Label lblAmount;
+        private System.Windows.Forms.TextBox txtAmount;
     }
 }

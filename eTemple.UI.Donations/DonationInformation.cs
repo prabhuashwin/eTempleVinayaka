@@ -36,6 +36,7 @@ namespace eTemple.UI
         private MonthlyAnnaRepository monthlyAnnaRepo;
         public GothramsRepository gothramRepo;
         public StateRepository stateRepo;
+        public TransactionTypeRepository transTypeRepo;
         public List<State> lstStates = null;
         public List<Gothrams> lstGothrams = null;
         public List<TokenPrint> lstTokenPrint = null;
@@ -47,10 +48,7 @@ namespace eTemple.UI
 
             dtpEnglishDateType.Format = DateTimePickerFormat.Custom;
             dtpEnglishDateType.CustomFormat = "dd/MM";
-            txtCountry.Text = "India";
-
-
-
+            
             donorRepo = new DonorRepository();
             datetypeRepo = new DateTypeRepository();
             desigRepo = new DesignationRepository();
@@ -66,6 +64,7 @@ namespace eTemple.UI
             thithiRepo = new ThidhiRepository();
             monthlyAnnaRepo = new MonthlyAnnaRepository();
             gothramRepo = new GothramsRepository();
+            transTypeRepo = new TransactionTypeRepository();
             lstTokenPrint = new List<TokenPrint>();
             stateRepo = new StateRepository();
             lstStates = new List<State>();
@@ -103,16 +102,27 @@ namespace eTemple.UI
 
             string performDate = string.Empty;
             DateTime donorDate;
+            string transactionDate = string.Empty;
 
             try
             {
                 donorDate = Convert.ToDateTime(dtpDate.Text);
+
 
                 if (dtpEnglishDateType.Enabled == true)
                     performDate = dtpEnglishDateType.Value.ToString("dd-MM");
                 else
                     performDate = "";
 
+                if (cmbTransactionDate.Enabled == true)
+                    transactionDate = cmbTransactionDate.Value.ToString("dd-MM-YYYY");
+                else
+                    transactionDate = "";
+
+
+                if ((txtTransaction.Text == "") || (txtTransaction.Text == string.Empty))
+                    txtTransaction.Text = null;
+                
                 if ((txtPin.Text == "") || (txtPin.Text == string.Empty))
                     txtPin.Text = null;
 
@@ -122,6 +132,13 @@ namespace eTemple.UI
                 if ((txtMobile.Text == "") || (txtMobile.Text == string.Empty))
                     txtMobile.Text = null;
 
+                if ((txtTransaction.Text == "") || (txtTransaction.Text == string.Empty))
+                    txtTransaction.Text = null;
+
+                if ((txtMandal.Text == "") || (txtMandal.Text == string.Empty))
+                    txtMandal.Text = null;
+
+
                 int selectedServiceTypeId;
                 int selectedServiceNameId;
                 int selectedMonthId;
@@ -130,7 +147,8 @@ namespace eTemple.UI
                 int selectedThithiId;
                 int selectedDayId;
                 int selectedDonorThithi;
-                var selectedDateTypeId = SelectedDateTypeId(out selectedServiceTypeId, out selectedServiceNameId, out selectedMonthId, out selectedStarId, out selectedSpecialDayId, out selectedThithiId, out selectedDayId, out selectedDonorThithi);
+                int selectedTransactionTypeId;
+                var selectedDateTypeId = SelectedDateTypeId(out selectedServiceTypeId, out selectedServiceNameId, out selectedMonthId, out selectedStarId, out selectedSpecialDayId, out selectedThithiId, out selectedDayId, out selectedDonorThithi, out selectedTransactionTypeId);
 
                 string maxIDFormat = DateForId(donorDate);
 
@@ -192,26 +210,26 @@ namespace eTemple.UI
                 {
                     Id = uniqueDonorId,
                     Donordate = donorDate,
-                    Address = txtAddress.Text,
-                    Surname = txtSurname.Text,
                     DonorName = txtName.Text,
                     DistrictName = txtDistrict.Text,
                     City = txtCity.Text,
                     Pin = txtPin.Text,
                     State = txtState.Text,
-                    Country = txtCountry.Text,
                     NameOn = txtNameOn.Text,
                     Star = selectedStarId,
-                    Occassion = txtOccassion.Text,
+                    TransactionTypeId = selectedTransactionTypeId,
+                    TransactionId = txtTransaction.Text,
+                    TransactionDate = transactionDate,
                     Gothram = txtGothram.Text,
-                    Amount = Convert.ToDecimal(txtAmount.Text),
                     MR_No = uniqueMRNo,
-                    Remarks = txtRemarks.Text,
+                    Amount = Convert.ToDecimal(txtAmount.Text),
                     Landline = txtLandline.Text,
                     SpecialDayId = selectedSpecialDayId,
                     ServiceTypeId = selectedServiceTypeId,
                     ServiceNameId = selectedServiceNameId,
                     DateTypeId = selectedDateTypeId,
+                    DoorNo = txtDoorNo.Text,
+                    Mandal = txtMandal.Text,
                     PerformDate = performDate,
                     EmailId = txtEmailId.Text,
                     DonorMonth = selectedMonthId,
@@ -244,7 +262,7 @@ namespace eTemple.UI
                 var selectedServiceType = cmbServiceType.SelectedItem as ServiceTypes;
                 TokenPrint oTokenPrint = new TokenPrint
                 {
-                    Id = txtMRNo.Text,
+                    Id = uniqueMRNo,
                     Name = txtName.Text,
                     NameOn=txtNameOn.Text,
                     PerformDate=performDate_ForPrint,
@@ -309,7 +327,7 @@ namespace eTemple.UI
 
         private int SelectedDateTypeId(out int selectedServiceTypeId, out int selectedServiceNameId,
             out int selectedMonthId, out int selectedStarId, out int selectedSpecialDayId, out int selectedThithiId,
-            out int selectedDayId, out int selectedDonorThithiId)
+            out int selectedDayId, out int selectedDonorThithiId, out int selectedTransactionTypeId)
         {
             int selectedDateTypeId = 0;
             selectedServiceTypeId = 0;
@@ -321,6 +339,7 @@ namespace eTemple.UI
             string selectedPakshaName = "";
             selectedDayId = 0;
             selectedDonorThithiId = 0;
+            selectedTransactionTypeId = 0;
 
             var selectedDateType = cmbDateType.SelectedItem as DateType;
             if (selectedDateType == null)
@@ -377,7 +396,11 @@ namespace eTemple.UI
             else
                 selectedDonorThithiId = selectedDonorThithi.Id;
 
-
+            var selectedTransactionType = cmbTransaction.SelectedItem as TransactionType;
+            if (selectedTransactionType == null)
+                selectedTransactionTypeId = 0;
+            else
+                selectedTransactionTypeId = selectedTransactionType.Id;
 
             return selectedDateTypeId;
         }
@@ -429,6 +452,14 @@ namespace eTemple.UI
             var bindServiceType = serviceTypeRepo.GetAllAsQuerable();
             cmbServiceType.DataSource = bindServiceType;
             cmbServiceType.DisplayMember = "Name";
+            #endregion
+
+            #region Bind TransactionType
+
+            var bindTransactionType = transTypeRepo.GetAllAsQuerable();
+            cmbTransaction.DataSource = bindTransactionType;
+            cmbTransaction.DisplayMember = "Name";
+            
             #endregion
 
             //#region Bind ServiceName values
@@ -612,6 +643,7 @@ namespace eTemple.UI
 
             DateTime donorDate;
             string performDate = string.Empty;
+            string transactionDate = string.Empty;
 
             donorDate = Convert.ToDateTime(dtpDate.Text);
 
@@ -619,6 +651,7 @@ namespace eTemple.UI
                 performDate = dtpEnglishDateType.Value.ToString("dd-MM");
             else
                 performDate = "";
+
 
             int selectedServiceTypeId;
             int selectedServiceNameId;
@@ -628,7 +661,8 @@ namespace eTemple.UI
             int selectedThithiId;
             int selectedDayId;
             int selectedDonorThithi;
-            var selectedDateTypeId = SelectedDateTypeId(out selectedServiceTypeId, out selectedServiceNameId, out selectedMonthId, out selectedStarId, out selectedSpecialDayId, out selectedThithiId, out selectedDayId, out selectedDonorThithi);
+            int selectedTransactionTypeId;
+            var selectedDateTypeId = SelectedDateTypeId(out selectedServiceTypeId, out selectedServiceNameId, out selectedMonthId, out selectedStarId, out selectedSpecialDayId, out selectedThithiId, out selectedDayId, out selectedDonorThithi, out selectedTransactionTypeId);
 
             if (cmbServiceName.Enabled == false)
                 selectedServiceNameId = 0;
@@ -648,31 +682,33 @@ namespace eTemple.UI
             if (cmbMonthyAnnaThithi.Enabled == false)
                 selectedDonorThithi = 0;
 
+            if (cmbTransaction.Enabled == false)
+                selectedTransactionTypeId = 0;
+
 
             Donors donorUpdateInfo = new Donors
             {
-                Id = txtDonorId.Text,
+                
                 Donordate = donorDate,
-                Address = txtAddress.Text,
-                Surname = txtSurname.Text,
                 DonorName = txtName.Text,
                 DistrictName = txtDistrict.Text,
                 City = txtCity.Text,
                 Pin = txtPin.Text,
                 State = txtState.Text,
-                Country = txtCountry.Text,
                 NameOn = txtNameOn.Text,
                 Star = selectedStarId,
-                Occassion = txtOccassion.Text,
+                TransactionTypeId = selectedTransactionTypeId,
+                TransactionId = txtTransaction.Text,
+                TransactionDate = transactionDate,
                 Gothram = txtGothram.Text,
                 Amount = Convert.ToDecimal(txtAmount.Text),
-                MR_No = txtMRNo.Text,
-                Remarks = txtRemarks.Text,
                 Landline = txtLandline.Text,
                 SpecialDayId = selectedSpecialDayId,
                 ServiceTypeId = selectedServiceTypeId,
                 ServiceNameId = selectedServiceNameId,
                 DateTypeId = selectedDateTypeId,
+                DoorNo = txtDoorNo.Text,
+                Mandal = txtMandal.Text,
                 PerformDate = performDate,
                 EmailId = txtEmailId.Text,
                 DonorMonth = selectedMonthId,
@@ -731,20 +767,18 @@ namespace eTemple.UI
             if (donor != null)
             {
                 DateTime dt;
-                txtDonorId.Text = donor.Id.ToString();
+                
                 if (!DateTime.TryParse(donor.Donordate.ToString(), out dt))
                 {
                     dtpDate.Value = dt;
                 }
-
-                txtAddress.Text = donor.Address;
-                txtSurname.Text = donor.Surname;
+                
                 txtName.Text = donor.DonorName;
                 txtDistrict.Text = donor.DistrictName;
                 txtCity.Text = donor.City;
                 txtPin.Text = donor.Pin;
                 txtState.Text = donor.State;
-                txtCountry.Text = donor.Country;
+                txtPurpose.Text = donor.Purpose;
 
                 txtNameOn.Text = donor.NameOn;
                 txtNameOn.Enabled = false;
@@ -754,15 +788,12 @@ namespace eTemple.UI
                 string[] starNameValue = bindStarName.Select(p => p.Name).ToArray();
                 cmbStar.SelectedIndex = cmbStar.FindString(starNameValue[0]);
 
-                txtOccassion.Text = donor.Occassion;
-                txtGothram.Text = donor.Gothram;
-
                 txtAmount.Text = donor.Amount.ToString();
                 txtAmount.Enabled = false;
-                txtMRNo.Text = donor.MR_No.ToString();
-                txtMRNo.Enabled = false;
-
-                txtRemarks.Text = donor.Remarks;
+                
+                txtPurpose.Text = donor.Purpose;
+                txtGothram.Text = donor.Gothram;
+                                
                 txtLandline.Text = donor.Landline;
                 txtMobile.Text = donor.Mobile;
                 txtEmailId.Text = donor.EmailId;
@@ -772,6 +803,73 @@ namespace eTemple.UI
                 string[] starTypeValue = bindServiceType.Select(p => p.Name).ToArray();
                 cmbServiceType.SelectedIndex = cmbServiceType.FindString(starTypeValue[0]);
 
+                //Get Transaction
+                if (cmbTransaction.Enabled==true)
+                {
+                    var bindTransactionName = transTypeRepo.GetAllAsQuerable(donor.TransactionTypeId);
+                    string[] transNameValue = bindTransactionName.Select(p => p.Name).ToArray();
+                    cmbTransaction.SelectedIndex = cmbTransaction.FindString(transNameValue[0]);
+
+                    if (cmbTransaction.Text == "Credit/Debit Card")
+                    {
+                        txtTransaction.Text = donor.TransactionId;
+                    }
+                    if (cmbTransaction.Text == "DD")
+                    {
+                        txtTransaction.Text = donor.TransactionId;
+
+                        if (donor.TransactionDate != null)
+                        {
+                            var transDate = donor.TransactionDate.ToString();
+                            var perforDateArr = transDate.Split('-');
+                            DateTime dt1 = new DateTime();
+                            int date;
+                            int month;
+                            int year;
+                            if (perforDateArr.Length > 0)
+                            {
+                                var performDateWithoutMonthAndYear = int.TryParse(perforDateArr[0], out date);
+                                var performDayWithoutYearAbdDate = int.TryParse(perforDateArr[1], out month);
+                                year = DateTime.Now.Year;
+                                dt1 = new DateTime(year, month, date);
+                            }
+
+                            cmbTransactionDate.Value = dt1;
+                        }
+                        else
+                        {
+                            cmbTransactionDate.Visible = false;
+                            cmbTransactionDate.Enabled = false;
+                        }
+                    }
+                    if (cmbTransaction.Text == "Cheque")
+                    {
+                        txtTransaction.Text = donor.TransactionId;
+                        if (donor.TransactionDate != null)
+                        {
+                            var transDate = donor.TransactionDate.ToString();
+                            var perforDateArr = transDate.Split('-');
+                            DateTime dt1 = new DateTime();
+                            int date;
+                            int month;
+                            int year;
+                            if (perforDateArr.Length > 0)
+                            {
+                                var performDateWithoutMonthAndYear = int.TryParse(perforDateArr[0], out date);
+                                var performDayWithoutYearAbdDate = int.TryParse(perforDateArr[1], out month);
+                                year = DateTime.Now.Year;
+                                dt1 = new DateTime(year, month, date);
+                            }
+
+                            cmbTransactionDate.Value = dt1;
+                        }
+                        else
+                        {
+                            cmbTransactionDate.Visible = false;
+                            cmbTransactionDate.Enabled = false;
+                        }
+                    }
+                }
 
                 //Get ServiceName
                 if (cmbServiceName.Enabled == true)
@@ -984,21 +1082,16 @@ namespace eTemple.UI
             //}
             //else
             //    errorProvider1.Clear();
-            if (txtAmount.Text == "" || txtAmount.Text == string.Empty)
-            {
-                errorProvider1.SetError(txtAmount, "Need to enter the Amount");
-                needValidate = false;
-                return needValidate;
-            }
-            else if ((servicetypeId.Id == 1) && (Convert.ToInt32(txtAmount.Text) < 1116))
-            {
-                errorProvider1.SetError(txtAmount, "Amount cannot be less than Rs.1,116 for selected service type");
-                needValidate = false;
-                return needValidate;
-            }
 
-            else
-                errorProvider1.Clear();
+            //else if ((servicetypeId.Id == 1) && (Convert.ToInt32(txtAmount.Text) < 1116))
+            //{
+            //    errorProvider1.SetError(txtAmount, "Amount cannot be less than Rs.1,116 for selected service type");
+            //    needValidate = false;
+            //    return needValidate;
+            //}
+
+            //else
+            //    errorProvider1.Clear();
             //if (txtMRNo.Text == "" || txtMRNo.Text == string.Empty)
             //{
             //    errorProvider1.SetError(txtMRNo, "Need to enter the MR Number");
@@ -1039,6 +1132,21 @@ namespace eTemple.UI
             //}
             //else
             //    errorProvider1.Clear();
+            if (txtAmount.Text == "" || txtAmount.Text == string.Empty)
+            {
+                errorProvider1.SetError(txtAmount, "Need to enter the Amount");
+                needValidate = false;
+                return needValidate;
+            }
+            else if ((servicetypeId.Id == 1) && (Convert.ToInt32(txtAmount.Text) < 1116))
+            {
+                errorProvider1.SetError(txtAmount, "Amount cannot be less than Rs.1,116 for selected service type");
+                needValidate = false;
+                return needValidate;
+            }
+
+            else
+                errorProvider1.Clear();
             if (cmbServiceType.Text == "Select" || cmbServiceType.Text == string.Empty)
             {
                 errorProvider1.SetError(cmbServiceType, "Need to select Service Type");
@@ -1346,32 +1454,21 @@ namespace eTemple.UI
         {
             txtNameOn.Enabled = true;
             txtAmount.Enabled = true;
-            txtMRNo.Enabled = true;
-
-            txtDonorId.Text = string.Empty;
-            txtAddress.Text = string.Empty;
-            txtSurname.Text = string.Empty;
             txtName.Text = string.Empty;
             txtDistrict.Text = string.Empty;
             txtCity.Text = string.Empty;
             txtPin.Text = string.Empty;
             txtState.Text = string.Empty;
-            txtCountry.Text = string.Empty;
-
+            
             txtNameOn.Text = string.Empty;
 
-            txtOccassion.Text = string.Empty;
+            txtPurpose.Text = string.Empty;
             txtGothram.Text = string.Empty;
-
-            txtAmount.Text = string.Empty;
-
-            txtMRNo.Text = string.Empty;
-            txtRemarks.Text = string.Empty;
+            
             txtLandline.Text = string.Empty;
             txtMobile.Text = string.Empty;
             txtEmailId.Text = string.Empty;
-
-            txtDonorId.Enabled = false;
+            
             bindData();
             btnUpdate.Visible = false;
             btnCancel.Visible = false;
@@ -1384,7 +1481,7 @@ namespace eTemple.UI
             cmbThithi.Visible = false;
             lblMonthlyAnna.Visible = false;
             cmbMonthlyAnna.Visible = false;
-
+            txtAmount.Text = string.Empty;
             lblMonthyAnnaThithi.Visible = false;
             cmbMonthyAnnaThithi.Visible = false;
 
@@ -1556,14 +1653,11 @@ namespace eTemple.UI
                 var donorExists = donorRepo.fetchDataFromMobileNumber(txtMobile.Text);
                 if (donorExists !=null)
                 {
-                    txtAddress.Text = donorExists.Address;
-                    txtSurname.Text = donorExists.Surname;
                     txtName.Text = donorExists.DonorName;
                     txtDistrict.Text = donorExists.DistrictName;
                     txtCity.Text = donorExists.City;
                     txtPin.Text = donorExists.Pin;
-                    txtState.Text = donorExists.State;
-                    txtCountry.Text = donorExists.Country;
+                    txtState.Text = donorExists.State;                
 
                     txtNameOn.Text = donorExists.NameOn;
                     
@@ -1572,10 +1666,9 @@ namespace eTemple.UI
                     string[] starNameValue = bindStarName.Select(p => p.Name).ToArray();
                     cmbStar.SelectedIndex = cmbStar.FindString(starNameValue[0]);
 
-                    txtOccassion.Text = donorExists.Occassion;
+                    txtPurpose.Text = donorExists.Purpose;
                     txtGothram.Text = donorExists.Gothram;
                                         
-                    txtRemarks.Text = donorExists.Remarks;
                     txtLandline.Text = donorExists.Landline;
                     txtMobile.Text = donorExists.Mobile;
                     txtEmailId.Text = donorExists.EmailId;
@@ -1583,6 +1676,52 @@ namespace eTemple.UI
             }
             else
                 MessageBox.Show("No data found for the provided mobile number");
+        }
+
+        private void cmbTransaction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var transactionType = cmbTransaction.SelectedItem as TransactionType;
+
+            if (transactionType.Name == "Cash")
+            {
+                lblNumberBank.Visible = false;
+                lblTransactionID.Visible = false;
+                txtTransaction.Visible = false;
+                txtTransaction.Enabled = false;
+                lblTransactionDate.Visible = false;
+                cmbTransactionDate.Visible = false;
+                cmbTransaction.Enabled = true;
+            }
+            else if (transactionType.Name== "Credit/Debit Card")
+            {
+                lblNumberBank.Visible = false;
+                lblTransactionID.Visible = true;
+                txtTransaction.Enabled = true;
+                txtTransaction.Visible = true;                
+                lblTransactionDate.Visible = false;
+                cmbTransactionDate.Visible = false;
+                cmbTransaction.Enabled = true;
+            }
+            else if (transactionType.Name== "DD")
+            {
+                lblNumberBank.Visible = true;
+                lblTransactionID.Visible = false;
+                txtTransaction.Enabled = true;
+                txtTransaction.Visible = true;
+                lblTransactionDate.Visible = true;
+                cmbTransactionDate.Visible = true;
+                cmbTransaction.Enabled = true;
+            }
+            else if (transactionType.Name== "Cheque")
+            {
+                lblNumberBank.Visible = true;
+                lblTransactionID.Visible = false;
+                txtTransaction.Enabled = true;
+                txtTransaction.Visible = true;
+                lblTransactionDate.Visible = true;
+                cmbTransactionDate.Visible = true;
+                cmbTransaction.Enabled = true;
+            }
         }
     }
 }

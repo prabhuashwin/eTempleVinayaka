@@ -88,6 +88,7 @@
     <Compile Include="Models\SpecialDay.cs" />
     <Compile Include="Models\Stars.cs" />
     <Compile Include="Models\TokenPrint.cs" />
+    <Compile Include="Models\TransactionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DailyAnnaDanamRepository.cs" />
     <Compile Include="Repositories\DateTypeRepository.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Repositories\TeluguCalendarRepository.cs" />
     <Compile Include="Repositories\StateRepository.cs" />
     <Compile Include="Repositories\ThidhiRepository.cs" />
+    <Compile Include="Repositories\TransactionTypeRepository.cs" />
     <Compile Include="Utilities\BindValues.cs" />
     <Compile Include="Utilities\CustomLINQtoDataSetMethods.cs" />
     <Compile Include="Utilities\ObjectShredder.cs" />

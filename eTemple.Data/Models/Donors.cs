@@ -25,6 +25,7 @@ namespace eTemple.Data.Models
         
         public string DonorName { get; set; }
 
+        public string DoorNo { get; set; }
         
         public string DistrictName { get; set; }
 
@@ -47,7 +48,7 @@ namespace eTemple.Data.Models
         public int Star { get; set; }
 
         
-        public string Occassion { get; set; }
+        public string Purpose { get; set; }
 
         
         public string Gothram { get; set; }
@@ -98,6 +99,14 @@ namespace eTemple.Data.Models
         public string Mobile { get; set; }
 
         public int DonorThithi { get; set; }
+
+        public string Mandal { get; set; }
+
+        public int TransactionTypeId { get; set; }
+
+        public string TransactionId { get; set; }
+
+        public string TransactionDate { get; set; }
     }
 }
 

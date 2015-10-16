@@ -99,12 +99,13 @@ namespace eTemple.Data.Repositories
             using (MySqlConnection conn = new MySqlConnection(strConn))
             {
                 using (MySqlCommand cmd = new MySqlCommand(@"select d.id as TicketID,MR_No as ReceiptID,ServiceTypeId as ServiceID,gothram,donorname as DevoteeName,Amount,case datetypeid when 0 then '' when 1 then concat(m.name,' ',t.Name) when 2 then performDate else s.name end as performDate,
-                    DATE_FORMAT(date(donordate),'%d-%m-%Y') as createdon,address,city ,districtname, state as statename,pin as pin,
-                    Occassion as OtherDetails, mobile as PhoneNumber
+                    DATE_FORMAT(date(donordate),'%d-%m-%Y') as createdon,dno,Mandal,city ,districtname, state as statename,pin as pin,
+                    Occassion as OtherDetails, mobile as PhoneNumber, tt.name as TransactionType
                     from donors d
                     inner join month m on m.Id=donormonth
                     inner join thidhi t on t.id =thidhi
                     inner join specialday s on s.id=specialDayid
+                    inner join TransactionType tt on tt.id= TransactionTypeid
                     where Donordate='" + DonorDate + "' and servicetypeid=" + serviceType + " order by MR_No", conn))
                 {
                     using (MySqlDataAdapter da = new MySqlDataAdapter())

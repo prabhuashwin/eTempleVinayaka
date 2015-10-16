@@ -73,5 +73,10 @@ namespace eTemple.UI.Donations
             cmbServiceType.DataSource = lstServiceType;
             cmbServiceType.DisplayMember = "Name";
         }
+
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

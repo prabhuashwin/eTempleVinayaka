@@ -51,6 +51,10 @@
             this.lblAmountType = new System.Windows.Forms.Label();
             this.cmbStar = new System.Windows.Forms.ComboBox();
             this.grpBoxGeneralInfo = new System.Windows.Forms.GroupBox();
+            this.txtMRNo = new System.Windows.Forms.TextBox();
+            this.lblMRNO = new System.Windows.Forms.Label();
+            this.txtDonorId = new System.Windows.Forms.TextBox();
+            this.lblDonorId = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.lblAmount = new System.Windows.Forms.Label();
             this.lblTransactionID = new System.Windows.Forms.Label();
@@ -98,10 +102,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnQuickDailyAnna = new System.Windows.Forms.Button();
-            this.lblDonorId = new System.Windows.Forms.Label();
-            this.txtDonorId = new System.Windows.Forms.TextBox();
-            this.lblMRNO = new System.Windows.Forms.Label();
-            this.txtMRNo = new System.Windows.Forms.TextBox();
             this.grpBoxGeneralInfo.SuspendLayout();
             this.grpServiceInfo.SuspendLayout();
             this.grpOtherInfo.SuspendLayout();
@@ -116,7 +116,7 @@
             this.txtCity.MaxLength = 100;
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(200, 25);
-            this.txtCity.TabIndex = 5;
+            this.txtCity.TabIndex = 14;
             // 
             // lblCity
             // 
@@ -138,7 +138,7 @@
             this.txtPurpose.MaxLength = 200;
             this.txtPurpose.Name = "txtPurpose";
             this.txtPurpose.Size = new System.Drawing.Size(200, 25);
-            this.txtPurpose.TabIndex = 10;
+            this.txtPurpose.TabIndex = 11;
             // 
             // lblOccassion
             // 
@@ -160,7 +160,7 @@
             this.txtGothram.MaxLength = 200;
             this.txtGothram.Name = "txtGothram";
             this.txtGothram.Size = new System.Drawing.Size(200, 25);
-            this.txtGothram.TabIndex = 11;
+            this.txtGothram.TabIndex = 12;
             // 
             // lblGothram
             // 
@@ -182,7 +182,7 @@
             this.txtNameOn.MaxLength = 200;
             this.txtNameOn.Name = "txtNameOn";
             this.txtNameOn.Size = new System.Drawing.Size(200, 25);
-            this.txtNameOn.TabIndex = 8;
+            this.txtNameOn.TabIndex = 6;
             // 
             // lblNameOn
             // 
@@ -204,7 +204,7 @@
             this.txtPin.MaxLength = 10;
             this.txtPin.Name = "txtPin";
             this.txtPin.Size = new System.Drawing.Size(200, 25);
-            this.txtPin.TabIndex = 6;
+            this.txtPin.TabIndex = 17;
             this.txtPin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPin_KeyPress);
             // 
             // lblPin
@@ -227,7 +227,7 @@
             this.txtName.MaxLength = 200;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 25);
-            this.txtName.TabIndex = 3;
+            this.txtName.TabIndex = 5;
             // 
             // lblName
             // 
@@ -261,7 +261,7 @@
             this.dtpDate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(200, 25);
-            this.dtpDate.TabIndex = 400;
+            this.dtpDate.TabIndex = 1;
             // 
             // lblStar
             // 
@@ -283,7 +283,7 @@
             this.txtState.MaxLength = 200;
             this.txtState.Name = "txtState";
             this.txtState.Size = new System.Drawing.Size(200, 25);
-            this.txtState.TabIndex = 7;
+            this.txtState.TabIndex = 19;
             // 
             // lblState
             // 
@@ -305,7 +305,7 @@
             this.txtDistrict.MaxLength = 200;
             this.txtDistrict.Name = "txtDistrict";
             this.txtDistrict.Size = new System.Drawing.Size(200, 25);
-            this.txtDistrict.TabIndex = 4;
+            this.txtDistrict.TabIndex = 18;
             // 
             // lblDistrict
             // 
@@ -341,7 +341,7 @@
             this.cmbStar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbStar.Name = "cmbStar";
             this.cmbStar.Size = new System.Drawing.Size(200, 25);
-            this.cmbStar.TabIndex = 9;
+            this.cmbStar.TabIndex = 13;
             // 
             // grpBoxGeneralInfo
             // 
@@ -397,14 +397,50 @@
             this.grpBoxGeneralInfo.Size = new System.Drawing.Size(945, 352);
             this.grpBoxGeneralInfo.TabIndex = 36;
             this.grpBoxGeneralInfo.TabStop = false;
-            this.grpBoxGeneralInfo.Text = "General Information";
+            this.grpBoxGeneralInfo.Text = "Saswatham Form";
+            // 
+            // txtMRNo
+            // 
+            this.txtMRNo.Location = new System.Drawing.Point(718, 325);
+            this.txtMRNo.Name = "txtMRNo";
+            this.txtMRNo.Size = new System.Drawing.Size(200, 25);
+            this.txtMRNo.TabIndex = 22;
+            this.txtMRNo.Visible = false;
+            // 
+            // lblMRNO
+            // 
+            this.lblMRNO.AutoSize = true;
+            this.lblMRNO.Location = new System.Drawing.Point(658, 333);
+            this.lblMRNO.Name = "lblMRNO";
+            this.lblMRNO.Size = new System.Drawing.Size(52, 17);
+            this.lblMRNO.TabIndex = 202;
+            this.lblMRNO.Text = "MRNO";
+            this.lblMRNO.Visible = false;
+            // 
+            // txtDonorId
+            // 
+            this.txtDonorId.Location = new System.Drawing.Point(441, 327);
+            this.txtDonorId.Name = "txtDonorId";
+            this.txtDonorId.Size = new System.Drawing.Size(200, 25);
+            this.txtDonorId.TabIndex = 21;
+            this.txtDonorId.Visible = false;
+            // 
+            // lblDonorId
+            // 
+            this.lblDonorId.AutoSize = true;
+            this.lblDonorId.Location = new System.Drawing.Point(317, 330);
+            this.lblDonorId.Name = "lblDonorId";
+            this.lblDonorId.Size = new System.Drawing.Size(59, 17);
+            this.lblDonorId.TabIndex = 202;
+            this.lblDonorId.Text = "DonorId";
+            this.lblDonorId.Visible = false;
             // 
             // txtAmount
             // 
             this.txtAmount.Location = new System.Drawing.Point(718, 79);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(200, 25);
-            this.txtAmount.TabIndex = 513;
+            this.txtAmount.TabIndex = 7;
             // 
             // lblAmount
             // 
@@ -430,7 +466,7 @@
             this.txtMandal.Location = new System.Drawing.Point(718, 231);
             this.txtMandal.Name = "txtMandal";
             this.txtMandal.Size = new System.Drawing.Size(200, 25);
-            this.txtMandal.TabIndex = 510;
+            this.txtMandal.TabIndex = 16;
             // 
             // lblMandal
             // 
@@ -446,7 +482,7 @@
             this.txtDoorNo.Location = new System.Drawing.Point(441, 231);
             this.txtDoorNo.Name = "txtDoorNo";
             this.txtDoorNo.Size = new System.Drawing.Size(199, 25);
-            this.txtDoorNo.TabIndex = 508;
+            this.txtDoorNo.TabIndex = 15;
             // 
             // label6
             // 
@@ -462,7 +498,7 @@
             this.cmbTransactionDate.Location = new System.Drawing.Point(718, 131);
             this.cmbTransactionDate.Name = "cmbTransactionDate";
             this.cmbTransactionDate.Size = new System.Drawing.Size(200, 25);
-            this.cmbTransactionDate.TabIndex = 506;
+            this.cmbTransactionDate.TabIndex = 10;
             this.cmbTransactionDate.Visible = false;
             // 
             // lblTransactionDate
@@ -480,7 +516,7 @@
             this.txtTransaction.Location = new System.Drawing.Point(441, 131);
             this.txtTransaction.Name = "txtTransaction";
             this.txtTransaction.Size = new System.Drawing.Size(200, 25);
-            this.txtTransaction.TabIndex = 504;
+            this.txtTransaction.TabIndex = 9;
             this.txtTransaction.Visible = false;
             // 
             // lblNumberBank
@@ -499,7 +535,7 @@
             this.cmbTransaction.Location = new System.Drawing.Point(102, 131);
             this.cmbTransaction.Name = "cmbTransaction";
             this.cmbTransaction.Size = new System.Drawing.Size(199, 25);
-            this.cmbTransaction.TabIndex = 502;
+            this.cmbTransaction.TabIndex = 8;
             this.cmbTransaction.SelectedIndexChanged += new System.EventHandler(this.cmbTransaction_SelectedIndexChanged);
             // 
             // btnBindDataFromPhone
@@ -509,7 +545,7 @@
             this.btnBindDataFromPhone.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnBindDataFromPhone.Name = "btnBindDataFromPhone";
             this.btnBindDataFromPhone.Size = new System.Drawing.Size(48, 28);
-            this.btnBindDataFromPhone.TabIndex = 501;
+            this.btnBindDataFromPhone.TabIndex = 3;
             this.btnBindDataFromPhone.Text = "Load";
             this.btnBindDataFromPhone.UseVisualStyleBackColor = true;
             this.btnBindDataFromPhone.Click += new System.EventHandler(this.btnBindDataFromPhone_Click);
@@ -534,7 +570,7 @@
             this.txtEmailId.MaxLength = 50;
             this.txtEmailId.Name = "txtEmailId";
             this.txtEmailId.Size = new System.Drawing.Size(200, 25);
-            this.txtEmailId.TabIndex = 16;
+            this.txtEmailId.TabIndex = 20;
             // 
             // label1
             // 
@@ -556,7 +592,7 @@
             this.txtMobile.MaxLength = 10;
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(150, 25);
-            this.txtMobile.TabIndex = 15;
+            this.txtMobile.TabIndex = 2;
             this.txtMobile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile_KeyPress);
             // 
             // label2
@@ -564,7 +600,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(658, 37);
+            this.label2.Location = new System.Drawing.Point(653, 41);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 17);
@@ -579,7 +615,7 @@
             this.txtLandline.MaxLength = 20;
             this.txtLandline.Name = "txtLandline";
             this.txtLandline.Size = new System.Drawing.Size(200, 25);
-            this.txtLandline.TabIndex = 14;
+            this.txtLandline.TabIndex = 4;
             // 
             // grpServiceInfo
             // 
@@ -915,42 +951,6 @@
             this.btnQuickDailyAnna.UseVisualStyleBackColor = true;
             this.btnQuickDailyAnna.Visible = false;
             this.btnQuickDailyAnna.Click += new System.EventHandler(this.btnQuickDailyAnna_Click);
-            // 
-            // lblDonorId
-            // 
-            this.lblDonorId.AutoSize = true;
-            this.lblDonorId.Location = new System.Drawing.Point(317, 330);
-            this.lblDonorId.Name = "lblDonorId";
-            this.lblDonorId.Size = new System.Drawing.Size(59, 17);
-            this.lblDonorId.TabIndex = 202;
-            this.lblDonorId.Text = "DonorId";
-            this.lblDonorId.Visible = false;
-            // 
-            // txtDonorId
-            // 
-            this.txtDonorId.Location = new System.Drawing.Point(441, 327);
-            this.txtDonorId.Name = "txtDonorId";
-            this.txtDonorId.Size = new System.Drawing.Size(200, 25);
-            this.txtDonorId.TabIndex = 514;
-            this.txtDonorId.Visible = false;
-            // 
-            // lblMRNO
-            // 
-            this.lblMRNO.AutoSize = true;
-            this.lblMRNO.Location = new System.Drawing.Point(658, 333);
-            this.lblMRNO.Name = "lblMRNO";
-            this.lblMRNO.Size = new System.Drawing.Size(52, 17);
-            this.lblMRNO.TabIndex = 202;
-            this.lblMRNO.Text = "MRNO";
-            this.lblMRNO.Visible = false;
-            // 
-            // txtMRNo
-            // 
-            this.txtMRNo.Location = new System.Drawing.Point(718, 325);
-            this.txtMRNo.Name = "txtMRNo";
-            this.txtMRNo.Size = new System.Drawing.Size(200, 25);
-            this.txtMRNo.TabIndex = 41;
-            this.txtMRNo.Visible = false;
             // 
             // DonationInformation
             // 

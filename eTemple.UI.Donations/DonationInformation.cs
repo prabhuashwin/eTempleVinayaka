@@ -115,7 +115,7 @@ namespace eTemple.UI
                     performDate = "";
 
                 if (cmbTransactionDate.Enabled == true)
-                    transactionDate = cmbTransactionDate.Value.ToString("dd-MM-YYYY");
+                    transactionDate = cmbTransactionDate.Value.ToString("dd-MM-yyyy");
                 else
                     transactionDate = "";
 

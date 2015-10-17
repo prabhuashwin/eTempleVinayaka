@@ -154,14 +154,34 @@
                           <TextRuns>
                             <TextRun>
                               <Label>lblAddress</Label>
-                              <Value>=Fields!Address.Value</Value>
+                              <Value>=Fields!DoorNo.Value</Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value xml:space="preserve">                                             </Value>
+                              <Value xml:space="preserve"> </Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Label>lblMandal</Label>
+                              <Value>=Fields!Mandal.Value</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value xml:space="preserve">                      </Value>
                               <Style>
                                 <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -383,6 +403,26 @@
     </DataSource>
   </DataSources>
   <DataSets>
+    <DataSet Name="DataAddress">
+      <Query>
+        <DataSourceName>DonorReportDataSet</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Count">
+          <DataField>Count</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DonorReportDataSet</rd:DataSetName>
+        <rd:SchemaPath>E:\Work_Me\WinApp\eTemple.UI.Donations\DonorReportDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>AddressCount</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
     <DataSet Name="DonorAddresses">
       <Query>
         <DataSourceName>DonorReportDataSet</DataSourceName>
@@ -397,8 +437,12 @@
           <DataField>NameOn</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Address">
-          <DataField>Address</DataField>
+        <Field Name="DoorNo">
+          <DataField>DoorNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Mandal">
+          <DataField>Mandal</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="DistrictName">
@@ -432,28 +476,8 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DonorReportDataSet</rd:DataSetName>
-        <rd:SchemaPath>E:\Work_Me\WinApp\eTemple.UI.Donations\DonorReportDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\Work_Me\eTempleVinayaka\eTemple.UI.Donations\DonorReportDataSet.xsd</rd:SchemaPath>
         <rd:TableName>DonorAddresses</rd:TableName>
-        <rd:TableAdapterFillMethod />
-        <rd:TableAdapterGetDataMethod />
-        <rd:TableAdapterName />
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="DataAddress">
-      <Query>
-        <DataSourceName>DonorReportDataSet</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Count">
-          <DataField>Count</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DonorReportDataSet</rd:DataSetName>
-        <rd:SchemaPath>E:\Work_Me\WinApp\eTemple.UI.Donations\DonorReportDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>AddressCount</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />

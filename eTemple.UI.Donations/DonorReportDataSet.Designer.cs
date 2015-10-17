@@ -987,7 +987,9 @@ namespace eTemple.UI.Donations {
             
             private global::System.Data.DataColumn columnNameOn;
             
-            private global::System.Data.DataColumn columnAddress;
+            private global::System.Data.DataColumn columnDoorNo;
+            
+            private global::System.Data.DataColumn columnMandal;
             
             private global::System.Data.DataColumn columnDistrictName;
             
@@ -1054,9 +1056,17 @@ namespace eTemple.UI.Donations {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AddressColumn {
+            public global::System.Data.DataColumn DoorNoColumn {
                 get {
-                    return this.columnAddress;
+                    return this.columnDoorNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MandalColumn {
+                get {
+                    return this.columnMandal;
                 }
             }
             
@@ -1153,12 +1163,13 @@ namespace eTemple.UI.Donations {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DonorAddressesRow AddDonorAddressesRow(string Surname, string NameOn, string Address, string DistrictName, string City, string Pin, string State, string Country, string ServiceType, string MR_NO) {
+            public DonorAddressesRow AddDonorAddressesRow(string Surname, string NameOn, string DoorNo, string Mandal, string DistrictName, string City, string Pin, string State, string Country, string ServiceType, string MR_NO) {
                 DonorAddressesRow rowDonorAddressesRow = ((DonorAddressesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Surname,
                         NameOn,
-                        Address,
+                        DoorNo,
+                        Mandal,
                         DistrictName,
                         City,
                         Pin,
@@ -1190,7 +1201,8 @@ namespace eTemple.UI.Donations {
             internal void InitVars() {
                 this.columnSurname = base.Columns["Surname"];
                 this.columnNameOn = base.Columns["NameOn"];
-                this.columnAddress = base.Columns["Address"];
+                this.columnDoorNo = base.Columns["DoorNo"];
+                this.columnMandal = base.Columns["Mandal"];
                 this.columnDistrictName = base.Columns["DistrictName"];
                 this.columnCity = base.Columns["City"];
                 this.columnPin = base.Columns["Pin"];
@@ -1207,8 +1219,10 @@ namespace eTemple.UI.Donations {
                 base.Columns.Add(this.columnSurname);
                 this.columnNameOn = new global::System.Data.DataColumn("NameOn", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNameOn);
-                this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAddress);
+                this.columnDoorNo = new global::System.Data.DataColumn("DoorNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDoorNo);
+                this.columnMandal = new global::System.Data.DataColumn("Mandal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMandal);
                 this.columnDistrictName = new global::System.Data.DataColumn("DistrictName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDistrictName);
                 this.columnCity = new global::System.Data.DataColumn("City", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2217,17 +2231,33 @@ namespace eTemple.UI.Donations {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Address {
+            public string DoorNo {
                 get {
                     try {
-                        return ((string)(this[this.tableDonorAddresses.AddressColumn]));
+                        return ((string)(this[this.tableDonorAddresses.DoorNoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Address\' in table \'DonorAddresses\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DoorNo\' in table \'DonorAddresses\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDonorAddresses.AddressColumn] = value;
+                    this[this.tableDonorAddresses.DoorNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Mandal {
+                get {
+                    try {
+                        return ((string)(this[this.tableDonorAddresses.MandalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Mandal\' in table \'DonorAddresses\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDonorAddresses.MandalColumn] = value;
                 }
             }
             
@@ -2369,14 +2399,26 @@ namespace eTemple.UI.Donations {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAddressNull() {
-                return this.IsNull(this.tableDonorAddresses.AddressColumn);
+            public bool IsDoorNoNull() {
+                return this.IsNull(this.tableDonorAddresses.DoorNoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAddressNull() {
-                this[this.tableDonorAddresses.AddressColumn] = global::System.Convert.DBNull;
+            public void SetDoorNoNull() {
+                this[this.tableDonorAddresses.DoorNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMandalNull() {
+                return this.IsNull(this.tableDonorAddresses.MandalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMandalNull() {
+                this[this.tableDonorAddresses.MandalColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

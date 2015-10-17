@@ -442,7 +442,7 @@ namespace eTemple.UI.Donations
             if (DonorList.Count() != 0)
             {
                 DataView view = new DataView(DonorList.CopyToDataTable());
-                dt = view.ToTable(false, "Address", "Surname", "NameOn", "DistrictName", "City", "Pin", "State", "Country", "ServiceTypeId", "MR_NO");
+                dt = view.ToTable(false, "DoorNo", "Mandal", "Surname", "NameOn", "DistrictName", "City", "Pin", "State", "Country", "ServiceTypeId", "MR_NO");
                 dt.Columns.Add("ServiceType");
                 foreach (DataRow dr in dt.Rows)
                 {

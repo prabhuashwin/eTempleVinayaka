@@ -220,6 +220,7 @@ namespace eTemple.UI
                     TransactionTypeId = selectedTransactionTypeId,
                     TransactionId = txtTransaction.Text,
                     TransactionDate = transactionDate,
+                    Occasion=txtPurpose.Text,
                     Gothram = txtGothram.Text,
                     MR_No = uniqueMRNo,
                     Amount = Convert.ToDecimal(txtAmount.Text),
@@ -688,7 +689,7 @@ namespace eTemple.UI
 
             Donors donorUpdateInfo = new Donors
             {
-                
+                Id = txtDonorId.Text,
                 Donordate = donorDate,
                 DonorName = txtName.Text,
                 DistrictName = txtDistrict.Text,
@@ -697,9 +698,11 @@ namespace eTemple.UI
                 State = txtState.Text,
                 NameOn = txtNameOn.Text,
                 Star = selectedStarId,
+                MR_No = txtMRNo.Text,
                 TransactionTypeId = selectedTransactionTypeId,
                 TransactionId = txtTransaction.Text,
                 TransactionDate = transactionDate,
+                Occasion = txtPurpose.Text,
                 Gothram = txtGothram.Text,
                 Amount = Convert.ToDecimal(txtAmount.Text),
                 Landline = txtLandline.Text,
@@ -772,13 +775,16 @@ namespace eTemple.UI
                 {
                     dtpDate.Value = dt;
                 }
-                
+
+                txtDonorId.Text = donor.Id;
+                txtMRNo.Text = donor.MR_No;
+
                 txtName.Text = donor.DonorName;
                 txtDistrict.Text = donor.DistrictName;
                 txtCity.Text = donor.City;
                 txtPin.Text = donor.Pin;
                 txtState.Text = donor.State;
-                txtPurpose.Text = donor.Purpose;
+                txtPurpose.Text = donor.Occasion;
 
                 txtNameOn.Text = donor.NameOn;
                 txtNameOn.Enabled = false;
@@ -791,7 +797,7 @@ namespace eTemple.UI
                 txtAmount.Text = donor.Amount.ToString();
                 txtAmount.Enabled = false;
                 
-                txtPurpose.Text = donor.Purpose;
+                txtPurpose.Text = donor.Occasion;
                 txtGothram.Text = donor.Gothram;
                                 
                 txtLandline.Text = donor.Landline;
@@ -1066,6 +1072,21 @@ namespace eTemple.UI
             }
             else
                 errorProvider1.Clear();
+
+            var transactionType = cmbTransaction.SelectedItem as TransactionType;
+
+            if (transactionType.Id == 2 || transactionType.Id == 3)
+            {
+                if (txtTransaction.Text == "" || txtTransaction.Text==string.Empty)
+                {
+                    errorProvider1.SetError(txtTransaction, "Need to enter the details");
+                    needValidate = false;
+                    return needValidate;
+                }
+                else
+                    errorProvider1.Clear();
+            }       
+            
             //if (txtOccassion.Text == "" || txtOccassion.Text == string.Empty)
             //{
             //    errorProvider1.SetError(txtOccassion, "Need to enter Occassion");
@@ -1222,6 +1243,13 @@ namespace eTemple.UI
                 }
                 else
                     errorProvider1.Clear();
+            }
+
+
+
+            if (true)
+            {
+
             }
 
             if (cmbMonthyAnnaThithi.Enabled == true)
@@ -1468,7 +1496,7 @@ namespace eTemple.UI
             txtLandline.Text = string.Empty;
             txtMobile.Text = string.Empty;
             txtEmailId.Text = string.Empty;
-            
+            txtTransaction.Text = string.Empty;
             bindData();
             btnUpdate.Visible = false;
             btnCancel.Visible = false;
@@ -1666,7 +1694,7 @@ namespace eTemple.UI
                     string[] starNameValue = bindStarName.Select(p => p.Name).ToArray();
                     cmbStar.SelectedIndex = cmbStar.FindString(starNameValue[0]);
 
-                    txtPurpose.Text = donorExists.Purpose;
+                    txtPurpose.Text = donorExists.Occasion;
                     txtGothram.Text = donorExists.Gothram;
                                         
                     txtLandline.Text = donorExists.Landline;
@@ -1691,6 +1719,7 @@ namespace eTemple.UI
                 lblTransactionDate.Visible = false;
                 cmbTransactionDate.Visible = false;
                 cmbTransaction.Enabled = true;
+                txtTransaction.Text = "";
             }
             else if (transactionType.Name== "Credit/Debit Card")
             {
@@ -1701,6 +1730,7 @@ namespace eTemple.UI
                 lblTransactionDate.Visible = false;
                 cmbTransactionDate.Visible = false;
                 cmbTransaction.Enabled = true;
+                txtTransaction.Text = "";
             }
             else if (transactionType.Name== "DD")
             {
@@ -1711,6 +1741,7 @@ namespace eTemple.UI
                 lblTransactionDate.Visible = true;
                 cmbTransactionDate.Visible = true;
                 cmbTransaction.Enabled = true;
+                txtTransaction.Text = "";
             }
             else if (transactionType.Name== "Cheque")
             {
@@ -1721,6 +1752,7 @@ namespace eTemple.UI
                 lblTransactionDate.Visible = true;
                 cmbTransactionDate.Visible = true;
                 cmbTransaction.Enabled = true;
+                txtTransaction.Text = "";
             }
         }
     }

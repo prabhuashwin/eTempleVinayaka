@@ -48,7 +48,7 @@ namespace eTemple.Data.Models
         public int Star { get; set; }
 
         
-        public string Purpose { get; set; }
+        public string Occasion { get; set; }
 
         
         public string Gothram { get; set; }

@@ -173,7 +173,7 @@ namespace eTemple.Data.Repositories
         public string insertDonorInformation(Donors donor)
         {
             string insertStatus = string.Empty;
-            string commandText = "INSERT INTO donors(Id,Donordate,Surname,DonorName,DistrictName,City,Pin,State,Country,NameOn,Star,Purpose,Gothram,Amount,MR_No,Remarks,Landline,SpecialDayId,ServiceTypeId,ServiceNameId,DateTypeId,PerformDate,EmailId,DonorMonth,Thidhi,DonorDay,Mobile,DonorThithi,DoorNo,Mandal,TransactionTypeId,TransactionID,TransactionDate)VALUES(@Id, @Donordate,@Surname,@DonorName,@DistrictName,@City,@Pin,@State,@Country,@NameOn,@Star,@Purpose,@Gothram,@Amount,@MR_No,@Remarks,@Landline,@SpecialDayId,@ServiceTypeId,@ServiceNameId,@DateTypeId,@PerformDate,@EmailId,@DonorMonth,@Thidhi,@DonorDay,@Mobile,@DonorThithi,@DoorNo,@Mandal,@TransactionTypeId,@TransactionID,@TransactionDate)";
+            string commandText = "INSERT INTO donors(Id,Donordate,Surname,DonorName,DistrictName,City,Pin,State,Country,NameOn,Star,Occasion,Gothram,Amount,MR_No,Remarks,Landline,SpecialDayId,ServiceTypeId,ServiceNameId,DateTypeId,PerformDate,EmailId,DonorMonth,Thidhi,DonorDay,Mobile,DonorThithi,DoorNo,Mandal,TransactionTypeId,TransactionID,TransactionDate)VALUES(@Id, @Donordate,@Surname,@DonorName,@DistrictName,@City,@Pin,@State,@Country,@NameOn,@Star,@Occasion,@Gothram,@Amount,@MR_No,@Remarks,@Landline,@SpecialDayId,@ServiceTypeId,@ServiceNameId,@DateTypeId,@PerformDate,@EmailId,@DonorMonth,@Thidhi,@DonorDay,@Mobile,@DonorThithi,@DoorNo,@Mandal,@TransactionTypeId,@TransactionID,@TransactionDate)";
 
             using (MySqlConnection conn = new MySqlConnection(strConn))
             {
@@ -197,7 +197,7 @@ namespace eTemple.Data.Repositories
                             cmd.Parameters.AddWithValue("@Country", donor.Country.NullString());
                             cmd.Parameters.AddWithValue("@NameOn", donor.NameOn);
                             cmd.Parameters.AddWithValue("@Star", donor.Star);
-                            cmd.Parameters.AddWithValue("@Purpose", donor.Purpose);
+                            cmd.Parameters.AddWithValue("@Occasion", donor.Occasion);
                             cmd.Parameters.AddWithValue("@Gothram", donor.Gothram.NullString());
                             cmd.Parameters.AddWithValue("@Amount", donor.Amount);
                             cmd.Parameters.AddWithValue("@MR_No", donor.MR_No.NullString());
@@ -251,7 +251,7 @@ namespace eTemple.Data.Repositories
         public string updateDonorInformation(Donors donor)
         {
             string updateStatus = string.Empty;
-            string commandText = "update donors set Donordate=@Donordate,Address=@Address,Surname=@Surname,DonorName=@DonorName,DistrictName=@DistrictName,City=@City,Pin=@Pin,State=@State,Country=@Country,NameOn=@NameOn,Star=@Star,Occassion=@Occassion,Gothram=@Gothram,Amount=@Amount,MR_No=@MR_No,Remarks=@Remarks,Landline=@Landline,SpecialDayId=@SpecialDayId,ServiceTypeId=@ServiceTypeId,ServiceNameId=@ServiceNameId,DateTypeId=@DateTypeId,PerformDate=@PerformDate,EmailId=@EmailId,DonorMonth=@DonorMonth,Thidhi=@Thidhi,DonorDay=@DonorDay,Mobile=@Mobile,DonorThithi=@DonorThithi,DoorNo=@DoorNo,Mandal=@Mandal,TransactionTypeId=@TransactionTypeId,TransactionID=@TransactionID,TransactionDate=@TransactionDate WHERE Id = @Id";
+            string commandText = "update donors set Donordate=@Donordate,DonorName=@DonorName,DistrictName=@DistrictName,City=@City,Pin=@Pin,State=@State,NameOn=@NameOn,Star=@Star,Occasion=@Occasion,Gothram=@Gothram,Amount=@Amount,MR_No=@MR_No,Remarks=@Remarks,Landline=@Landline,SpecialDayId=@SpecialDayId,ServiceTypeId=@ServiceTypeId,ServiceNameId=@ServiceNameId,DateTypeId=@DateTypeId,PerformDate=@PerformDate,EmailId=@EmailId,DonorMonth=@DonorMonth,Thidhi=@Thidhi,DonorDay=@DonorDay,Mobile=@Mobile,DonorThithi=@DonorThithi,DoorNo=@DoorNo,Mandal=@Mandal,TransactionTypeId=@TransactionTypeId,TransactionID=@TransactionID,TransactionDate=@TransactionDate WHERE Id = @Id";
 
 
             using (MySqlConnection conn = new MySqlConnection(strConn))
@@ -266,17 +266,16 @@ namespace eTemple.Data.Repositories
                             cmd.CommandType = CommandType.Text;
                             cmd.Parameters.AddWithValue("@Id", donor.Id);
                             cmd.Parameters.AddWithValue("@Donordate", donor.Donordate);
-                            cmd.Parameters.AddWithValue("@Address", donor.Address.NullString());
-                            cmd.Parameters.AddWithValue("@Surname", donor.Surname.NullString());
+                            
                             cmd.Parameters.AddWithValue("@DonorName", donor.DonorName.NullString());
                             cmd.Parameters.AddWithValue("@DistrictName", donor.DistrictName.NullString());
                             cmd.Parameters.AddWithValue("@City", donor.City.NullString());
                             cmd.Parameters.AddWithValue("@Pin", donor.Pin.NullString());
                             cmd.Parameters.AddWithValue("@State", donor.State.NullString());
-                            cmd.Parameters.AddWithValue("@Country", donor.Country.NullString());
+                           
                             cmd.Parameters.AddWithValue("@NameOn", donor.NameOn);
                             cmd.Parameters.AddWithValue("@Star", donor.Star);
-                            
+                            cmd.Parameters.AddWithValue("@Occasion", donor.Occasion);
                             cmd.Parameters.AddWithValue("@Gothram", donor.Gothram.NullString());
                             cmd.Parameters.AddWithValue("@Amount", donor.Amount);
                             cmd.Parameters.AddWithValue("@MR_No", donor.MR_No.NullString());

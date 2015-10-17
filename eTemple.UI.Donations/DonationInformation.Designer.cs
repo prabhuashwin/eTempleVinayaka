@@ -51,6 +51,8 @@
             this.lblAmountType = new System.Windows.Forms.Label();
             this.cmbStar = new System.Windows.Forms.ComboBox();
             this.grpBoxGeneralInfo = new System.Windows.Forms.GroupBox();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.lblAmount = new System.Windows.Forms.Label();
             this.lblTransactionID = new System.Windows.Forms.Label();
             this.txtMandal = new System.Windows.Forms.TextBox();
             this.lblMandal = new System.Windows.Forms.Label();
@@ -96,8 +98,10 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnQuickDailyAnna = new System.Windows.Forms.Button();
-            this.lblAmount = new System.Windows.Forms.Label();
-            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.lblDonorId = new System.Windows.Forms.Label();
+            this.txtDonorId = new System.Windows.Forms.TextBox();
+            this.lblMRNO = new System.Windows.Forms.Label();
+            this.txtMRNo = new System.Windows.Forms.TextBox();
             this.grpBoxGeneralInfo.SuspendLayout();
             this.grpServiceInfo.SuspendLayout();
             this.grpOtherInfo.SuspendLayout();
@@ -341,6 +345,10 @@
             // 
             // grpBoxGeneralInfo
             // 
+            this.grpBoxGeneralInfo.Controls.Add(this.txtMRNo);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblMRNO);
+            this.grpBoxGeneralInfo.Controls.Add(this.txtDonorId);
+            this.grpBoxGeneralInfo.Controls.Add(this.lblDonorId);
             this.grpBoxGeneralInfo.Controls.Add(this.txtAmount);
             this.grpBoxGeneralInfo.Controls.Add(this.lblAmount);
             this.grpBoxGeneralInfo.Controls.Add(this.lblTransactionID);
@@ -386,10 +394,26 @@
             this.grpBoxGeneralInfo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.grpBoxGeneralInfo.Name = "grpBoxGeneralInfo";
             this.grpBoxGeneralInfo.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.grpBoxGeneralInfo.Size = new System.Drawing.Size(938, 352);
+            this.grpBoxGeneralInfo.Size = new System.Drawing.Size(945, 352);
             this.grpBoxGeneralInfo.TabIndex = 36;
             this.grpBoxGeneralInfo.TabStop = false;
             this.grpBoxGeneralInfo.Text = "General Information";
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Location = new System.Drawing.Point(718, 79);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(200, 25);
+            this.txtAmount.TabIndex = 513;
+            // 
+            // lblAmount
+            // 
+            this.lblAmount.AutoSize = true;
+            this.lblAmount.Location = new System.Drawing.Point(658, 82);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(58, 17);
+            this.lblAmount.TabIndex = 512;
+            this.lblAmount.Text = "Amount";
             // 
             // lblTransactionID
             // 
@@ -568,7 +592,7 @@
             this.grpServiceInfo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.grpServiceInfo.Name = "grpServiceInfo";
             this.grpServiceInfo.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.grpServiceInfo.Size = new System.Drawing.Size(938, 70);
+            this.grpServiceInfo.Size = new System.Drawing.Size(945, 70);
             this.grpServiceInfo.TabIndex = 37;
             this.grpServiceInfo.TabStop = false;
             this.grpServiceInfo.Text = "Service Information";
@@ -642,7 +666,7 @@
             this.grpOtherInfo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.grpOtherInfo.Name = "grpOtherInfo";
             this.grpOtherInfo.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.grpOtherInfo.Size = new System.Drawing.Size(938, 119);
+            this.grpOtherInfo.Size = new System.Drawing.Size(945, 119);
             this.grpOtherInfo.TabIndex = 42;
             this.grpOtherInfo.TabStop = false;
             this.grpOtherInfo.Text = "Other Information";
@@ -892,21 +916,41 @@
             this.btnQuickDailyAnna.Visible = false;
             this.btnQuickDailyAnna.Click += new System.EventHandler(this.btnQuickDailyAnna_Click);
             // 
-            // lblAmount
+            // lblDonorId
             // 
-            this.lblAmount.AutoSize = true;
-            this.lblAmount.Location = new System.Drawing.Point(658, 82);
-            this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(58, 17);
-            this.lblAmount.TabIndex = 512;
-            this.lblAmount.Text = "Amount";
+            this.lblDonorId.AutoSize = true;
+            this.lblDonorId.Location = new System.Drawing.Point(317, 330);
+            this.lblDonorId.Name = "lblDonorId";
+            this.lblDonorId.Size = new System.Drawing.Size(59, 17);
+            this.lblDonorId.TabIndex = 202;
+            this.lblDonorId.Text = "DonorId";
+            this.lblDonorId.Visible = false;
             // 
-            // txtAmount
+            // txtDonorId
             // 
-            this.txtAmount.Location = new System.Drawing.Point(718, 79);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(200, 25);
-            this.txtAmount.TabIndex = 513;
+            this.txtDonorId.Location = new System.Drawing.Point(441, 327);
+            this.txtDonorId.Name = "txtDonorId";
+            this.txtDonorId.Size = new System.Drawing.Size(200, 25);
+            this.txtDonorId.TabIndex = 514;
+            this.txtDonorId.Visible = false;
+            // 
+            // lblMRNO
+            // 
+            this.lblMRNO.AutoSize = true;
+            this.lblMRNO.Location = new System.Drawing.Point(658, 333);
+            this.lblMRNO.Name = "lblMRNO";
+            this.lblMRNO.Size = new System.Drawing.Size(52, 17);
+            this.lblMRNO.TabIndex = 202;
+            this.lblMRNO.Text = "MRNO";
+            this.lblMRNO.Visible = false;
+            // 
+            // txtMRNo
+            // 
+            this.txtMRNo.Location = new System.Drawing.Point(718, 325);
+            this.txtMRNo.Name = "txtMRNo";
+            this.txtMRNo.Size = new System.Drawing.Size(200, 25);
+            this.txtMRNo.TabIndex = 41;
+            this.txtMRNo.Visible = false;
             // 
             // DonationInformation
             // 
@@ -1010,5 +1054,9 @@
         private System.Windows.Forms.Label lblTransactionID;
         private System.Windows.Forms.Label lblAmount;
         private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.Label lblDonorId;
+        private System.Windows.Forms.TextBox txtDonorId;
+        private System.Windows.Forms.TextBox txtMRNo;
+        private System.Windows.Forms.Label lblMRNO;
     }
 }

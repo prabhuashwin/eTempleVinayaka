@@ -107,6 +107,13 @@ namespace eTemple.Data.Models
         public string TransactionId { get; set; }
 
         public string TransactionDate { get; set; }
+
+        
+        public int? CreatedBy { get; set; }
+        
+        public int? ModifiedBy { get; set; }
+        
+        public DateTime? ModifiedDate { get; set; }
     }
 }
 

@@ -154,7 +154,7 @@ namespace eTemple.Data.Models
 		[Column] public string Country { get; set; }
 		[Column] public string NameOn { get; set; }
 		[Column] public int? Star { get; set; }
-		[Column] public string Occasion { get; set; }
+		[Column] public string occasion { get; set; }
 		[Column] public string Gothram { get; set; }
 		[Column] public decimal Amount { get; set; }
 		[Column] public string MR_No { get; set; }
@@ -175,6 +175,9 @@ namespace eTemple.Data.Models
 		[Column] public int? TransactionTypeId { get; set; }
 		[Column] public string TransactionID { get; set; }
 		[Column] public string TransactionDate { get; set; }
+		[Column] public int? CreatedBy { get; set; }
+		[Column] public int? ModifiedBy { get; set; }
+		[Column] public DateTime? ModifiedDate { get; set; }
 	}
     
 	[TableName("donors_backup")]
@@ -213,22 +216,19 @@ namespace eTemple.Data.Models
 	}
     
 	[TableName("employees")]
-	[PrimaryKey("Id")]
+	[PrimaryKey("Id", autoIncrement=false)]
 	[ExplicitColumns]
     public partial class employee : eTempleDbDB.Record<employee>  
     {
 		[Column] public int Id { get; set; }
 		[Column] public string Name { get; set; }
-		[Column] public int Designation { get; set; }
 		[Column] public int Role { get; set; }
-		[Column] public sbyte AllowLogin { get; set; }
 		[Column] public string LoginId { get; set; }
 		[Column] public string Password { get; set; }
-		[Column] public sbyte IsDeleted { get; set; }
 		[Column] public int? CreatedBy { get; set; }
 		[Column] public DateTime? CreatedOn { get; set; }
-		[Column] public DateTime? ModifiedOn { get; set; }
 		[Column] public int? ModifiedBy { get; set; }
+		[Column] public DateTime? ModifiedOn { get; set; }
 	}
     
 	[TableName("gothrams")]
@@ -312,15 +312,10 @@ namespace eTemple.Data.Models
 		[Column] public string Name { get; set; }
 		[Column] public int IsDateRelated { get; set; }
 		[Column] public int? Cost { get; set; }
-
-        [Column]
-        public int? CreatedBy { get; set; }
-        [Column]
-        public DateTime? CreatedOn { get; set; }
-        [Column]
-        public DateTime? ModifiedOn { get; set; }
-        [Column]
-        public int? ModifiedBy { get; set; }
+		[Column] public DateTime? CreatedOn { get; set; }
+		[Column] public int? CreatedBy { get; set; }
+		[Column] public int? ModifiedBy { get; set; }
+		[Column] public DateTime? ModifiedOn { get; set; }
 	}
     
 	[TableName("specialday")]
@@ -369,7 +364,6 @@ namespace eTemple.Data.Models
 		[Column] public string Name { get; set; }
 	}
     
-	
 	[TableName("transactiontype")]
 	[PrimaryKey("Id", autoIncrement=false)]
 	[ExplicitColumns]
@@ -852,7 +846,7 @@ namespace eTemple.Data.Models
     public partial class thread : eTempleDbDB.Record<thread>  
     {
 	}
-    
+   
 	[TableName("actor")]
 	[ExplicitColumns]
     public partial class actor : eTempleDbDB.Record<actor>  
@@ -948,7 +942,7 @@ namespace eTemple.Data.Models
     public partial class store : eTempleDbDB.Record<store>  
     {
 	}
-        
+    
 	[TableName("countrylanguage")]
 	[ExplicitColumns]
     public partial class countrylanguage : eTempleDbDB.Record<countrylanguage>  

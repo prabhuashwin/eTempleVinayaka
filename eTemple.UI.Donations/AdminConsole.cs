@@ -18,7 +18,6 @@ namespace eTemple.UI.Donations
 
         public AdminConsole()
         {
-            InitializeComponent();
             
             InitializeComponent();
             this.MaximizeBox = false;

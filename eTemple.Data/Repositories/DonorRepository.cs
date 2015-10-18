@@ -173,7 +173,7 @@ namespace eTemple.Data.Repositories
         public string insertDonorInformation(Donors donor)
         {
             string insertStatus = string.Empty;
-            string commandText = "INSERT INTO donors(Id,Donordate,Surname,DonorName,DistrictName,City,Pin,State,Country,NameOn,Star,Occasion,Gothram,Amount,MR_No,Remarks,Landline,SpecialDayId,ServiceTypeId,ServiceNameId,DateTypeId,PerformDate,EmailId,DonorMonth,Thidhi,DonorDay,Mobile,DonorThithi,DoorNo,Mandal,TransactionTypeId,TransactionID,TransactionDate)VALUES(@Id, @Donordate,@Surname,@DonorName,@DistrictName,@City,@Pin,@State,@Country,@NameOn,@Star,@Occasion,@Gothram,@Amount,@MR_No,@Remarks,@Landline,@SpecialDayId,@ServiceTypeId,@ServiceNameId,@DateTypeId,@PerformDate,@EmailId,@DonorMonth,@Thidhi,@DonorDay,@Mobile,@DonorThithi,@DoorNo,@Mandal,@TransactionTypeId,@TransactionID,@TransactionDate)";
+            string commandText = "INSERT INTO donors(Id,Donordate,Surname,DonorName,DistrictName,City,Pin,State,Country,NameOn,Star,Occasion,Gothram,Amount,MR_No,Remarks,Landline,SpecialDayId,ServiceTypeId,ServiceNameId,DateTypeId,PerformDate,EmailId,DonorMonth,Thidhi,DonorDay,Mobile,DonorThithi,DoorNo,Mandal,TransactionTypeId,TransactionID,TransactionDate,CreatedBy)VALUES(@Id, @Donordate,@Surname,@DonorName,@DistrictName,@City,@Pin,@State,@Country,@NameOn,@Star,@Occasion,@Gothram,@Amount,@MR_No,@Remarks,@Landline,@SpecialDayId,@ServiceTypeId,@ServiceNameId,@DateTypeId,@PerformDate,@EmailId,@DonorMonth,@Thidhi,@DonorDay,@Mobile,@DonorThithi,@DoorNo,@Mandal,@TransactionTypeId,@TransactionID,@TransactionDate,@CreatedBy)";
 
             using (MySqlConnection conn = new MySqlConnection(strConn))
             {
@@ -219,6 +219,7 @@ namespace eTemple.Data.Repositories
                             cmd.Parameters.AddWithValue("@TransactionTypeId", donor.TransactionTypeId);
                             cmd.Parameters.AddWithValue("@TransactionID", donor.TransactionId.NullString());
                             cmd.Parameters.AddWithValue("@TransactionDate", donor.TransactionDate.NullString());
+                            cmd.Parameters.AddWithValue("@CreatedBy", donor.CreatedBy);
 
                             cmd.ExecuteNonQuery();
                             insertStatus = "Success";
@@ -251,7 +252,7 @@ namespace eTemple.Data.Repositories
         public string updateDonorInformation(Donors donor)
         {
             string updateStatus = string.Empty;
-            string commandText = "update donors set Donordate=@Donordate,DonorName=@DonorName,DistrictName=@DistrictName,City=@City,Pin=@Pin,State=@State,NameOn=@NameOn,Star=@Star,Occasion=@Occasion,Gothram=@Gothram,Amount=@Amount,MR_No=@MR_No,Remarks=@Remarks,Landline=@Landline,SpecialDayId=@SpecialDayId,ServiceTypeId=@ServiceTypeId,ServiceNameId=@ServiceNameId,DateTypeId=@DateTypeId,PerformDate=@PerformDate,EmailId=@EmailId,DonorMonth=@DonorMonth,Thidhi=@Thidhi,DonorDay=@DonorDay,Mobile=@Mobile,DonorThithi=@DonorThithi,DoorNo=@DoorNo,Mandal=@Mandal,TransactionTypeId=@TransactionTypeId,TransactionID=@TransactionID,TransactionDate=@TransactionDate WHERE Id = @Id";
+            string commandText = "update donors set Donordate=@Donordate,DonorName=@DonorName,DistrictName=@DistrictName,City=@City,Pin=@Pin,State=@State,NameOn=@NameOn,Star=@Star,Occasion=@Occasion,Gothram=@Gothram,Amount=@Amount,MR_No=@MR_No,Remarks=@Remarks,Landline=@Landline,SpecialDayId=@SpecialDayId,ServiceTypeId=@ServiceTypeId,ServiceNameId=@ServiceNameId,DateTypeId=@DateTypeId,PerformDate=@PerformDate,EmailId=@EmailId,DonorMonth=@DonorMonth,Thidhi=@Thidhi,DonorDay=@DonorDay,Mobile=@Mobile,DonorThithi=@DonorThithi,DoorNo=@DoorNo,Mandal=@Mandal,TransactionTypeId=@TransactionTypeId,TransactionID=@TransactionID,TransactionDate=@TransactionDate,ModifiedBy=@ModifiedBy,ModifiedDate=@ModifiedDate WHERE Id = @Id";
 
 
             using (MySqlConnection conn = new MySqlConnection(strConn))
@@ -297,6 +298,8 @@ namespace eTemple.Data.Repositories
                             cmd.Parameters.AddWithValue("@TransactionTypeId", donor.TransactionTypeId);
                             cmd.Parameters.AddWithValue("@TransactionID", donor.TransactionId.NullString());
                             cmd.Parameters.AddWithValue("@TransactionDate", donor.TransactionDate.NullString());
+                            cmd.Parameters.AddWithValue("@ModifiedBy", donor.ModifiedBy);
+                            cmd.Parameters.AddWithValue("@ModifiedDate", donor.ModifiedDate);
 
                             cmd.ExecuteNonQuery();
                             updateStatus = "Success";

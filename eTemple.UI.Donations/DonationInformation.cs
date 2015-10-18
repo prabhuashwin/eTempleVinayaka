@@ -237,7 +237,8 @@ namespace eTemple.UI
                     Thidhi = selectedThithiId,
                     DonorDay = selectedDayId,
                     Mobile = txtMobile.Text,
-                    DonorThithi = selectedDonorThithi
+                    DonorThithi = selectedDonorThithi,
+                    CreatedBy = ApplicationElements.loggedInEmployee.Id
                 };
                 string performDate_ForPrint = string.Empty;
                 var selecteddtType=cmbDateType.SelectedItem as DateType;
@@ -718,7 +719,9 @@ namespace eTemple.UI
                 Thidhi = selectedThithiId,
                 DonorDay = selectedDayId,
                 Mobile = txtMobile.Text,
-                DonorThithi = selectedDonorThithi
+                DonorThithi = selectedDonorThithi,
+                ModifiedBy = ApplicationElements.loggedInEmployee.Id,
+                ModifiedDate = donorDate
             };
 
             string updateStatus = donorRepo.updateDonorInformation(donorUpdateInfo);

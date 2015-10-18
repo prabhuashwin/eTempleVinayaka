@@ -26,7 +26,7 @@ namespace eTemple.UI.Donations
             InitializeComponent();
             empRepo = new EmployeeRepository();
             roleRepo = new RoleRepository();
-            //HideControls(false);
+            HideControls(false);
         }
 
         public void HideControls(bool showhide)

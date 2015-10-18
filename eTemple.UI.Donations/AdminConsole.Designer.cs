@@ -86,17 +86,18 @@
             // 
             // pnlBody
             // 
+            this.pnlBody.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.pnlBody.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlBody.Location = new System.Drawing.Point(0, 78);
             this.pnlBody.Name = "pnlBody";
-            this.pnlBody.Size = new System.Drawing.Size(971, 650);
+            this.pnlBody.Size = new System.Drawing.Size(971, 480);
             this.pnlBody.TabIndex = 5;
             // 
             // AdminConsole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 730);
+            this.ClientSize = new System.Drawing.Size(971, 446);
             this.Controls.Add(this.pnlBody);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);

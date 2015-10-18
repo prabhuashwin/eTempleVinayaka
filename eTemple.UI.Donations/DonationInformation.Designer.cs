@@ -345,6 +345,7 @@
             // 
             // grpBoxGeneralInfo
             // 
+            this.grpBoxGeneralInfo.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.grpBoxGeneralInfo.Controls.Add(this.txtMRNo);
             this.grpBoxGeneralInfo.Controls.Add(this.lblMRNO);
             this.grpBoxGeneralInfo.Controls.Add(this.txtDonorId);
@@ -445,6 +446,7 @@
             // lblAmount
             // 
             this.lblAmount.AutoSize = true;
+            this.lblAmount.BackColor = System.Drawing.Color.Transparent;
             this.lblAmount.Location = new System.Drawing.Point(658, 82);
             this.lblAmount.Name = "lblAmount";
             this.lblAmount.Size = new System.Drawing.Size(58, 17);
@@ -454,6 +456,7 @@
             // lblTransactionID
             // 
             this.lblTransactionID.AutoSize = true;
+            this.lblTransactionID.BackColor = System.Drawing.Color.Transparent;
             this.lblTransactionID.Location = new System.Drawing.Point(327, 131);
             this.lblTransactionID.Name = "lblTransactionID";
             this.lblTransactionID.Size = new System.Drawing.Size(102, 17);
@@ -471,6 +474,7 @@
             // lblMandal
             // 
             this.lblMandal.AutoSize = true;
+            this.lblMandal.BackColor = System.Drawing.Color.Transparent;
             this.lblMandal.Location = new System.Drawing.Point(658, 231);
             this.lblMandal.Name = "lblMandal";
             this.lblMandal.Size = new System.Drawing.Size(54, 17);
@@ -487,6 +491,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(317, 235);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 17);
@@ -504,6 +509,7 @@
             // lblTransactionDate
             // 
             this.lblTransactionDate.AutoSize = true;
+            this.lblTransactionDate.BackColor = System.Drawing.Color.Transparent;
             this.lblTransactionDate.Location = new System.Drawing.Point(658, 131);
             this.lblTransactionDate.Name = "lblTransactionDate";
             this.lblTransactionDate.Size = new System.Drawing.Size(39, 17);
@@ -522,6 +528,7 @@
             // lblNumberBank
             // 
             this.lblNumberBank.AutoSize = true;
+            this.lblNumberBank.BackColor = System.Drawing.Color.Transparent;
             this.lblNumberBank.Location = new System.Drawing.Point(317, 131);
             this.lblNumberBank.Name = "lblNumberBank";
             this.lblNumberBank.Size = new System.Drawing.Size(125, 17);
@@ -619,12 +626,13 @@
             // 
             // grpServiceInfo
             // 
+            this.grpServiceInfo.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.grpServiceInfo.Controls.Add(this.cmbServiceName);
             this.grpServiceInfo.Controls.Add(this.lblServiceName);
             this.grpServiceInfo.Controls.Add(this.cmbServiceType);
             this.grpServiceInfo.Controls.Add(this.lblServiceType);
             this.grpServiceInfo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpServiceInfo.Location = new System.Drawing.Point(2, 357);
+            this.grpServiceInfo.Location = new System.Drawing.Point(2, 356);
             this.grpServiceInfo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.grpServiceInfo.Name = "grpServiceInfo";
             this.grpServiceInfo.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -681,6 +689,7 @@
             // 
             // grpOtherInfo
             // 
+            this.grpOtherInfo.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.grpOtherInfo.Controls.Add(this.cmbMonthyAnnaThithi);
             this.grpOtherInfo.Controls.Add(this.lblMonthyAnnaThithi);
             this.grpOtherInfo.Controls.Add(this.rbdTelugu);
@@ -698,7 +707,7 @@
             this.grpOtherInfo.Controls.Add(this.cmbDateType);
             this.grpOtherInfo.Controls.Add(this.lblDateType);
             this.grpOtherInfo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpOtherInfo.Location = new System.Drawing.Point(2, 431);
+            this.grpOtherInfo.Location = new System.Drawing.Point(2, 426);
             this.grpOtherInfo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.grpOtherInfo.Name = "grpOtherInfo";
             this.grpOtherInfo.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);

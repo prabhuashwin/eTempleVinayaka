@@ -58,6 +58,13 @@
     <Compile Include="AddressForm.Designer.cs">
       <DependentUpon>AddressForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminConsole.Designer.cs">
+      <DependentUpon>AdminConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationElements.cs" />
     <Compile Include="DailyAnnadanam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +116,30 @@
     <Compile Include="EnquiryDetailsUI.Designer.cs">
       <DependentUpon>EnquiryDetailsUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEmployeeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageEmployeeDetails.Designer.cs">
+      <DependentUpon>ManageEmployeeDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagementConsole.Designer.cs">
+      <DependentUpon>ManagementConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageServiceDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageServiceDetails.Designer.cs">
+      <DependentUpon>ManageServiceDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModifyPopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +169,9 @@
     <EmbeddedResource Include="AddressForm.resx">
       <DependentUpon>AddressForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminConsole.resx">
+      <DependentUpon>AdminConsole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DailyAnnadanam.resx">
       <DependentUpon>DailyAnnadanam.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +192,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EnquiryDetailsUI.resx">
       <DependentUpon>EnquiryDetailsUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageEmployeeDetails.resx">
+      <DependentUpon>ManageEmployeeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagementConsole.resx">
+      <DependentUpon>ManagementConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageServiceDetails.resx">
+      <DependentUpon>ManageServiceDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyPopup.resx">
       <DependentUpon>ModifyPopup.cs</DependentUpon>
@@ -215,8 +261,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\AdminModule.jpg" />
     <Content Include="Resources\bgimage.png" />
     <Content Include="Resources\Body.jpg" />
+    <None Include="Resources\image_newnew.png" />
+    <Content Include="Resources\donate-now-button1.gif" />
     <Content Include="Resources\logo.png" />
     <Content Include="Resources\logo1.png" />
     <Content Include="Resources\logo_signin.png" />

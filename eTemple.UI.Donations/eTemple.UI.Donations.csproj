@@ -160,6 +160,12 @@
     <Compile Include="ServerReportAddresses.Designer.cs">
       <DependentUpon>ServerReportAddresses.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiceReportOperatorWise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceReportOperatorWise.Designer.cs">
+      <DependentUpon>ServiceReportOperatorWise.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServiceReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServerReportAddresses.resx">
       <DependentUpon>ServerReportAddresses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceReportOperatorWise.resx">
+      <DependentUpon>ServiceReportOperatorWise.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServiceReportForm.resx">
       <DependentUpon>ServiceReportForm.cs</DependentUpon>

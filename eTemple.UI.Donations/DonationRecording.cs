@@ -20,6 +20,7 @@ namespace eTemple.UI.Donations
         private DonationRecording oDonationRecording;
         private ServiceReportForm oServiceReportForm;
         private ServerReportAddresses oServerReportAddresses;
+        private ServiceReportOperatorWise oServiceReportOperatorWise;
         public DonationRecording()
         {
             InitializeComponent();
@@ -143,6 +144,18 @@ namespace eTemple.UI.Donations
             //oDCRReportForm.MdiParent = this;
             oServerReportAddresses.WindowState = FormWindowState.Maximized;
             oServerReportAddresses.Show();
+        }
+
+        private void operatorWiseReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formDispose();
+            oServiceReportOperatorWise = new ServiceReportOperatorWise();
+            oServiceReportOperatorWise.TopLevel = false;
+            pnlBody.Controls.Add(oServiceReportOperatorWise);
+            oServiceReportOperatorWise.Location = new Point(0, 0);
+            //oDCRReportForm.MdiParent = this;
+            oServiceReportOperatorWise.WindowState = FormWindowState.Maximized;
+            oServiceReportOperatorWise.Show();
         }
 
     }

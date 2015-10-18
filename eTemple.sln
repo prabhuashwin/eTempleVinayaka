@@ -28,6 +28,8 @@ Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "AinavilliAnnadanamsetup", "
 		{7AB6A05B-A33E-4FB4-AAE3-055964C9A908} = {7AB6A05B-A33E-4FB4-AAE3-055964C9A908}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTemple.Management", "eTemple.Management\eTemple.Management.csproj", "{3DB2BE15-7348-4835-8434-610E9045FD10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -95,6 +97,16 @@ Global
 		{D6FD0F35-B083-4C86-A357-AFF72B7C040D}.Release|Any CPU.Build.0 = SingleImage
 		{D6FD0F35-B083-4C86-A357-AFF72B7C040D}.SingleImage|Any CPU.ActiveCfg = SingleImage
 		{D6FD0F35-B083-4C86-A357-AFF72B7C040D}.SingleImage|Any CPU.Build.0 = SingleImage
+		{3DB2BE15-7348-4835-8434-610E9045FD10}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB2BE15-7348-4835-8434-610E9045FD10}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{3DB2BE15-7348-4835-8434-610E9045FD10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB2BE15-7348-4835-8434-610E9045FD10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DB2BE15-7348-4835-8434-610E9045FD10}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB2BE15-7348-4835-8434-610E9045FD10}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{3DB2BE15-7348-4835-8434-610E9045FD10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB2BE15-7348-4835-8434-610E9045FD10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DB2BE15-7348-4835-8434-610E9045FD10}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB2BE15-7348-4835-8434-610E9045FD10}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

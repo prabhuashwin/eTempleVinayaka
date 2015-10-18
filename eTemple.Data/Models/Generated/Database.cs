@@ -312,6 +312,15 @@ namespace eTemple.Data.Models
 		[Column] public string Name { get; set; }
 		[Column] public int IsDateRelated { get; set; }
 		[Column] public int? Cost { get; set; }
+
+        [Column]
+        public int? CreatedBy { get; set; }
+        [Column]
+        public DateTime? CreatedOn { get; set; }
+        [Column]
+        public DateTime? ModifiedOn { get; set; }
+        [Column]
+        public int? ModifiedBy { get; set; }
 	}
     
 	[TableName("specialday")]

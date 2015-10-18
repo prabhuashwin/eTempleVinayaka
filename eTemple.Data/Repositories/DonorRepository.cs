@@ -118,6 +118,25 @@ namespace eTemple.Data.Repositories
             }
             return dsreturnObj;
         }
+
+        public DataSet getServiceReportByEmployee(string CreatedBy, string DonorDate)
+        {
+            using (MySqlConnection conn = new MySqlConnection(strConn))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(@"SELECT st.Name as servicename,sum(d.Amount) as totalcollection,count(1) as totalquantity,d.createdby FROM donors d
+                            inner join servicetypes st on d.ServiceTypeId=st.Id  where d.createdby=" + CreatedBy + " and d.donordate='" + DonorDate + "' group by d.createdby,d.ServiceTypeId", conn))
+                {
+                    using (MySqlDataAdapter da = new MySqlDataAdapter())
+                    {
+                        da.SelectCommand = cmd;
+                        dsreturnObj = new DataSet();
+                        da.Fill(dsreturnObj);
+                    }
+                }
+            }
+            return dsreturnObj;
+        }
+
         public Donors checkModifyDonorIDExists(string chkId)
         {
             var donors = TempleDb.SingleOrDefault<Donors>("Select * from Donors where Id=@0", chkId);

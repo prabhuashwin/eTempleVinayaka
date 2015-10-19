@@ -965,6 +965,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.ClientSize = new System.Drawing.Size(946, 601);
             this.Controls.Add(this.btnQuickDailyAnna);
             this.Controls.Add(this.btnCancel);

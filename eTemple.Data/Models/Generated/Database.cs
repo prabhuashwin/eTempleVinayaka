@@ -225,7 +225,7 @@ namespace eTemple.Data.Models
 		[Column] public int Role { get; set; }
 		[Column] public string LoginId { get; set; }
 		[Column] public string Password { get; set; }
-        [Column] public int Status { get; set; }
+		[Column] public int? Status { get; set; }
 		[Column] public int? CreatedBy { get; set; }
 		[Column] public DateTime? CreatedOn { get; set; }
 		[Column] public int? ModifiedBy { get; set; }
@@ -364,6 +364,24 @@ namespace eTemple.Data.Models
 		[Column] public int Id { get; set; }
 		[Column] public string Name { get; set; }
 	}
+    	
+    
+	[TableName("etemple_history")]
+	[PrimaryKey("Id")]
+	[ExplicitColumns]
+    public partial class etemple_history : eTempleDbDB.Record<etemple_history>  
+    {
+		[Column] public int Id { get; set; }
+		[Column] public int? Table_Id { get; set; }
+		[Column] public string Table_Name { get; set; }
+		[Column] public string Column_Name { get; set; }
+		[Column] public string DML_Type { get; set; }
+		[Column] public string old_value { get; set; }
+		[Column] public string new_value { get; set; }
+		[Column] public int? Action_By { get; set; }
+		[Column] public DateTime? Action_On { get; set; }
+	}
+    
     
 	[TableName("transactiontype")]
 	[PrimaryKey("Id", autoIncrement=false)]
@@ -847,7 +865,8 @@ namespace eTemple.Data.Models
     public partial class thread : eTempleDbDB.Record<thread>  
     {
 	}
-   
+    
+    
 	[TableName("actor")]
 	[ExplicitColumns]
     public partial class actor : eTempleDbDB.Record<actor>  
@@ -943,8 +962,8 @@ namespace eTemple.Data.Models
     public partial class store : eTempleDbDB.Record<store>  
     {
 	}
-    
-	[TableName("countrylanguage")]
+
+    [TableName("countrylanguage")]
 	[ExplicitColumns]
     public partial class countrylanguage : eTempleDbDB.Record<countrylanguage>  
     {

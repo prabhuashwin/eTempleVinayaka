@@ -47,12 +47,13 @@
             // chkIsDaterelated
             // 
             this.chkIsDaterelated.AutoSize = true;
+            this.chkIsDaterelated.BackColor = System.Drawing.Color.Transparent;
             this.chkIsDaterelated.Location = new System.Drawing.Point(822, 136);
             this.chkIsDaterelated.Name = "chkIsDaterelated";
             this.chkIsDaterelated.Size = new System.Drawing.Size(100, 17);
             this.chkIsDaterelated.TabIndex = 32;
             this.chkIsDaterelated.Text = "Is Date Related";
-            this.chkIsDaterelated.UseVisualStyleBackColor = true;
+            this.chkIsDaterelated.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
@@ -88,6 +89,7 @@
             // lblId
             // 
             this.lblId.AutoSize = true;
+            this.lblId.BackColor = System.Drawing.Color.Transparent;
             this.lblId.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.Location = new System.Drawing.Point(721, 45);
             this.lblId.Name = "lblId";
@@ -117,6 +119,7 @@
             // lblCost
             // 
             this.lblCost.AutoSize = true;
+            this.lblCost.BackColor = System.Drawing.Color.Transparent;
             this.lblCost.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCost.Location = new System.Drawing.Point(721, 168);
             this.lblCost.Name = "lblCost";
@@ -135,6 +138,7 @@
             // lblServiceName
             // 
             this.lblServiceName.AutoSize = true;
+            this.lblServiceName.BackColor = System.Drawing.Color.Transparent;
             this.lblServiceName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServiceName.Location = new System.Drawing.Point(721, 99);
             this.lblServiceName.Name = "lblServiceName";
@@ -178,6 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.ClientSize = new System.Drawing.Size(1012, 393);
             this.Controls.Add(this.chkIsDaterelated);
             this.Controls.Add(this.btnCancel);

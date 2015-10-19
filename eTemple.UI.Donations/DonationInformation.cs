@@ -40,6 +40,9 @@ namespace eTemple.UI
         public List<State> lstStates = null;
         public List<Gothrams> lstGothrams = null;
         public List<TokenPrint> lstTokenPrint = null;
+        public List<Donors> lstCityVillage = null;
+        public List<Donors> lstMandal = null;
+        public List<Donors> lstDistrict = null;
         public DonationInformation()
         {
             //dtpDate.MinDate = DateTime.Now;
@@ -297,6 +300,12 @@ namespace eTemple.UI
                     MessageBox.Show("Data inserted successfully.");
                     CleareAllcontrolsRecursive();
                     loadGothramAutoComplete();
+                    loadGothramAutoComplete();
+                    loadStateAutoComplete();
+                    loadCityVillageAutoComplete();
+                    loadMandalAutoComplete();
+                    loadDistrictAutoComplete();
+
                     try
                     {
                         SMSHelper smshelper = new SMSHelper();
@@ -1545,6 +1554,10 @@ namespace eTemple.UI
         {
             loadGothramAutoComplete();
             loadStateAutoComplete();
+            loadCityVillageAutoComplete();
+            loadMandalAutoComplete();
+            loadDistrictAutoComplete();
+            
             rbdEnglish.Visible = false;
             rbdTelugu.Visible = false;
         }
@@ -1562,6 +1575,46 @@ namespace eTemple.UI
             txtGothram.AutoCompleteCustomSource = strcoll;
         }
 
+        private void loadCityVillageAutoComplete()
+        {
+            lstCityVillage = donorRepo.GetCityVillageAsQuerable().ToList();
+            AutoCompleteStringCollection strcoll = new AutoCompleteStringCollection();
+            foreach (Donors ocityVillage in lstCityVillage)
+            {
+                strcoll.Add(ocityVillage.City);
+            }
+            txtCity.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtCity.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtCity.AutoCompleteCustomSource = strcoll;
+        }
+
+
+        private void loadMandalAutoComplete()
+        {
+            lstMandal = donorRepo.GetMandalAsQuerable().ToList();
+            AutoCompleteStringCollection strcoll = new AutoCompleteStringCollection();
+            foreach (Donors oMandal in lstMandal)
+            {
+                strcoll.Add(oMandal.Mandal);
+            }
+            txtMandal.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtMandal.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtMandal.AutoCompleteCustomSource = strcoll;
+        }
+
+        private void loadDistrictAutoComplete()
+        {
+            lstDistrict = donorRepo.GetDistrictAsQuerable().ToList();
+            AutoCompleteStringCollection strcoll = new AutoCompleteStringCollection();
+            foreach (Donors oDistrict in lstDistrict)
+            {
+                strcoll.Add(oDistrict.DistrictName);
+            }
+            txtDistrict.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtDistrict.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtDistrict.AutoCompleteCustomSource = strcoll;
+        }
+
         private void loadStateAutoComplete()
         {
             lstStates = stateRepo.GetAllAsQuerable().ToList();
@@ -1574,6 +1627,7 @@ namespace eTemple.UI
             txtState.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txtState.AutoCompleteCustomSource = strcoll;
         }
+
 
 
         private void cmbServiceName_SelectedIndexChanged(object sender, EventArgs e)

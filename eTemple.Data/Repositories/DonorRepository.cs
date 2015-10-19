@@ -372,5 +372,20 @@ namespace eTemple.Data.Repositories
         {
             TempleDb.Update(entity);
         }
+
+        public IEnumerable<Donors> GetCityVillageAsQuerable()
+        {
+            return TempleDb.Query<Donors>("SELECT distinct city FROM donors").ToList();
+        }
+
+        public IEnumerable<Donors> GetMandalAsQuerable()
+        {
+            return TempleDb.Query<Donors>("SELECT distinct Mandal FROM donors").ToList();
+        }
+
+        public IEnumerable<Donors> GetDistrictAsQuerable()
+        {
+            return TempleDb.Query<Donors>("SELECT distinct DistrictName FROM donors").ToList();
+        }
     }
 }

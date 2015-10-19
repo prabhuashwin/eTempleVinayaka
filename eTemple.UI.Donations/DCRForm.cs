@@ -110,8 +110,18 @@ namespace eTemple.UI.Donations
             reportViewer.HeaderWidthPercent = 100;
             reportViewer.ContentWidthPercent = 100;
             reportViewer.RowsPerPage = 30;
-            //reportViewer.HeaderContent = string.Format("<h2 style='margin-left:100px'>Daily Collection Report for the Date of {0:dd/MM/yyyy}</h2>", this.dtpFromDate.Value);
-            reportViewer.HeaderContent = string.Format("<div style='float: left; width: 350px;'>Date : {0: dd-MM-YYYY} </div>", dtFrmValue.Text);
+            var duration = dtToValue.Value - dtFrmValue.Value;
+
+            if (duration.Days > 0)
+            {
+                reportViewer.HeaderContent = string.Format("<center><h2>Daily Collection Report from {0:dd/MM/yyyy} to {1:dd/MM/yyyy}</h2></center>", this.dtFrmValue.Value, this.dtToValue.Value);
+            }
+            else
+            {
+                reportViewer.HeaderContent = string.Format("<center><h2>Daily Collection Report for the Date of {0:dd/MM/yyyy}</h2></center>", this.dtFrmValue.Value);
+            }
+            //reportViewer.HeaderContent = string.Format("<h2 style='margin-left:100px'>Daily Collection Report for the Date of {0:dd/MM/yyyy}</h2>", this.dtFrmValue.Text);
+            //reportViewer.HeaderContent = string.Format("<div style='float: left; width: 350px;'>Date : {0: dd-MM-YYYY} </div>", dtFrmValue.Text);
             reportViewer.GenerateFromGridView(this.dgvServiceReport, false);
             reportViewer.Show(this);
         }

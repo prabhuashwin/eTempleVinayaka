@@ -1582,6 +1582,7 @@ namespace eTemple.UI
             AutoCompleteStringCollection strcoll = new AutoCompleteStringCollection();
             foreach (Donors ocityVillage in lstCityVillage)
             {
+                if(ocityVillage.City!=null)
                 strcoll.Add(ocityVillage.City);
             }
             txtCity.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -1596,6 +1597,7 @@ namespace eTemple.UI
             AutoCompleteStringCollection strcoll = new AutoCompleteStringCollection();
             foreach (Donors oMandal in lstMandal)
             {
+                if (oMandal.Mandal != null)
                 strcoll.Add(oMandal.Mandal);
             }
             txtMandal.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -1609,6 +1611,7 @@ namespace eTemple.UI
             AutoCompleteStringCollection strcoll = new AutoCompleteStringCollection();
             foreach (Donors oDistrict in lstDistrict)
             {
+                if (oDistrict.DistrictName != null)
                 strcoll.Add(oDistrict.DistrictName);
             }
             txtDistrict.AutoCompleteMode = AutoCompleteMode.Suggest;

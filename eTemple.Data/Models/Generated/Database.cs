@@ -225,6 +225,7 @@ namespace eTemple.Data.Models
 		[Column] public int Role { get; set; }
 		[Column] public string LoginId { get; set; }
 		[Column] public string Password { get; set; }
+        [Column] public int Status { get; set; }
 		[Column] public int? CreatedBy { get; set; }
 		[Column] public DateTime? CreatedOn { get; set; }
 		[Column] public int? ModifiedBy { get; set; }

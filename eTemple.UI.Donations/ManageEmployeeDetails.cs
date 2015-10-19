@@ -172,13 +172,36 @@ namespace eTemple.UI.Donations
         {
             try
             {
+                Employees empDetials = new Employees
+                {
+                    Id = Convert.ToInt32(dtDetails.Rows[rowId]["Id"]),
+                    LoginId = txtLoginName.Text.Trim(),
+                    Name = txtName.Text.Trim(),
+                    Password = txtPassword.Text,
+                    Status=0,
+                    ModifiedOn = DateTime.Today.Date,
+                    ModifiedBy = ApplicationElements.loggedInEmployee.Id
+                };
 
-                var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
-                                     "Confirm Delete!!",
+                var confirmResult = MessageBox.Show("Are you sure to disable this employee ??",
+                                     "Confirm Disable!!",
                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
-                    string status = empRepo.DeleteEmployee(userId);
+                    string updateStatus = empRepo.updateEmployeeInformation(empDetials);
+
+                    if (updateStatus == "Success")
+                    {
+                        MessageBox.Show("Employee disabled successfully.");
+                        loadGridviewData();
+                        CleareAllcontrolsRecursive();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Disable Failed...");
+                        loadGridviewData();
+                        CleareAllcontrolsRecursive();
+                    }
                     HideControls(false);
                     loadGridviewData();
                 }
@@ -282,6 +305,7 @@ namespace eTemple.UI.Donations
                 Name = txtName.Text.Trim(),
                 Role = selectedRoleTypeId,
                 Password = txtPassword.Text,
+                Status=1,
                 CreatedOn = DateTime.Today.Date,
                 CreatedBy = ApplicationElements.loggedInEmployee.Id
             };

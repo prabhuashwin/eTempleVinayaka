@@ -16,7 +16,7 @@ namespace eTemple.UI.Donations
         private DonationInformation oDonationInfo;
         private EnquiryDetailsUI oEnquiryDet;
         private DonorMasterReportUI oDonorReprt;
-        private DCRReportForm oDCRReportForm;
+        private DCRForm oDCRForm;
         private DonationRecording oDonationRecording;
         private ServiceReportForm oServiceReportForm;
         private ServerReportAddresses oServerReportAddresses;
@@ -30,7 +30,7 @@ namespace eTemple.UI.Donations
 
         private void DonationRecording_Load(object sender, EventArgs e)
         {
-
+            lblUser.Text = "Welcome " + ApplicationElements.loggedInEmployee.LoginId;
         }
 
         private void reportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace eTemple.UI.Donations
 
         private void eitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void masterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace eTemple.UI.Donations
             oEnquiryDet.TopLevel = false;
             pnlBody.Controls.Add(oEnquiryDet);
             oEnquiryDet.Location = new Point(0, 0);
-            oEnquiryDet.Show();            
+            oEnquiryDet.Show();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,13 +93,20 @@ namespace eTemple.UI.Donations
                 oEnquiryDet.Dispose();
             if (oDonorReprt != null)
                 oDonorReprt.Dispose();
-            if (oDCRReportForm != null)
-                oDCRReportForm.Dispose();
+            if (oDCRForm != null)
+                oDCRForm.Dispose();
+            if (oServiceReportForm != null)
+                oServiceReportForm.Dispose();
+            if (oServerReportAddresses != null)
+                oServerReportAddresses.Dispose();
+            if (oServiceReportOperatorWise != null)
+                oServiceReportOperatorWise.Dispose();
+
         }
 
 
         public void getDataFromChildWindow(int value)
-        {            
+        {
             oDonationInfo.getDataFromChildWindow(value);
         }
 
@@ -111,14 +118,14 @@ namespace eTemple.UI.Donations
         private void serviceReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formDispose();
-            oDCRReportForm = new DCRReportForm();
-            oDCRReportForm.TopLevel = false;
-            pnlBody.Controls.Add(oDCRReportForm);
-            oDCRReportForm.Location = new Point(0, 0);
+            oDCRForm = new DCRForm();
+            oDCRForm.TopLevel = false;
+            pnlBody.Controls.Add(oDCRForm);
+            oDCRForm.Location = new Point(0, 0);
             //oDCRReportForm.MdiParent = this;
-            oDCRReportForm.WindowState = FormWindowState.Maximized;
-            oDCRReportForm.Show();
-           
+            oDCRForm.WindowState = FormWindowState.Maximized;
+            oDCRForm.Show();
+
         }
 
         private void serviceReportWithAddressesToolStripMenuItem_Click(object sender, EventArgs e)

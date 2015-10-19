@@ -206,6 +206,7 @@
             this.dgvEmployee.ReadOnly = true;
             this.dgvEmployee.Size = new System.Drawing.Size(668, 311);
             this.dgvEmployee.TabIndex = 18;
+            this.dgvEmployee.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellDoubleClick);
             // 
             // btnUpdate
             // 
@@ -229,7 +230,6 @@
             this.Controls.Add(this.btnAddRecord);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtLoginName);
@@ -241,6 +241,7 @@
             this.Controls.Add(this.dgvEmployee);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.lblId);
+            this.Controls.Add(this.btnSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ManageEmployeeDetails";
             this.Text = "ManageEmployeeDetails";

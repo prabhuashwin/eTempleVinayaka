@@ -16,6 +16,7 @@ namespace eTemple.UI.Donations
         public ManagementConsole()
         {
             InitializeComponent();
+            lblUser.Text = "Welcome " + ApplicationElements.loggedInEmployee.LoginId;
         }
         /// <summary>
         /// 

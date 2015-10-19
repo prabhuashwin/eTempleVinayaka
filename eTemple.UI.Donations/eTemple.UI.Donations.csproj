@@ -71,6 +71,12 @@
     <Compile Include="DailyAnnadanam.Designer.cs">
       <DependentUpon>DailyAnnadanam.cs</DependentUpon>
     </Compile>
+    <Compile Include="DCRForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DCRForm.Designer.cs">
+      <DependentUpon>DCRForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DonationInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,12 +103,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DonorReportDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DCRReportForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DCRReportForm.Designer.cs">
-      <DependentUpon>DCRReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DonorReportForm.cs">
       <SubType>Form</SubType>
@@ -181,6 +181,9 @@
     <EmbeddedResource Include="DailyAnnadanam.resx">
       <DependentUpon>DailyAnnadanam.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DCRForm.resx">
+      <DependentUpon>DCRForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DonationInformation.resx">
       <DependentUpon>DonationInformation.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,9 +192,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DonorMasterReportUI.resx">
       <DependentUpon>DonorMasterReportUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DCRReportForm.resx">
-      <DependentUpon>DCRReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DonorReportForm.resx">
       <DependentUpon>DonorReportForm.cs</DependentUpon>

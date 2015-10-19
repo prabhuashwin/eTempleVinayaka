@@ -47,7 +47,7 @@ namespace eTemple.Data.Repositories
         {
             using (var db = new eTempleDbDB())
             {
-                var emp = db.SingleOrDefault<Employees>("Select * from Employees where LoginId=@0 and Password=@1", loginId, password);
+                var emp = db.SingleOrDefault<Employees>("Select * from Employees where LoginId=@0 and Password=@1 and status=1", loginId, password);
                 if (emp != null && emp.Name != null)
                 {
                     return emp;
@@ -161,7 +161,7 @@ namespace eTemple.Data.Repositories
         public string updateEmployeeInformation(Employees employeeDetail)
         {
             string updateStatus = string.Empty;
-            string commandText = "update employees set Name=@Name,Role=@Role,LoginId=@LoginId,Password=@Password,ModifiedBy=@ModifiedBy,ModifiedOn=@ModifiedOn WHERE Id = @Id";
+            string commandText = "update employees set Name=@Name,Role=@Role,LoginId=@LoginId,Password=@Password,status=@status,ModifiedBy=@ModifiedBy,ModifiedOn=@ModifiedOn WHERE Id = @Id";
 
 
             using (MySqlConnection conn = new MySqlConnection(strConn))
@@ -181,6 +181,7 @@ namespace eTemple.Data.Repositories
                             cmd.Parameters.AddWithValue("@Password", employeeDetail.Password);
                             cmd.Parameters.AddWithValue("@ModifiedBy", employeeDetail.ModifiedBy);
                             cmd.Parameters.AddWithValue("@ModifiedOn", employeeDetail.ModifiedOn);
+                            cmd.Parameters.AddWithValue("@status", employeeDetail.Status);
 
                             cmd.ExecuteNonQuery();
                             updateStatus = "Success";

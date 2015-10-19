@@ -22,6 +22,7 @@ namespace eTemple.UI.Donations
             InitializeComponent();
             this.MaximizeBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            lblUser.Text = "Welcome " + ApplicationElements.loggedInEmployee.LoginId;
         }
         /// <summary>
         /// 

@@ -36,11 +36,12 @@
             this.serviceReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviceReportWithAddressesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviceReportWithAddressesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.operatorWiseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblUser = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.operatorWiseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -114,6 +115,13 @@
             this.serviceReportWithAddressesToolStripMenuItem1.Text = "Service Report with Addresses";
             this.serviceReportWithAddressesToolStripMenuItem1.Click += new System.EventHandler(this.serviceReportWithAddressesToolStripMenuItem1_Click);
             // 
+            // operatorWiseReportToolStripMenuItem
+            // 
+            this.operatorWiseReportToolStripMenuItem.Name = "operatorWiseReportToolStripMenuItem";
+            this.operatorWiseReportToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.operatorWiseReportToolStripMenuItem.Text = "OperatorWise Report";
+            this.operatorWiseReportToolStripMenuItem.Click += new System.EventHandler(this.operatorWiseReportToolStripMenuItem_Click);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -134,11 +142,23 @@
             // 
             this.panel1.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.lblUser);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(933, 51);
             this.panel1.TabIndex = 1;
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblUser.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.Image = global::eTemple.UI.Donations.Properties.Resources.wood4;
+            this.lblUser.Location = new System.Drawing.Point(727, 16);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(0, 20);
+            this.lblUser.TabIndex = 4;
             // 
             // pictureBox1
             // 
@@ -149,13 +169,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(450, 46);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
-            // 
-            // operatorWiseReportToolStripMenuItem
-            // 
-            this.operatorWiseReportToolStripMenuItem.Name = "operatorWiseReportToolStripMenuItem";
-            this.operatorWiseReportToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.operatorWiseReportToolStripMenuItem.Text = "OperatorWise Report";
-            this.operatorWiseReportToolStripMenuItem.Click += new System.EventHandler(this.operatorWiseReportToolStripMenuItem_Click);
             // 
             // DonationRecording
             // 
@@ -174,6 +187,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -195,5 +209,6 @@
         private System.Windows.Forms.ToolStripMenuItem serviceReportWithAddressesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serviceReportWithAddressesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem operatorWiseReportToolStripMenuItem;
+        private System.Windows.Forms.Label lblUser;
     }
 }

@@ -34,6 +34,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.lblUser = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -68,6 +69,7 @@
             // 
             this.panel2.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Controls.Add(this.lblUser);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Location = new System.Drawing.Point(3, 27);
             this.panel2.Name = "panel2";
@@ -93,6 +95,17 @@
             this.pnlBody.Size = new System.Drawing.Size(971, 480);
             this.pnlBody.TabIndex = 5;
             // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblUser.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.Image = global::eTemple.UI.Donations.Properties.Resources.wood4;
+            this.lblUser.Location = new System.Drawing.Point(739, 15);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(0, 20);
+            this.lblUser.TabIndex = 5;
+            // 
             // AdminConsole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,6 +120,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -121,5 +135,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlBody;
+        private System.Windows.Forms.Label lblUser;
     }
 }

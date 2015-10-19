@@ -15,6 +15,7 @@ namespace eTemple.Data.Models
         public int Role { get; set; }
         public string LoginId { get; set; }
         public string Password { get; set; }
+        public int Status { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedOn { get; set; }
         public int? ModifiedBy { get; set; }

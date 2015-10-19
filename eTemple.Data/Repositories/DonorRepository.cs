@@ -78,11 +78,11 @@ namespace eTemple.Data.Repositories
             return dsreturnObj;
         }
 
-        public DataSet getTotalAmountpbySVC(string CollectionDate)
+        public DataSet getTotalAmountpbySVC(string frmDate,string toDate)
         {
             using (MySqlConnection conn = new MySqlConnection(strConn))
             {
-                using (MySqlCommand cmd = new MySqlCommand("select st.Name as ServiceType,sum(d.amount) as Amount,count(1) as cnt,st.cost as cost from donors d  inner join servicetypes st on d.ServiceTypeId=st.id where d.DonorDate='" + CollectionDate + "' group by d.ServiceTypeId", conn))
+                using (MySqlCommand cmd = new MySqlCommand("select st.Name as ServiceType,sum(d.amount) as Amount,count(1) as cnt,st.cost as cost from donors d  inner join servicetypes st on d.ServiceTypeId=st.id where d.DonorDate BETWEEN '" + frmDate + "' AND '" + toDate + "' group by d.ServiceTypeId", conn))
                 {
                     using (MySqlDataAdapter da = new MySqlDataAdapter())
                     {

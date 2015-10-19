@@ -237,9 +237,9 @@
             this.lblName.Location = new System.Drawing.Point(7, 82);
             this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(47, 17);
+            this.lblName.Size = new System.Drawing.Size(91, 17);
             this.lblName.TabIndex = 14;
-            this.lblName.Text = "Name";
+            this.lblName.Text = "Donor Name";
             // 
             // lblDate
             // 

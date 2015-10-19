@@ -28,15 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvServiceReport = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSubmit = new System.Windows.Forms.Button();
-            this.dtValue = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.TicketID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReceiptID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gothram = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +38,14 @@
             this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransactionType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ServicePErformDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.dtFrmValue = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtToValue = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServiceReport)).BeginInit();
             this.panel1.SuspendLayout();
@@ -80,72 +82,6 @@
             this.dgvServiceReport.RowHeadersVisible = false;
             this.dgvServiceReport.Size = new System.Drawing.Size(904, 295);
             this.dgvServiceReport.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnPrint);
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.btnSubmit);
-            this.panel1.Controls.Add(this.dtValue);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(904, 87);
-            this.panel1.TabIndex = 2;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(572, 33);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(65, 26);
-            this.btnPrint.TabIndex = 6;
-            this.btnPrint.Text = "&Print";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(488, 32);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(65, 26);
-            this.btnClose.TabIndex = 5;
-            this.btnClose.Text = "&Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSubmit.Location = new System.Drawing.Point(401, 32);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(65, 26);
-            this.btnSubmit.TabIndex = 4;
-            this.btnSubmit.Text = "Show";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // dtValue
-            // 
-            this.dtValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtValue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtValue.Location = new System.Drawing.Point(196, 33);
-            this.dtValue.Name = "dtValue";
-            this.dtValue.Size = new System.Drawing.Size(162, 25);
-            this.dtValue.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(116, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Date";
             // 
             // TicketID
             // 
@@ -199,13 +135,102 @@
             // ServicePErformDate
             // 
             this.ServicePErformDate.DataPropertyName = "TotalCost";
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.ServicePErformDate.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.ServicePErformDate.DefaultCellStyle = dataGridViewCellStyle3;
             this.ServicePErformDate.FillWeight = 30F;
             this.ServicePErformDate.HeaderText = "Total Cost";
             this.ServicePErformDate.Name = "ServicePErformDate";
             this.ServicePErformDate.ReadOnly = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dtToValue);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btnPrint);
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Controls.Add(this.btnSubmit);
+            this.panel1.Controls.Add(this.dtFrmValue);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(904, 87);
+            this.panel1.TabIndex = 2;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(700, 31);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(65, 26);
+            this.btnPrint.TabIndex = 6;
+            this.btnPrint.Text = "&Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Location = new System.Drawing.Point(616, 30);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(65, 26);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "&Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSubmit.Location = new System.Drawing.Point(523, 30);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(65, 26);
+            this.btnSubmit.TabIndex = 4;
+            this.btnSubmit.Text = "Show";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // dtFrmValue
+            // 
+            this.dtFrmValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtFrmValue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFrmValue.Location = new System.Drawing.Point(96, 32);
+            this.dtFrmValue.Name = "dtFrmValue";
+            this.dtFrmValue.Size = new System.Drawing.Size(162, 25);
+            this.dtFrmValue.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(42, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "From:";
+            // 
+            // dtToValue
+            // 
+            this.dtToValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtToValue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtToValue.Location = new System.Drawing.Point(327, 30);
+            this.dtToValue.Name = "dtToValue";
+            this.dtToValue.Size = new System.Drawing.Size(162, 25);
+            this.dtToValue.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(292, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 17);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "To:";
             // 
             // DCRForm
             // 
@@ -234,7 +259,7 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.DateTimePicker dtValue;
+        private System.Windows.Forms.DateTimePicker dtFrmValue;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TicketID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReceiptID;
@@ -243,5 +268,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn TransactionType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ServicePErformDate;
+        private System.Windows.Forms.DateTimePicker dtToValue;
+        private System.Windows.Forms.Label label2;
     }
 }

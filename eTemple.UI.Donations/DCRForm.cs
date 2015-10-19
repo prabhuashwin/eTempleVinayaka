@@ -41,7 +41,7 @@ namespace eTemple.UI.Donations
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             DCRVals = new DataTable();
-            DataSet DonorRecs = oDonorRepository.getTotalAmountpbySVC(dtValue.Value.ToString("yyyy-MM-dd"));
+            DataSet DonorRecs = oDonorRepository.getTotalAmountpbySVC(dtFrmValue.Value.ToString("yyyy-MM-dd"),dtToValue.Value.ToString("yyyy-MM-dd"));
             //Getting cost for daily annadanam
             DataSet svcCost = oDonorRepository.getCostbyId("10");
             // double dailyanndanamCost = Convert.ToDouble(svcCost.Tables[0].Rows[0][0]);
@@ -111,7 +111,7 @@ namespace eTemple.UI.Donations
             reportViewer.ContentWidthPercent = 100;
             reportViewer.RowsPerPage = 30;
             //reportViewer.HeaderContent = string.Format("<h2 style='margin-left:100px'>Daily Collection Report for the Date of {0:dd/MM/yyyy}</h2>", this.dtpFromDate.Value);
-            reportViewer.HeaderContent = string.Format("<div style='float: left; width: 350px;'>Date : {0: dd-MM-YYYY} </div>", dtValue.Text);
+            reportViewer.HeaderContent = string.Format("<div style='float: left; width: 350px;'>Date : {0: dd-MM-YYYY} </div>", dtFrmValue.Text);
             reportViewer.GenerateFromGridView(this.dgvServiceReport, false);
             reportViewer.Show(this);
         }

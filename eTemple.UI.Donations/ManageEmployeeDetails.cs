@@ -291,6 +291,9 @@ namespace eTemple.UI.Donations
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //bool checkvalidate = validation();
+            //if (checkvalidate == false)
+            //    return;
             int selectedRoleTypeId = 0;
             var selectedRoleType = cmbRoleType.SelectedItem as Roles;
             if (selectedRoleType == null)
@@ -349,6 +352,145 @@ namespace eTemple.UI.Donations
             btnUpdate.Visible = false;
             btnCancel.Visible = false;
         }
+
+        //public bool validation()
+        //{
+        //    bool needValidate = true;
+        //    var servicetypeId = cmbServiceType.SelectedItem as ServiceTypes;
+
+        //    if (dtpDate.Text == "" || dtpDate.Text == string.Empty)
+        //    {
+        //        errorProvider1.SetError(dtpDate, "Need to select Date to continue");
+        //        needValidate = false;
+        //        return needValidate;
+        //    }
+        //    else
+        //        errorProvider1.Clear();
+
+           
+        //    if (txtNameOn.Text == "" || txtNameOn.Text == string.Empty)
+        //    {
+        //        errorProvider1.SetError(txtNameOn, "Need to have Name On");
+        //        needValidate = false;
+        //        return needValidate;
+        //    }
+        //    else
+        //        errorProvider1.Clear();
+        //    if (cmbStar.Text == "" || cmbStar.Text == string.Empty)
+        //    {
+        //        errorProvider1.SetError(cmbStar, "Need to Select Star");
+        //        needValidate = false;
+        //        return needValidate;
+        //    }
+        //    else
+        //        errorProvider1.Clear();
+
+        //    var transactionType = cmbTransaction.SelectedItem as TransactionType;
+
+        //    if (transactionType.Id == 2 || transactionType.Id == 3)
+        //    {
+        //        if (txtTransaction.Text == "" || txtTransaction.Text == string.Empty)
+        //        {
+        //            errorProvider1.SetError(txtTransaction, "Need to enter the details");
+        //            needValidate = false;
+        //            return needValidate;
+        //        }
+        //        else
+        //            errorProvider1.Clear();
+        //    }
+
+      
+        //    if (txtAmount.Text == "" || txtAmount.Text == string.Empty)
+        //    {
+        //        errorProvider1.SetError(txtAmount, "Need to enter the Amount");
+        //        needValidate = false;
+        //        return needValidate;
+        //    }
+        //    else if ((servicetypeId.Id == 1) && (Convert.ToInt32(txtAmount.Text) < 1116))
+        //    {
+        //        errorProvider1.SetError(txtAmount, "Amount cannot be less than Rs.1,116 for selected service type");
+        //        needValidate = false;
+        //        return needValidate;
+        //    }
+
+        //    else
+        //        errorProvider1.Clear();
+        //    if (cmbServiceType.Text == "Select" || cmbServiceType.Text == string.Empty)
+        //    {
+        //        errorProvider1.SetError(cmbServiceType, "Need to select Service Type");
+        //        needValidate = false;
+        //        return needValidate;
+        //    }
+        //    else
+        //        errorProvider1.Clear();
+        
+
+        //    if (cmbDateType.Enabled == true)
+        //    {
+        //        if (cmbDateType.Text == "Select" || cmbDateType.Text == string.Empty)
+        //        {
+        //            errorProvider1.SetError(cmbDateType, "Need to select Date Type");
+        //            needValidate = false;
+        //            return needValidate;
+        //        }
+        //        else
+        //            errorProvider1.Clear();
+        //    }
+
+        //    if (cmbSpecialDay.Enabled == true)
+        //    {
+        //        if (cmbSpecialDay.Text == "Select" || cmbSpecialDay.Text == string.Empty)
+        //        {
+        //            errorProvider1.SetError(cmbSpecialDay, "Need to select Special Day");
+        //            needValidate = false;
+        //            return needValidate;
+        //        }
+        //        else
+        //            errorProvider1.Clear();
+        //    }
+
+        //    if (cmbMonth.Enabled == true)
+        //    {
+        //        if (cmbMonth.Text == "Select" || cmbMonth.Text == string.Empty)
+        //        {
+        //            errorProvider1.SetError(cmbMonth, "Need to select Month");
+        //            needValidate = false;
+        //            return needValidate;
+        //        }
+        //        else
+        //            errorProvider1.Clear();
+        //    }
+
+        //    if (cmbThithi.Enabled == true)
+        //    {
+        //        if (cmbThithi.Text == "Select" || cmbThithi.Text == string.Empty)
+        //        {
+        //            errorProvider1.SetError(cmbThithi, "Need to select Thithi");
+        //            needValidate = false;
+        //            return needValidate;
+        //        }
+        //        else
+        //            errorProvider1.Clear();
+        //    }
+
+        //    if (cmbMonthlyAnna.Enabled == true)
+        //    {
+        //        if (cmbMonthlyAnna.Text == "Select" || cmbMonthlyAnna.Text == string.Empty)
+        //        {
+        //            errorProvider1.SetError(cmbMonthlyAnna, "Need to select Thithi");
+        //            needValidate = false;
+        //            return needValidate;
+        //        }
+        //        else
+        //            errorProvider1.Clear();
+        //    }
+
+
+
+          
+
+        //    return needValidate;
+        //}
         /// <summary>
         /// 
         /// </summary>

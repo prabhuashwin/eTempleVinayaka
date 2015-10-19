@@ -1518,6 +1518,8 @@ namespace eTemple.UI
 
             rbdEnglish.Visible = false;
             rbdTelugu.Visible = false;
+            txtDoorNo.Text = string.Empty;
+            txtMandal.Text = string.Empty;
 
         }
 

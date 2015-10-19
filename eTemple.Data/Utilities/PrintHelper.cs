@@ -127,6 +127,12 @@ namespace eTemple.Data.Utilities
             sb.AppendLine(line);
             sb.AppendLine();
             sb.AppendLine();
+            sb.AppendLine();
+            line = string.Format("IssuedBy : {0}", token.LoginName).PadRight(_lineWidth / 2);
+
+            sb.AppendLine(line);
+            sb.AppendLine();
+            sb.AppendLine();
 
             return sb.ToString();
         }

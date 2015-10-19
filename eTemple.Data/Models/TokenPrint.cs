@@ -19,5 +19,6 @@ namespace eTemple.Data.Models
         public string DonatedDate { get; set; }
         public string ServiceType { get; set; }
         public double Cost { get; set; }
+        public string LoginName { get; set; }
     }
 }

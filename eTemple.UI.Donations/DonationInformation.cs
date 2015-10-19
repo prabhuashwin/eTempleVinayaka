@@ -273,7 +273,8 @@ namespace eTemple.UI
                     Gothram = txtGothram.Text,
                     VillageName = txtCity.Text,
                     ServiceType = selectedServiceType.Name,
-                    Cost =  Convert.ToDouble(txtAmount.Text)
+                    Cost =  Convert.ToDouble(txtAmount.Text),
+                    LoginName = ApplicationElements.loggedInEmployee.LoginId
                 };
 
                 //check if gothra exists

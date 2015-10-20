@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.chkIsDaterelated = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAddRecord = new System.Windows.Forms.Button();
@@ -41,14 +42,16 @@
             this.dgvService = new System.Windows.Forms.DataGridView();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // chkIsDaterelated
             // 
             this.chkIsDaterelated.AutoSize = true;
             this.chkIsDaterelated.BackColor = System.Drawing.Color.Transparent;
-            this.chkIsDaterelated.Location = new System.Drawing.Point(822, 136);
+            this.chkIsDaterelated.Location = new System.Drawing.Point(795, 165);
             this.chkIsDaterelated.Name = "chkIsDaterelated";
             this.chkIsDaterelated.Size = new System.Drawing.Size(100, 17);
             this.chkIsDaterelated.TabIndex = 32;
@@ -58,13 +61,13 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(912, 225);
+            this.btnCancel.Location = new System.Drawing.Point(885, 254);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 37);
             this.btnCancel.TabIndex = 31;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAddRecord
             // 
@@ -80,7 +83,7 @@
             // txtId
             // 
             this.txtId.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(822, 42);
+            this.txtId.Location = new System.Drawing.Point(795, 71);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(141, 22);
@@ -91,7 +94,7 @@
             this.lblId.AutoSize = true;
             this.lblId.BackColor = System.Drawing.Color.Transparent;
             this.lblId.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.Location = new System.Drawing.Point(721, 45);
+            this.lblId.Location = new System.Drawing.Point(694, 74);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(18, 16);
             this.lblId.TabIndex = 27;
@@ -100,7 +103,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(822, 225);
+            this.btnDelete.Location = new System.Drawing.Point(795, 254);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 37);
             this.btnDelete.TabIndex = 26;
@@ -111,7 +114,7 @@
             // txtCost
             // 
             this.txtCost.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCost.Location = new System.Drawing.Point(822, 168);
+            this.txtCost.Location = new System.Drawing.Point(795, 197);
             this.txtCost.Name = "txtCost";
             this.txtCost.Size = new System.Drawing.Size(141, 22);
             this.txtCost.TabIndex = 24;
@@ -121,7 +124,7 @@
             this.lblCost.AutoSize = true;
             this.lblCost.BackColor = System.Drawing.Color.Transparent;
             this.lblCost.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCost.Location = new System.Drawing.Point(721, 168);
+            this.lblCost.Location = new System.Drawing.Point(694, 197);
             this.lblCost.Name = "lblCost";
             this.lblCost.Size = new System.Drawing.Size(35, 16);
             this.lblCost.TabIndex = 23;
@@ -130,7 +133,7 @@
             // txtServiceName
             // 
             this.txtServiceName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtServiceName.Location = new System.Drawing.Point(822, 96);
+            this.txtServiceName.Location = new System.Drawing.Point(795, 125);
             this.txtServiceName.Name = "txtServiceName";
             this.txtServiceName.Size = new System.Drawing.Size(141, 22);
             this.txtServiceName.TabIndex = 22;
@@ -140,7 +143,7 @@
             this.lblServiceName.AutoSize = true;
             this.lblServiceName.BackColor = System.Drawing.Color.Transparent;
             this.lblServiceName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServiceName.Location = new System.Drawing.Point(721, 99);
+            this.lblServiceName.Location = new System.Drawing.Point(694, 128);
             this.lblServiceName.Name = "lblServiceName";
             this.lblServiceName.Size = new System.Drawing.Size(88, 16);
             this.lblServiceName.TabIndex = 21;
@@ -156,11 +159,12 @@
             this.dgvService.ReadOnly = true;
             this.dgvService.Size = new System.Drawing.Size(668, 311);
             this.dgvService.TabIndex = 20;
+            this.dgvService.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvService_CellDoubleClick);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(724, 225);
+            this.btnUpdate.Location = new System.Drawing.Point(697, 254);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 37);
             this.btnUpdate.TabIndex = 29;
@@ -171,12 +175,17 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(724, 224);
+            this.btnSave.Location = new System.Drawing.Point(697, 253);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 38);
             this.btnSave.TabIndex = 25;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // ManageServiceDetails
             // 
@@ -195,13 +204,14 @@
             this.Controls.Add(this.txtServiceName);
             this.Controls.Add(this.lblServiceName);
             this.Controls.Add(this.dgvService);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnUpdate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ManageServiceDetails";
             this.Text = "ManageServiceDetails";
             this.Load += new System.EventHandler(this.ManageServiceDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,5 +232,6 @@
         private System.Windows.Forms.DataGridView dgvService;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

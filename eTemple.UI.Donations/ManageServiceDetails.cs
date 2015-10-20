@@ -156,6 +156,9 @@ namespace eTemple.UI.Donations
         {
             try
             {
+                bool checkvalidate = validation();
+                if (checkvalidate == false)
+                    return;
                 ServiceTypes servDetails = new ServiceTypes
                 {
                     Id = Convert.ToInt32(dtDetails.Rows[rowId]["Id"]),
@@ -209,7 +212,9 @@ namespace eTemple.UI.Donations
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            bool checkvalidate = validation();
+            if (checkvalidate == false)
+                return;
             ServiceTypes servDetails = new ServiceTypes
             {
                 Id = maxId,
@@ -269,6 +274,24 @@ namespace eTemple.UI.Donations
             {
                 e.Handled = true;
             }
+        }
+
+
+        public bool validation()
+        {
+            bool needValidate = true;
+
+
+            if (txtServiceName.Text == "" || txtServiceName.Text == string.Empty)
+            {
+                errorProvider1.SetError(txtServiceName, "Need to enter service name to continue");
+                needValidate = false;
+                return needValidate;
+            }
+            else
+                errorProvider1.Clear();
+
+            return needValidate;
         }
     }
 }

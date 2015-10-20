@@ -18,6 +18,7 @@ namespace eTemple.UI.Donations
         {
             InitializeComponent();
             empRepo = new EmployeeRepository();
+            this.AcceptButton = btnLogin;
         }
         /// <summary>
         /// 

@@ -102,6 +102,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnQuickDailyAnna = new System.Windows.Forms.Button();
+            this.cmbNamePrefix = new System.Windows.Forms.ComboBox();
+            this.cmbNameOnPrefix = new System.Windows.Forms.ComboBox();
             this.grpBoxGeneralInfo.SuspendLayout();
             this.grpServiceInfo.SuspendLayout();
             this.grpOtherInfo.SuspendLayout();
@@ -177,11 +179,11 @@
             // txtNameOn
             // 
             this.txtNameOn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameOn.Location = new System.Drawing.Point(441, 82);
+            this.txtNameOn.Location = new System.Drawing.Point(498, 82);
             this.txtNameOn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtNameOn.MaxLength = 200;
             this.txtNameOn.Name = "txtNameOn";
-            this.txtNameOn.Size = new System.Drawing.Size(200, 25);
+            this.txtNameOn.Size = new System.Drawing.Size(143, 25);
             this.txtNameOn.TabIndex = 6;
             // 
             // lblNameOn
@@ -189,7 +191,7 @@
             this.lblNameOn.AutoSize = true;
             this.lblNameOn.BackColor = System.Drawing.Color.Transparent;
             this.lblNameOn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameOn.Location = new System.Drawing.Point(317, 82);
+            this.lblNameOn.Location = new System.Drawing.Point(305, 85);
             this.lblNameOn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNameOn.Name = "lblNameOn";
             this.lblNameOn.Size = new System.Drawing.Size(122, 17);
@@ -222,11 +224,11 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(102, 82);
+            this.txtName.Location = new System.Drawing.Point(169, 82);
             this.txtName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtName.MaxLength = 200;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(200, 25);
+            this.txtName.Size = new System.Drawing.Size(133, 25);
             this.txtName.TabIndex = 5;
             // 
             // lblName
@@ -234,7 +236,7 @@
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(7, 82);
+            this.lblName.Location = new System.Drawing.Point(-1, 84);
             this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(91, 17);
@@ -346,6 +348,8 @@
             // grpBoxGeneralInfo
             // 
             this.grpBoxGeneralInfo.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
+            this.grpBoxGeneralInfo.Controls.Add(this.cmbNameOnPrefix);
+            this.grpBoxGeneralInfo.Controls.Add(this.cmbNamePrefix);
             this.grpBoxGeneralInfo.Controls.Add(this.txtMRNo);
             this.grpBoxGeneralInfo.Controls.Add(this.lblMRNO);
             this.grpBoxGeneralInfo.Controls.Add(this.txtDonorId);
@@ -539,9 +543,9 @@
             // cmbTransaction
             // 
             this.cmbTransaction.FormattingEnabled = true;
-            this.cmbTransaction.Location = new System.Drawing.Point(102, 131);
+            this.cmbTransaction.Location = new System.Drawing.Point(101, 131);
             this.cmbTransaction.Name = "cmbTransaction";
-            this.cmbTransaction.Size = new System.Drawing.Size(199, 25);
+            this.cmbTransaction.Size = new System.Drawing.Size(200, 25);
             this.cmbTransaction.TabIndex = 8;
             this.cmbTransaction.SelectedIndexChanged += new System.EventHandler(this.cmbTransaction_SelectedIndexChanged);
             // 
@@ -961,6 +965,22 @@
             this.btnQuickDailyAnna.Visible = false;
             this.btnQuickDailyAnna.Click += new System.EventHandler(this.btnQuickDailyAnna_Click);
             // 
+            // cmbNamePrefix
+            // 
+            this.cmbNamePrefix.FormattingEnabled = true;
+            this.cmbNamePrefix.Location = new System.Drawing.Point(95, 81);
+            this.cmbNamePrefix.Name = "cmbNamePrefix";
+            this.cmbNamePrefix.Size = new System.Drawing.Size(71, 25);
+            this.cmbNamePrefix.TabIndex = 513;
+            // 
+            // cmbNameOnPrefix
+            // 
+            this.cmbNameOnPrefix.FormattingEnabled = true;
+            this.cmbNameOnPrefix.Location = new System.Drawing.Point(425, 82);
+            this.cmbNameOnPrefix.Name = "cmbNameOnPrefix";
+            this.cmbNameOnPrefix.Size = new System.Drawing.Size(71, 25);
+            this.cmbNameOnPrefix.TabIndex = 514;
+            // 
             // DonationInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -1068,5 +1088,7 @@
         private System.Windows.Forms.TextBox txtDonorId;
         private System.Windows.Forms.TextBox txtMRNo;
         private System.Windows.Forms.Label lblMRNO;
+        private System.Windows.Forms.ComboBox cmbNamePrefix;
+        private System.Windows.Forms.ComboBox cmbNameOnPrefix;
     }
 }

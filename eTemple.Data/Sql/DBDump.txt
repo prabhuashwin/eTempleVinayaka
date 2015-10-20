@@ -1,0 +1,590 @@
+﻿-- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+--
+-- Host: localhost    Database: etemplevinayak
+-- ------------------------------------------------------
+-- Server version	5.6.23-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `dailyannadanam`
+--
+
+DROP TABLE IF EXISTS `dailyannadanam`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dailyannadanam` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(45) DEFAULT NULL,
+  `PhoneNumber` varchar(10) DEFAULT NULL,
+  `Gothram` varchar(45) DEFAULT NULL,
+  `VillageName` varchar(45) DEFAULT NULL,
+  `DonatedDate` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dailyannadanam`
+--
+
+LOCK TABLES `dailyannadanam` WRITE;
+/*!40000 ALTER TABLE `dailyannadanam` DISABLE KEYS */;
+INSERT INTO `dailyannadanam` VALUES (7,'test','9855658958','test','test','2015-09-30'),(8,'testing','9844558544','Vashista','test','2015-10-01');
+/*!40000 ALTER TABLE `dailyannadanam` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `datetype`
+--
+
+DROP TABLE IF EXISTS `datetype`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `datetype` (
+  `Id` int(20) NOT NULL,
+  `Name` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `datetype`
+--
+
+LOCK TABLES `datetype` WRITE;
+/*!40000 ALTER TABLE `datetype` DISABLE KEYS */;
+INSERT INTO `datetype` VALUES (0,'Select'),(1,'Telugu'),(2,'English'),(3,'Special');
+/*!40000 ALTER TABLE `datetype` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `designations`
+--
+
+DROP TABLE IF EXISTS `designations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `designations` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `designations`
+--
+
+LOCK TABLES `designations` WRITE;
+/*!40000 ALTER TABLE `designations` DISABLE KEYS */;
+INSERT INTO `designations` VALUES (1,'Admin'),(2,'Clerk'),(3,'EO'),(4,'Priest');
+/*!40000 ALTER TABLE `designations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `donors`
+--
+
+DROP TABLE IF EXISTS `donors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `donors` (
+  `Id` varchar(40) NOT NULL,
+  `Donordate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `DoorNo` varchar(3000) DEFAULT NULL,
+  `Surname` varchar(200) DEFAULT NULL,
+  `DonorName` varchar(200) DEFAULT NULL,
+  `DistrictName` varchar(200) DEFAULT NULL,
+  `City` varchar(100) DEFAULT NULL,
+  `Pin` varchar(10) DEFAULT NULL,
+  `State` varchar(200) DEFAULT NULL,
+  `Country` varchar(200) DEFAULT NULL,
+  `NameOn` varchar(200) NOT NULL,
+  `Star` int(10) DEFAULT NULL,
+  `occasion` varchar(200) DEFAULT NULL,
+  `Gothram` varchar(200) DEFAULT NULL,
+  `Amount` decimal(20,2) NOT NULL,
+  `MR_No` varchar(20) NOT NULL,
+  `Remarks` varchar(3000) DEFAULT NULL,
+  `Landline` varchar(20) DEFAULT NULL,
+  `SpecialDayId` int(20) DEFAULT NULL,
+  `ServiceTypeId` int(20) DEFAULT NULL,
+  `ServiceNameId` int(20) DEFAULT NULL,
+  `DateTypeId` int(20) DEFAULT NULL,
+  `PerformDate` varchar(40) DEFAULT NULL,
+  `EmailId` varchar(50) DEFAULT NULL,
+  `DonorMonth` int(11) DEFAULT NULL,
+  `Thidhi` int(11) DEFAULT NULL,
+  `DonorDay` int(11) DEFAULT NULL,
+  `Mobile` varchar(40) DEFAULT NULL,
+  `DonorThithi` int(20) DEFAULT NULL,
+  `Mandal` varchar(100) DEFAULT NULL,
+  `TransactionTypeId` int(10) DEFAULT NULL,
+  `TransactionID` varchar(40) DEFAULT NULL,
+  `TransactionDate` varchar(40) DEFAULT NULL,
+  `CreatedBy` int(11) DEFAULT NULL,
+  `ModifiedBy` int(11) DEFAULT NULL,
+  `ModifiedDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `ServiceTypeId` (`ServiceTypeId`),
+  KEY `ServiceNameId` (`ServiceNameId`),
+  KEY `DateTypeId` (`DateTypeId`),
+  KEY `donors_ibfk_4` (`SpecialDayId`),
+  KEY `Thidhi` (`Thidhi`),
+  KEY `Month` (`DonorMonth`),
+  KEY `donors_ibfk_7_idx` (`DonorThithi`),
+  KEY `donors_ibfk_8_idx` (`TransactionTypeId`),
+  CONSTRAINT `donors_ibfk_1` FOREIGN KEY (`ServiceTypeId`) REFERENCES `servicetypes` (`Id`),
+  CONSTRAINT `donors_ibfk_2` FOREIGN KEY (`ServiceNameId`) REFERENCES `servicename` (`Id`),
+  CONSTRAINT `donors_ibfk_3` FOREIGN KEY (`DateTypeId`) REFERENCES `datetype` (`Id`),
+  CONSTRAINT `donors_ibfk_4` FOREIGN KEY (`SpecialDayId`) REFERENCES `specialday` (`Id`),
+  CONSTRAINT `donors_ibfk_5` FOREIGN KEY (`Thidhi`) REFERENCES `thidhi` (`Id`),
+  CONSTRAINT `donors_ibfk_6` FOREIGN KEY (`DonorMonth`) REFERENCES `month` (`Id`),
+  CONSTRAINT `donors_ibfk_7` FOREIGN KEY (`DonorThithi`) REFERENCES `thidhi` (`Id`),
+  CONSTRAINT `donors_ibfk_8` FOREIGN KEY (`TransactionTypeId`) REFERENCES `transactiontype` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `donors`
+--
+
+LOCK TABLES `donors` WRITE;
+/*!40000 ALTER TABLE `donors` DISABLE KEYS */;
+INSERT INTO `donors` VALUES ('20151017 1','2015-10-17 00:00:00','doorno',NULL,'name','distirctA','city','4232','Andhra Pradesh',NULL,'name',1,'purpose','Agastya',2343.00,'15001',NULL,'1234',0,1,5,2,'17-10','ass@gmail.com',0,0,0,'23422342',0,'mn',1,NULL,'17-10-YYYY',1,NULL,NULL),('20151017 2','2015-10-17 00:00:00',NULL,NULL,'ravi','district1','city','3234121','state1',NULL,'asdf',3,'awerasdf','Agastya',2322.00,'15002',NULL,'324243',0,1,5,1,NULL,'ravi@ml.com',8,23,0,'2342',0,NULL,4,NULL,NULL,1,NULL,NULL),('20151017 3','2015-10-17 00:00:00','doorno',NULL,'ravi','district','city','323412','state',NULL,'asdf',4,'awerasdf','Agastya',2345.00,'15003',NULL,'324243',3,2,0,3,NULL,'ravi@ml.com',0,0,0,'2342',0,'sd',1,NULL,'17-10-2015',1,NULL,NULL),('20151017 4','2015-10-17 00:00:00',NULL,NULL,'ras',NULL,NULL,NULL,NULL,NULL,'asdf',0,'asfd','asfd',2342.00,'15004',NULL,'3452',0,1,1,0,NULL,NULL,0,0,0,'34532',0,NULL,4,'2342','17-10-2015',1,NULL,NULL),('20151017 5','2015-10-17 00:00:00',NULL,NULL,'asf',NULL,NULL,NULL,NULL,NULL,'asfwer',0,'',NULL,2342.00,'15005',NULL,'3523',0,3,0,0,NULL,NULL,0,0,0,'34234',0,NULL,1,NULL,'17-10-2015',2,NULL,NULL),('20151017 6','2015-10-17 00:00:00',NULL,NULL,'ravi','district1','city','3234121','state1',NULL,'asdf',3,'awerasdf','Agastya',2345.00,'15006',NULL,'324244',0,2,0,2,'17-10','ravi@ml.com',0,0,0,'2342',0,NULL,1,NULL,'17-10-2015',2,NULL,NULL),('20151019 1','2015-10-19 00:00:00',NULL,NULL,'asdfs',NULL,NULL,NULL,NULL,NULL,'asfdas',0,'asdf',NULL,1231.00,'15007',NULL,NULL,0,3,0,0,NULL,NULL,0,0,0,NULL,0,NULL,1,NULL,NULL,1,1,'2015-10-19 00:00:00'),('20151019 2','2015-10-19 00:00:00','2342',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'asdfas',0,'',NULL,23423.00,'15008',NULL,NULL,0,3,0,0,NULL,NULL,0,0,0,NULL,0,'mandal',1,NULL,'19-10-2015',1,NULL,NULL),('20151019 3','2015-10-19 00:00:00',NULL,NULL,'donor',NULL,NULL,NULL,NULL,NULL,'shose',0,'',NULL,2342.00,'15009',NULL,NULL,0,3,0,0,NULL,NULL,0,0,0,NULL,0,NULL,1,NULL,'19-10-2015',1,NULL,NULL),('20151019 4','2015-10-19 00:00:00','2131',NULL,'asdf','distict','234','23231','Sikkim',NULL,'asdf',0,'asfd','Agastya',2342.00,'15010',NULL,NULL,0,3,0,0,NULL,NULL,0,0,0,NULL,0,'asdf',1,NULL,'19-10-2015',1,NULL,NULL),('20151019 5','2015-10-19 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'asfwer',0,'',NULL,23242.00,'15011',NULL,NULL,0,3,0,0,NULL,NULL,0,0,0,NULL,0,NULL,1,NULL,'19-10-2015',1,NULL,NULL),('20151019 6','2015-10-19 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'asfds',0,'',NULL,2342.00,'15012',NULL,NULL,0,3,0,0,NULL,NULL,0,0,0,NULL,0,NULL,1,NULL,'19-10-2015',1,NULL,NULL),('20151020 1','2015-10-20 00:00:00','dno',NULL,NULL,'guntur','guntur','522002',NULL,NULL,'asdfw',0,'',NULL,1223.00,'15013',NULL,NULL,0,3,0,0,NULL,NULL,0,0,0,NULL,0,'rajamundry',1,NULL,'20-10-2015',1,NULL,NULL),('20151020 2','2015-10-20 00:00:00',NULL,NULL,'శ్రీasdfl',NULL,NULL,NULL,NULL,NULL,'వరుడుawer',0,'',NULL,12312.00,'15014',NULL,NULL,0,3,0,0,NULL,NULL,0,0,0,NULL,0,NULL,1,NULL,'20-10-2015',1,NULL,NULL),('20151020 3','2015-10-20 00:00:00',NULL,NULL,'శ్రీ asdf',NULL,NULL,NULL,NULL,NULL,'కుమారి wer',0,'',NULL,2342.00,'15015',NULL,NULL,0,3,0,0,NULL,NULL,0,0,0,NULL,0,NULL,1,NULL,NULL,1,1,'2015-10-20 00:00:00');
+/*!40000 ALTER TABLE `donors` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `employees`
+--
+
+DROP TABLE IF EXISTS `employees`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `employees` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(100) DEFAULT NULL,
+  `Role` int(11) NOT NULL,
+  `LoginId` varchar(50) DEFAULT NULL,
+  `Password` varchar(100) DEFAULT NULL,
+  `Status` int(11) DEFAULT NULL,
+  `CreatedBy` int(11) DEFAULT NULL,
+  `CreatedOn` datetime DEFAULT CURRENT_TIMESTAMP,
+  `ModifiedBy` int(11) DEFAULT NULL,
+  `ModifiedOn` datetime DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `fk_role_idx` (`Role`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employees`
+--
+
+LOCK TABLES `employees` WRITE;
+/*!40000 ALTER TABLE `employees` DISABLE KEYS */;
+INSERT INTO `employees` VALUES (1,'M.S.Raju',1,'superadmin','hyma2259',1,1,'2014-08-05 19:31:26',NULL,NULL),(2,'Srinivas',1,'admin','Srinu2211',1,1,'2015-03-13 09:30:50',NULL,NULL),(3,'Durga',2,'operator2','Laxmi',1,1,'2015-01-03 08:39:02',NULL,NULL),(4,'Balaji',0,'operator1','svsbalaji',0,1,'2015-01-03 08:32:39',1,'2015-10-19 00:00:00'),(5,'Prasad',2,'operator6','sindhu2',1,1,'2015-01-03 08:24:31',1,'2015-01-03 08:24:31'),(6,'asdf',2,'asdf','asdf',1,1,'2015-01-03 08:24:31',NULL,NULL),(7,'ASDF',0,'ASDF','WER',0,1,'2015-01-03 08:24:31',1,'2015-10-19 00:00:00'),(8,'tyer',0,'erts','vwde',1,1,'2015-01-03 08:24:31',1,'2015-10-19 00:00:00'),(9,'werq',2,'qrwer','qwer',1,1,'2015-01-03 08:24:31',NULL,NULL),(10,'ravi',0,'ravi12345','ravi12345',0,1,'2015-10-17 00:00:00',1,'2015-10-19 00:00:00'),(11,'aswers',1,'wasfw','asfw',1,1,'2015-10-19 00:00:00',NULL,NULL),(12,'asdf',1,'asdf','asdfweras',NULL,1,'2015-10-19 00:00:00',NULL,NULL);
+/*!40000 ALTER TABLE `employees` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `etemple_history`
+--
+
+DROP TABLE IF EXISTS `etemple_history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `etemple_history` (
+  `Id` int(50) NOT NULL AUTO_INCREMENT,
+  `Table_Id` int(20) DEFAULT NULL,
+  `Table_Name` varchar(45) DEFAULT NULL,
+  `Column_Name` varchar(45) DEFAULT NULL,
+  `DML_Type` varchar(45) DEFAULT NULL,
+  `old_value` varchar(80) DEFAULT NULL,
+  `new_value` varchar(80) DEFAULT NULL,
+  `Action_By` int(10) DEFAULT NULL,
+  `Action_On` datetime DEFAULT NULL,
+  UNIQUE KEY `Id_UNIQUE` (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `etemple_history`
+--
+
+LOCK TABLES `etemple_history` WRITE;
+/*!40000 ALTER TABLE `etemple_history` DISABLE KEYS */;
+/*!40000 ALTER TABLE `etemple_history` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `gothrams`
+--
+
+DROP TABLE IF EXISTS `gothrams`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gothrams` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gothrams`
+--
+
+LOCK TABLES `gothrams` WRITE;
+/*!40000 ALTER TABLE `gothrams` DISABLE KEYS */;
+INSERT INTO `gothrams` VALUES (1,'Basistha'),(2,'Baghwar'),(3,'Agastya'),(4,'Ainakula'),(5,'Nagesh'),(6,'Nanda'),(7,'bhradwaj'),(8,'Bharadwaj'),(9,'Vashista'),(10,'asfd');
+/*!40000 ALTER TABLE `gothrams` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `month`
+--
+
+DROP TABLE IF EXISTS `month`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `month` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `month`
+--
+
+LOCK TABLES `month` WRITE;
+/*!40000 ALTER TABLE `month` DISABLE KEYS */;
+INSERT INTO `month` VALUES (0,'Select'),(1,'Chaitra '),(2,'Vaisakha '),(3,'Jyaistha '),(4,'Asadha '),(5,'Shravana '),(6,'Bhadra '),(7,'Asvina '),(8,'Kartika '),(9,'Agrahayana '),(10,'Pausa '),(11,'Magha '),(12,'Phalguna ');
+/*!40000 ALTER TABLE `month` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `monthlyannadanamtbl`
+--
+
+DROP TABLE IF EXISTS `monthlyannadanamtbl`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `monthlyannadanamtbl` (
+  `Id` int(11) NOT NULL,
+  `Day` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `monthlyannadanamtbl`
+--
+
+LOCK TABLES `monthlyannadanamtbl` WRITE;
+/*!40000 ALTER TABLE `monthlyannadanamtbl` DISABLE KEYS */;
+INSERT INTO `monthlyannadanamtbl` VALUES (0,'Select'),(1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),(6,'6'),(7,'7'),(8,'8'),(9,'9'),(10,'10'),(11,'11'),(12,'12'),(13,'13'),(14,'14'),(15,'15'),(16,'16'),(17,'17'),(18,'18'),(19,'19'),(20,'20'),(21,'21'),(22,'22'),(23,'23'),(24,'24'),(25,'25'),(26,'26'),(27,'27'),(28,'28');
+/*!40000 ALTER TABLE `monthlyannadanamtbl` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `paksha`
+--
+
+DROP TABLE IF EXISTS `paksha`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `paksha` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `paksha`
+--
+
+LOCK TABLES `paksha` WRITE;
+/*!40000 ALTER TABLE `paksha` DISABLE KEYS */;
+INSERT INTO `paksha` VALUES (0,'Select'),(1,'Prathama'),(2,' Dwitiya'),(3,' Tritiya'),(4,' Chaturthi'),(5,' Panchami'),(6,' Shashti'),(7,' Saptami'),(8,' Ashtami'),(9,' Navami'),(10,'Dashami'),(11,'Ekadashi'),(12,'Dwadashi'),(13,'Trayodasi'),(14,'Chaturdashi'),(15,' Amavasya');
+/*!40000 ALTER TABLE `paksha` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `prefixes`
+--
+
+DROP TABLE IF EXISTS `prefixes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `prefixes` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `prefixes`
+--
+
+LOCK TABLES `prefixes` WRITE;
+/*!40000 ALTER TABLE `prefixes` DISABLE KEYS */;
+INSERT INTO `prefixes` VALUES (1,'శ్రీ'),(2,'శ్రీమతి'),(3,'కుమారి'),(4,'చిరంజీవి'),(5,'వరుడు'),(6,'వధువు'),(7,'కీర్తిశేషులు'),(8,'శ్రీమతి & శ్రీ');
+/*!40000 ALTER TABLE `prefixes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `roles` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `roles`
+--
+
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'Admin'),(2,'User');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `servicename`
+--
+
+DROP TABLE IF EXISTS `servicename`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `servicename` (
+  `Id` int(20) NOT NULL,
+  `Name` varchar(40) DEFAULT NULL,
+  `ServiceTypeId` int(20) NOT NULL,
+  `IsDateRelated` int(11) NOT NULL,
+  `OrderId` int(10) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `servicename`
+--
+
+LOCK TABLES `servicename` WRITE;
+/*!40000 ALTER TABLE `servicename` DISABLE KEYS */;
+INSERT INTO `servicename` VALUES (0,'Select',0,0,NULL),(1,'Mahaannadata',1,0,5),(2,'Maharaja Poshakulu',1,1,4),(3,'Raja Poshakulu',1,1,3),(4,'Poshakulu',1,1,2),(5,'Dathalu',1,1,1),(6,'Gosamrakshana Padakam',1111,1,NULL);
+/*!40000 ALTER TABLE `servicename` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `servicetypes`
+--
+
+DROP TABLE IF EXISTS `servicetypes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `servicetypes` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `IsDateRelated` int(11) NOT NULL,
+  `Cost` int(20) DEFAULT NULL,
+  `CreatedOn` datetime DEFAULT NULL,
+  `CreatedBy` int(11) DEFAULT NULL,
+  `ModifiedBy` int(11) DEFAULT NULL,
+  `ModifiedOn` datetime DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `servicetypes`
+--
+
+LOCK TABLES `servicetypes` WRITE;
+/*!40000 ALTER TABLE `servicetypes` DISABLE KEYS */;
+INSERT INTO `servicetypes` VALUES (0,'Select',0,NULL,NULL,NULL,NULL,NULL),(1,'Saswatha Annadanam',1,0,NULL,NULL,NULL,NULL),(2,'Saswata Poojas',1,2345,NULL,NULL,NULL,NULL),(3,'Temple Development',0,0,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `servicetypes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `specialday`
+--
+
+DROP TABLE IF EXISTS `specialday`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `specialday` (
+  `Id` int(20) NOT NULL,
+  `Name` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `specialday`
+--
+
+LOCK TABLES `specialday` WRITE;
+/*!40000 ALTER TABLE `specialday` DISABLE KEYS */;
+INSERT INTO `specialday` VALUES (0,'Select'),(1,'MUKKOTI'),(2,'DHANURMASA'),(3,'BHOGI'),(4,'SANKRANTHI'),(5,'VLVRATAM'),(6,'KANUMA');
+/*!40000 ALTER TABLE `specialday` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `stars`
+--
+
+DROP TABLE IF EXISTS `stars`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `stars` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `stars`
+--
+
+LOCK TABLES `stars` WRITE;
+/*!40000 ALTER TABLE `stars` DISABLE KEYS */;
+INSERT INTO `stars` VALUES (0,'Select'),(1,'Asvini'),(2,'Bharani'),(3,'Krttika'),(4,'Rohini'),(5,'Mrgasira'),(6,'Arudra'),(7,'Punarvasu'),(8,'Pusyami'),(9,'Aslesa'),(10,'Makha'),(11,'Purva Phalguṇi'),(12,'Uttara Phalguni'),(13,'Hasta'),(14,'Chitra'),(15,'Svati'),(16,'Visakha'),(17,'Anuradha'),(18,'Jyestha'),(19,'Mula'),(20,'Purvasadha'),(21,'Uttarasadha'),(22,'Sravanam'),(23,'Dhanistha');
+/*!40000 ALTER TABLE `stars` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `state`
+--
+
+DROP TABLE IF EXISTS `state`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `state` (
+  `Id` int(30) NOT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `state`
+--
+
+LOCK TABLES `state` WRITE;
+/*!40000 ALTER TABLE `state` DISABLE KEYS */;
+INSERT INTO `state` VALUES (1,'Andaman and Nicobar Island'),(2,'Andhra Pradesh'),(3,'Arunachal Pradesh'),(4,'Assam'),(5,'Bihar'),(6,'Chandigarh'),(7,'Chhattisgarh'),(8,'Dadra and Nagar Haveli'),(9,'Daman and Diu'),(10,'Delhi'),(11,'Goa'),(12,'Gujarat'),(13,'Haryana'),(14,'Himachal Pradesh'),(15,'Jammu and Kashmir'),(16,'Jharkhand'),(17,'Karnataka'),(18,'Kerala'),(19,'Lakshadweep'),(20,'Madhya Pradesh'),(21,'Maharashtra'),(22,'Manipur'),(23,'Meghalaya'),(24,'Mizoram'),(25,'Nagaland'),(26,'Odisha'),(27,'Puducherry'),(28,'Punjab'),(29,'Rajasthan'),(30,'Sikkim'),(31,'Tamil Nadu'),(32,'Telangana'),(33,'Tripura'),(34,'Uttar Pradesh'),(35,'Uttarakhand'),(36,'West Bengal');
+/*!40000 ALTER TABLE `state` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `telugucalendar`
+--
+
+DROP TABLE IF EXISTS `telugucalendar`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `telugucalendar` (
+  `EnglishDate` datetime NOT NULL,
+  `Masam` int(11) NOT NULL,
+  `Thidhi` int(11) NOT NULL,
+  PRIMARY KEY (`EnglishDate`),
+  KEY `Thidhi` (`Thidhi`),
+  KEY `Masam` (`Masam`),
+  CONSTRAINT `telugucalendar_ibfk_1` FOREIGN KEY (`Thidhi`) REFERENCES `thidhi` (`Id`),
+  CONSTRAINT `telugucalendar_ibfk_2` FOREIGN KEY (`Masam`) REFERENCES `month` (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `telugucalendar`
+--
+
+LOCK TABLES `telugucalendar` WRITE;
+/*!40000 ALTER TABLE `telugucalendar` DISABLE KEYS */;
+INSERT INTO `telugucalendar` VALUES ('2015-10-09 00:00:00',7,28),('2015-10-10 00:00:00',7,29),('2015-10-11 00:00:00',7,30),('2015-10-12 00:00:00',7,16),('2015-10-13 00:00:00',7,1),('2015-10-14 00:00:00',1,1),('2015-10-15 00:00:00',7,2),('2015-10-16 00:00:00',7,3),('2015-10-17 00:00:00',7,4),('2015-10-18 00:00:00',7,5),('2015-10-19 00:00:00',7,6),('2015-10-20 00:00:00',7,7),('2015-10-21 00:00:00',7,8),('2015-10-22 00:00:00',7,9),('2015-10-23 00:00:00',7,11),('2015-10-24 00:00:00',7,12),('2015-10-25 00:00:00',7,13),('2015-10-26 00:00:00',7,14),('2015-10-27 00:00:00',7,31),('2015-10-28 00:00:00',7,17),('2015-10-29 00:00:00',7,18),('2015-10-30 00:00:00',7,19),('2015-10-31 00:00:00',7,20),('2015-11-01 00:00:00',7,21),('2015-11-02 00:00:00',7,22),('2015-11-03 00:00:00',7,23),('2015-11-04 00:00:00',7,24),('2015-11-05 00:00:00',7,25),('2015-11-06 00:00:00',7,26),('2015-11-07 00:00:00',7,27),('2015-11-08 00:00:00',7,28),('2015-11-09 00:00:00',7,29),('2015-11-10 00:00:00',7,30),('2015-11-11 00:00:00',7,16),('2015-11-12 00:00:00',7,1),('2015-11-13 00:00:00',8,2),('2015-11-14 00:00:00',8,3),('2015-11-15 00:00:00',8,4),('2015-11-16 00:00:00',8,5),('2015-11-17 00:00:00',8,6),('2015-11-18 00:00:00',8,7),('2015-11-19 00:00:00',8,8),('2015-11-20 00:00:00',8,9),('2015-11-21 00:00:00',8,10),('2015-11-22 00:00:00',8,11),('2015-11-23 00:00:00',8,12),('2015-11-24 00:00:00',8,13),('2015-11-25 00:00:00',8,14),('2015-11-26 00:00:00',8,17),('2015-11-27 00:00:00',8,18),('2015-11-28 00:00:00',8,19),('2015-11-29 00:00:00',8,20),('2015-11-30 00:00:00',8,21),('2015-12-01 00:00:00',8,22),('2015-12-02 00:00:00',8,23),('2015-12-03 00:00:00',8,24),('2015-12-04 00:00:00',8,25),('2015-12-05 00:00:00',8,26),('2015-12-06 00:00:00',8,26),('2015-12-07 00:00:00',8,27),('2015-12-08 00:00:00',8,28),('2015-12-09 00:00:00',8,29),('2015-12-10 00:00:00',8,30),('2015-12-11 00:00:00',8,16),('2015-12-12 00:00:00',8,1),('2015-12-13 00:00:00',9,2),('2015-12-14 00:00:00',9,3),('2015-12-15 00:00:00',9,4),('2015-12-16 00:00:00',9,5),('2015-12-17 00:00:00',9,6),('2015-12-18 00:00:00',9,7),('2015-12-19 00:00:00',9,8),('2015-12-20 00:00:00',9,10),('2015-12-21 00:00:00',9,11),('2015-12-22 00:00:00',9,12),('2015-12-23 00:00:00',9,13),('2015-12-24 00:00:00',9,14),('2015-12-25 00:00:00',9,15),('2015-12-26 00:00:00',9,17),('2015-12-27 00:00:00',9,18),('2015-12-28 00:00:00',9,19),('2015-12-29 00:00:00',9,20),('2015-12-30 00:00:00',9,21),('2015-12-31 00:00:00',9,22),('2016-01-01 00:00:00',9,23),('2016-01-02 00:00:00',9,24),('2016-01-03 00:00:00',9,25),('2016-01-04 00:00:00',9,26),('2016-01-05 00:00:00',9,27),('2016-01-06 00:00:00',9,28),('2016-01-07 00:00:00',9,28),('2016-01-08 00:00:00',9,29),('2016-01-09 00:00:00',9,30),('2016-01-10 00:00:00',9,16),('2016-01-11 00:00:00',10,1),('2016-01-12 00:00:00',10,3),('2016-01-13 00:00:00',10,4),('2016-01-14 00:00:00',10,5),('2016-01-15 00:00:00',10,6),('2016-01-16 00:00:00',10,7),('2016-01-17 00:00:00',10,8),('2016-01-18 00:00:00',10,9),('2016-01-19 00:00:00',10,10),('2016-01-20 00:00:00',10,11),('2016-01-21 00:00:00',10,12),('2016-01-22 00:00:00',10,13),('2016-01-23 00:00:00',10,14),('2016-01-24 00:00:00',10,15),('2016-01-25 00:00:00',10,17),('2016-01-26 00:00:00',10,18),('2016-01-27 00:00:00',10,19),('2016-01-28 00:00:00',10,20),('2016-01-29 00:00:00',10,21),('2016-01-30 00:00:00',10,22),('2016-01-31 00:00:00',10,23),('2016-02-01 00:00:00',10,24),('2016-02-02 00:00:00',10,25),('2016-02-03 00:00:00',10,26),('2016-02-04 00:00:00',10,27),('2016-02-05 00:00:00',10,28),('2016-02-06 00:00:00',10,29),('2016-02-07 00:00:00',10,30),('2016-02-08 00:00:00',10,16),('2016-02-09 00:00:00',11,1),('2016-02-10 00:00:00',11,2),('2016-02-11 00:00:00',11,3),('2016-02-12 00:00:00',11,4),('2016-02-13 00:00:00',11,5),('2016-02-14 00:00:00',11,6),('2016-02-15 00:00:00',11,8),('2016-02-16 00:00:00',11,9),('2016-02-17 00:00:00',11,10),('2016-02-18 00:00:00',11,10),('2016-02-19 00:00:00',11,12),('2016-02-20 00:00:00',11,13),('2016-02-21 00:00:00',11,14),('2016-02-22 00:00:00',11,15),('2016-02-23 00:00:00',11,17),('2016-02-24 00:00:00',11,18),('2016-02-25 00:00:00',11,19),('2016-02-26 00:00:00',11,20),('2016-02-27 00:00:00',11,21),('2016-02-28 00:00:00',11,21),('2016-02-29 00:00:00',11,22),('2016-03-01 00:00:00',11,23),('2016-03-02 00:00:00',11,24),('2016-03-03 00:00:00',11,25),('2016-03-04 00:00:00',11,26),('2016-03-05 00:00:00',11,27),('2016-03-06 00:00:00',11,28),('2016-03-07 00:00:00',11,29),('2016-03-08 00:00:00',11,30),('2016-03-09 00:00:00',11,16),('2016-03-10 00:00:00',12,2),('2016-03-11 00:00:00',12,3),('2016-03-12 00:00:00',12,4),('2016-03-13 00:00:00',12,5),('2016-03-14 00:00:00',12,6),('2016-03-15 00:00:00',12,7),('2016-03-16 00:00:00',12,8),('2016-03-17 00:00:00',12,9),('2016-03-18 00:00:00',12,10),('2016-03-19 00:00:00',12,11),('2016-03-20 00:00:00',12,12),('2016-03-21 00:00:00',12,13),('2016-03-22 00:00:00',12,14),('2016-03-23 00:00:00',12,15),('2016-03-24 00:00:00',12,17),('2016-03-25 00:00:00',12,18),('2016-03-26 00:00:00',12,19),('2016-03-27 00:00:00',12,20),('2016-03-28 00:00:00',12,21),('2016-03-29 00:00:00',12,22),('2016-03-30 00:00:00',12,23),('2016-03-31 00:00:00',12,24),('2016-04-01 00:00:00',12,25),('2016-04-02 00:00:00',12,26),('2016-04-03 00:00:00',12,27),('2016-04-04 00:00:00',12,28),('2016-04-05 00:00:00',12,29),('2016-04-06 00:00:00',12,30),('2016-04-07 00:00:00',12,16),('2016-04-08 00:00:00',1,1);
+/*!40000 ALTER TABLE `telugucalendar` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `thidhi`
+--
+
+DROP TABLE IF EXISTS `thidhi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `thidhi` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `thidhi`
+--
+
+LOCK TABLES `thidhi` WRITE;
+/*!40000 ALTER TABLE `thidhi` DISABLE KEYS */;
+INSERT INTO `thidhi` VALUES (0,'Select'),(1,'Suddha Padyami'),(2,'Suddha Vidhiya'),(3,'Suddha Tadhiya'),(4,'Suddha Chaviti'),(5,'Suddha Panchami'),(6,'Suddha Shrashti'),(7,'Suddha Saptami'),(8,'Suddha Ashtami'),(9,'Suddha Navami'),(10,'Suddha Dasami'),(11,'Suddha Ekadasi'),(12,'Suddha Dwadasi'),(13,'Suddha Trayodasi'),(14,'Suddha Chaturdasi'),(15,'Suddha Pournami'),(16,'Amavasya'),(17,'Bahula Padyami'),(18,'Bahula Vidhiya'),(19,'Bahula Tadhiya'),(20,'Bahula Chavithi'),(21,'Bahula Panchami'),(22,'Bahula Shrashti'),(23,'Bahula Saptami'),(24,'Bahula Ashtami'),(25,'Bahula Navami'),(26,'Bahula  Dasami'),(27,'Bahula Ekadasi'),(28,'Bahula  Dwadasi'),(29,'Bahula Thrayodasi'),(30,'Bahula Chaturdasi'),(31,'Bahula Pournami');
+/*!40000 ALTER TABLE `thidhi` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `transactiontype`
+--
+
+DROP TABLE IF EXISTS `transactiontype`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transactiontype` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transactiontype`
+--
+
+LOCK TABLES `transactiontype` WRITE;
+/*!40000 ALTER TABLE `transactiontype` DISABLE KEYS */;
+INSERT INTO `transactiontype` VALUES (1,'Cash'),(2,'Credit/Debit Card'),(3,'DD'),(4,'Cheque');
+/*!40000 ALTER TABLE `transactiontype` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-10-20 22:35:56

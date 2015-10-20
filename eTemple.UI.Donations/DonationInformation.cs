@@ -36,6 +36,7 @@ namespace eTemple.UI
         private MonthlyAnnaRepository monthlyAnnaRepo;
         public GothramsRepository gothramRepo;
         public StateRepository stateRepo;
+        public PrefixesRepository prefixesRepo;
         public TransactionTypeRepository transTypeRepo;
         public List<State> lstStates = null;
         public List<Gothrams> lstGothrams = null;
@@ -71,6 +72,7 @@ namespace eTemple.UI
             lstTokenPrint = new List<TokenPrint>();
             stateRepo = new StateRepository();
             lstStates = new List<State>();
+            prefixesRepo = new PrefixesRepository();
 
             bindData();
             btnUpdate.Visible = false;
@@ -208,17 +210,18 @@ namespace eTemple.UI
                 if (cmbMonthyAnnaThithi.Enabled == false)
                     selectedDonorThithi = 0;
 
-
+                var nameonPrefix = cmbNameOnPrefix.SelectedItem as Prefixes;
+                var namePrefix = cmbNamePrefix.SelectedItem as Prefixes;
                 Donors donorInfo = new Donors
                 {
                     Id = uniqueDonorId,
                     Donordate = donorDate,
-                    DonorName = txtName.Text,
+                    DonorName = namePrefix.Name+" "+txtName.Text,
                     DistrictName = txtDistrict.Text,
                     City = txtCity.Text,
                     Pin = txtPin.Text,
                     State = txtState.Text,
-                    NameOn = txtNameOn.Text,
+                    NameOn = nameonPrefix.Name + " "+ txtNameOn.Text,
                     Star = selectedStarId,
                     TransactionTypeId = selectedTransactionTypeId,
                     TransactionId = txtTransaction.Text,
@@ -458,6 +461,15 @@ namespace eTemple.UI
             var bindStars = starRepo.GetAllAsQuerable();
             cmbStar.DataSource = bindStars;
             cmbStar.DisplayMember = "Name";
+            #endregion
+
+            #region Bind Prefixes values
+            var prefixes =  prefixesRepo.GetAllAsQuerable();
+            cmbNamePrefix.DataSource = prefixes;
+            cmbNamePrefix.DisplayMember = "Name";
+            var prefixes1 = prefixesRepo.GetAllAsQuerable();
+            cmbNameOnPrefix.DataSource = prefixes1;
+            cmbNameOnPrefix.DisplayMember = "Name";
             #endregion
 
             #region Bind ServiceType values
@@ -801,6 +813,11 @@ namespace eTemple.UI
 
                 txtNameOn.Text = donor.NameOn;
                 txtNameOn.Enabled = false;
+                txtName.Text = donor.DonorName;
+                txtName.Enabled = false;
+
+                cmbNameOnPrefix.Visible = false;
+                cmbNamePrefix.Visible = false;
 
                 //Get Star Info
                 var bindStarName = starRepo.GetAllAsQuerable(donor.Star);
@@ -1493,6 +1510,9 @@ namespace eTemple.UI
 
         public void CleareAllcontrolsRecursive()
         {
+            cmbNamePrefix.Visible = true;
+            cmbNameOnPrefix.Visible = true;
+            txtName.Enabled = true;
             txtNameOn.Enabled = true;
             txtAmount.Enabled = true;
             txtName.Text = string.Empty;

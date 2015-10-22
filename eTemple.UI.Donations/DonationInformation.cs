@@ -303,7 +303,7 @@ namespace eTemple.UI
                     performDatePrintMsg = " to be performed on " + performDate_ForPrint;
                 //var selectedServiceType = cmbServiceType.SelectedItem as ServiceTypes;
 
-                string smsMessage = "Sri Vighneswara Swamy Blessings:  We have recieved an amount of Rs." + donorInfo.Amount + "/- towards " + selectedServiceType.Name + performDatePrintMsg + " Visit: www.svstemple.com , Call:08856225812 ";
+                string smsMessage = "We have recieved an amount of Rs." + donorInfo.Amount + "/- towards " + selectedServiceType.Name + performDatePrintMsg + " Visit: www.svstemple.com , Call:08856225812 ";
 
                 if (strInsertStatus == "Success")
                 {

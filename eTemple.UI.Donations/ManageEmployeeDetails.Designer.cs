@@ -247,8 +247,8 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.dgvEmployee);
             this.Controls.Add(this.lblId);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ManageEmployeeDetails";
             this.Text = "ManageEmployeeDetails";

@@ -214,7 +214,7 @@
             // dno
             // 
             this.dno.DataPropertyName = "dno";
-            this.dno.HeaderText = "DoorNo";
+            this.dno.HeaderText = "Address";
             this.dno.Name = "dno";
             this.dno.ReadOnly = true;
             // 

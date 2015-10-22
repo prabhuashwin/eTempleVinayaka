@@ -51,6 +51,8 @@
             this.lblAmountType = new System.Windows.Forms.Label();
             this.cmbStar = new System.Windows.Forms.ComboBox();
             this.grpBoxGeneralInfo = new System.Windows.Forms.GroupBox();
+            this.cmbNameOnPrefix = new System.Windows.Forms.ComboBox();
+            this.cmbNamePrefix = new System.Windows.Forms.ComboBox();
             this.txtMRNo = new System.Windows.Forms.TextBox();
             this.lblMRNO = new System.Windows.Forms.Label();
             this.txtDonorId = new System.Windows.Forms.TextBox();
@@ -102,8 +104,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnQuickDailyAnna = new System.Windows.Forms.Button();
-            this.cmbNamePrefix = new System.Windows.Forms.ComboBox();
-            this.cmbNameOnPrefix = new System.Windows.Forms.ComboBox();
             this.grpBoxGeneralInfo.SuspendLayout();
             this.grpServiceInfo.SuspendLayout();
             this.grpOtherInfo.SuspendLayout();
@@ -203,7 +203,7 @@
             this.txtPin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPin.Location = new System.Drawing.Point(102, 280);
             this.txtPin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtPin.MaxLength = 10;
+            this.txtPin.MaxLength = 6;
             this.txtPin.Name = "txtPin";
             this.txtPin.Size = new System.Drawing.Size(200, 25);
             this.txtPin.TabIndex = 17;
@@ -404,6 +404,22 @@
             this.grpBoxGeneralInfo.TabStop = false;
             this.grpBoxGeneralInfo.Text = "Saswatham Form";
             // 
+            // cmbNameOnPrefix
+            // 
+            this.cmbNameOnPrefix.FormattingEnabled = true;
+            this.cmbNameOnPrefix.Location = new System.Drawing.Point(425, 82);
+            this.cmbNameOnPrefix.Name = "cmbNameOnPrefix";
+            this.cmbNameOnPrefix.Size = new System.Drawing.Size(71, 25);
+            this.cmbNameOnPrefix.TabIndex = 514;
+            // 
+            // cmbNamePrefix
+            // 
+            this.cmbNamePrefix.FormattingEnabled = true;
+            this.cmbNamePrefix.Location = new System.Drawing.Point(95, 81);
+            this.cmbNamePrefix.Name = "cmbNamePrefix";
+            this.cmbNamePrefix.Size = new System.Drawing.Size(71, 25);
+            this.cmbNamePrefix.TabIndex = 513;
+            // 
             // txtMRNo
             // 
             this.txtMRNo.Location = new System.Drawing.Point(718, 325);
@@ -500,7 +516,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 17);
             this.label6.TabIndex = 507;
-            this.label6.Text = "Door No";
+            this.label6.Text = "Address";
             // 
             // cmbTransactionDate
             // 
@@ -965,22 +981,6 @@
             this.btnQuickDailyAnna.Visible = false;
             this.btnQuickDailyAnna.Click += new System.EventHandler(this.btnQuickDailyAnna_Click);
             // 
-            // cmbNamePrefix
-            // 
-            this.cmbNamePrefix.FormattingEnabled = true;
-            this.cmbNamePrefix.Location = new System.Drawing.Point(95, 81);
-            this.cmbNamePrefix.Name = "cmbNamePrefix";
-            this.cmbNamePrefix.Size = new System.Drawing.Size(71, 25);
-            this.cmbNamePrefix.TabIndex = 513;
-            // 
-            // cmbNameOnPrefix
-            // 
-            this.cmbNameOnPrefix.FormattingEnabled = true;
-            this.cmbNameOnPrefix.Location = new System.Drawing.Point(425, 82);
-            this.cmbNameOnPrefix.Name = "cmbNameOnPrefix";
-            this.cmbNameOnPrefix.Size = new System.Drawing.Size(71, 25);
-            this.cmbNameOnPrefix.TabIndex = 514;
-            // 
             // DonationInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -990,11 +990,11 @@
             this.Controls.Add(this.btnQuickDailyAnna);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnModify);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.grpOtherInfo);
             this.Controls.Add(this.grpServiceInfo);
             this.Controls.Add(this.grpBoxGeneralInfo);
             this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnAdd);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);

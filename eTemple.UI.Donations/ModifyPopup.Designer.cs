@@ -117,9 +117,9 @@
             this.lblMRNO.Location = new System.Drawing.Point(94, 131);
             this.lblMRNO.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMRNO.Name = "lblMRNO";
-            this.lblMRNO.Size = new System.Drawing.Size(56, 17);
+            this.lblMRNO.Size = new System.Drawing.Size(80, 17);
             this.lblMRNO.TabIndex = 5;
-            this.lblMRNO.Text = "MR NO";
+            this.lblMRNO.Text = "Receipt No";
             // 
             // txtDonorID
             // 

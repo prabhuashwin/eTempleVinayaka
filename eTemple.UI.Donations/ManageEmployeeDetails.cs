@@ -245,6 +245,7 @@ namespace eTemple.UI.Donations
                     LoginId = txtLoginName.Text.Trim(),
                     Name = txtName.Text.Trim(),
                     Role = selectedRoleTypeId,
+                    Status=1,
                     Password = txtPassword.Text,
                     ModifiedOn = DateTime.Today.Date,
                     ModifiedBy = ApplicationElements.loggedInEmployee.Id

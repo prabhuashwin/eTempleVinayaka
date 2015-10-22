@@ -35,6 +35,11 @@ namespace eTemple.Data.Repositories
             return TempleDb.Query<Prefixes>("Select * From prefixes").ToList();
         }
 
+        public IEnumerable<Prefixes> GetAllAsQuerable(int prefixID)
+        {
+            return TempleDb.Query<Prefixes>("Select * From prefixes where Id = " + prefixID + " order by Name asc").ToList();
+        }
+
         public void Update(Prefixes entity)
         {
             throw new NotImplementedException();

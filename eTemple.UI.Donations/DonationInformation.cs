@@ -43,6 +43,7 @@ namespace eTemple.UI
         public List<TokenPrint> lstTokenPrint = null;
         public List<Donors> lstCityVillage = null;
         public List<Donors> lstMandal = null;
+        public List<Donors> lstPurpose = null;
         public List<Donors> lstDistrict = null;
         public DonationInformation()
         {
@@ -216,12 +217,14 @@ namespace eTemple.UI
                 {
                     Id = uniqueDonorId,
                     Donordate = donorDate,
-                    DonorName = namePrefix.Name+" "+txtName.Text,
+                    Prefix_Name=namePrefix.Id,
+                    DonorName = txtName.Text,
                     DistrictName = txtDistrict.Text,
                     City = txtCity.Text,
                     Pin = txtPin.Text,
                     State = txtState.Text,
-                    NameOn = nameonPrefix.Name + " "+ txtNameOn.Text,
+                    Prefix_NameOn=nameonPrefix.Id,
+                    NameOn = txtNameOn.Text,
                     Star = selectedStarId,
                     TransactionTypeId = selectedTransactionTypeId,
                     TransactionId = txtTransaction.Text,
@@ -816,13 +819,21 @@ namespace eTemple.UI
                 txtName.Text = donor.DonorName;
                 txtName.Enabled = false;
 
-                cmbNameOnPrefix.Visible = false;
-                cmbNamePrefix.Visible = false;
+                cmbNameOnPrefix.Enabled = false;
+                cmbNamePrefix.Enabled = false;
 
                 //Get Star Info
                 var bindStarName = starRepo.GetAllAsQuerable(donor.Star);
                 string[] starNameValue = bindStarName.Select(p => p.Name).ToArray();
                 cmbStar.SelectedIndex = cmbStar.FindString(starNameValue[0]);
+
+                var bindprefixName = prefixesRepo.GetAllAsQuerable(donor.Prefix_Name);
+                string[] PrefixName = bindprefixName.Select(p => p.Name).ToArray();
+                cmbNamePrefix.SelectedIndex = cmbNamePrefix.FindString(PrefixName[0]);
+
+                var bindprefixNameOn = prefixesRepo.GetAllAsQuerable(donor.Prefix_NameOn);
+                string[] PrefixNameOn = bindprefixNameOn.Select(p => p.Name).ToArray();
+                cmbNameOnPrefix.SelectedIndex = cmbNameOnPrefix.FindString(PrefixNameOn[0]);
 
                 txtAmount.Text = donor.Amount.ToString();
                 txtAmount.Enabled = false;
@@ -1578,6 +1589,7 @@ namespace eTemple.UI
             loadCityVillageAutoComplete();
             loadMandalAutoComplete();
             loadDistrictAutoComplete();
+            loadPurposeAutoComplete();
             
             rbdEnglish.Visible = false;
             rbdTelugu.Visible = false;
@@ -1610,6 +1622,19 @@ namespace eTemple.UI
             txtCity.AutoCompleteCustomSource = strcoll;
         }
 
+        private void loadPurposeAutoComplete()
+        {
+            lstPurpose = donorRepo.GetPurposeAsQuerable().ToList();
+            AutoCompleteStringCollection strcoll = new AutoCompleteStringCollection();
+            foreach (Donors oPurpose in lstPurpose)
+            {
+                if (oPurpose.Occasion != null)
+                    strcoll.Add(oPurpose.Occasion);
+            }
+            txtPurpose.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtPurpose.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtPurpose.AutoCompleteCustomSource = strcoll;
+        }
 
         private void loadMandalAutoComplete()
         {
@@ -1771,7 +1796,15 @@ namespace eTemple.UI
                     txtState.Text = donorExists.State;                
 
                     txtNameOn.Text = donorExists.NameOn;
-                    
+
+                    var bindprefixName = prefixesRepo.GetAllAsQuerable(donorExists.Prefix_Name);
+                    string[] PrefixName = bindprefixName.Select(p => p.Name).ToArray();
+                    cmbNamePrefix.SelectedIndex = cmbNamePrefix.FindString(PrefixName[0]);
+
+                    var bindprefixNameOn = prefixesRepo.GetAllAsQuerable(donorExists.Prefix_NameOn);
+                    string[] PrefixNameOn = bindprefixNameOn.Select(p => p.Name).ToArray();
+                    cmbNameOnPrefix.SelectedIndex = cmbNameOnPrefix.FindString(PrefixNameOn[0]);
+
                     //Get Star Info
                     var bindStarName = starRepo.GetAllAsQuerable(donorExists.Star);
                     string[] starNameValue = bindStarName.Select(p => p.Name).ToArray();

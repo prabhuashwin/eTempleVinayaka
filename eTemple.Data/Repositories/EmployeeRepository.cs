@@ -115,7 +115,7 @@ namespace eTemple.Data.Repositories
         public string InsertEmployee(Employees empDetials)
         {
             string insertStatus = string.Empty;
-            string commandText = "INSERT INTO employees(Id,Name,Role,LoginId,Password,CreatedBy,CreatedOn)VALUES(@Id,@Name,@Role,@LoginId,@Password,@CreatedBy,@CreatedOn)";
+            string commandText = "INSERT INTO employees(Id,Name,Role,LoginId,Password,CreatedBy,CreatedOn,Status)VALUES(@Id,@Name,@Role,@LoginId,@Password,@CreatedBy,@CreatedOn,@Status)";
 
             using (MySqlConnection conn = new MySqlConnection(strConn))
             {
@@ -134,6 +134,7 @@ namespace eTemple.Data.Repositories
                             cmd.Parameters.AddWithValue("@Password", empDetials.Password);
                             cmd.Parameters.AddWithValue("@CreatedBy", empDetials.CreatedBy);
                             cmd.Parameters.AddWithValue("@CreatedOn", empDetials.CreatedOn);
+                            cmd.Parameters.AddWithValue("@Status", empDetials.Status);
                             cmd.ExecuteNonQuery();
                             insertStatus = "Success";
                         }

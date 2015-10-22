@@ -78,7 +78,7 @@ namespace eTemple.Data.Repositories
             return dsreturnObj;
         }
 
-        public DataSet getTotalAmountpbySVC(string frmDate,string toDate)
+        public DataSet getTotalAmountpbySVC(string frmDate, string toDate)
         {
             using (MySqlConnection conn = new MySqlConnection(strConn))
             {
@@ -98,7 +98,7 @@ namespace eTemple.Data.Repositories
         {
             using (MySqlConnection conn = new MySqlConnection(strConn))
             {
-                using (MySqlCommand cmd = new MySqlCommand(@"select d.id as TicketID,MR_No as ReceiptID,ServiceTypeId as ServiceID,gothram,donorname as DevoteeName,Amount,case datetypeid when 0 then '' when 1 then concat(m.name,' ',t.Name) when 2 then performDate else s.name end as performDate,
+                using (MySqlCommand cmd = new MySqlCommand(@"select d.id as TicketID,MR_No as ReceiptID,ServiceTypeId as ServiceID,gothram,concat(pp.name,' ',donorname) as DevoteeName,Amount,case datetypeid when 0 then '' when 1 then concat(m.name,' ',t.Name) when 2 then performDate else s.name end as performDate,
                     DATE_FORMAT(date(donordate),'%d-%m-%Y') as createdon,doorno as dno,Mandal,city ,districtname, state as statename,pin as pin,
                     Occasion as OtherDetails, mobile as PhoneNumber, tt.name as TransactionType
                     from donors d
@@ -106,6 +106,7 @@ namespace eTemple.Data.Repositories
                     inner join thidhi t on t.id =thidhi
                     inner join specialday s on s.id=specialDayid
                     inner join TransactionType tt on tt.id= TransactionTypeid
+                    inner join prefixes pp on pp.id=Prefix_Name
                     where Donordate='" + DonorDate + "' and servicetypeid=" + serviceType + " order by MR_No", conn))
                 {
                     using (MySqlDataAdapter da = new MySqlDataAdapter())
@@ -192,7 +193,7 @@ namespace eTemple.Data.Repositories
         public string insertDonorInformation(Donors donor)
         {
             string insertStatus = string.Empty;
-            string commandText = "INSERT INTO donors(Id,Donordate,Surname,DonorName,DistrictName,City,Pin,State,Country,NameOn,Star,Occasion,Gothram,Amount,MR_No,Remarks,Landline,SpecialDayId,ServiceTypeId,ServiceNameId,DateTypeId,PerformDate,EmailId,DonorMonth,Thidhi,DonorDay,Mobile,DonorThithi,DoorNo,Mandal,TransactionTypeId,TransactionID,TransactionDate,CreatedBy)VALUES(@Id, @Donordate,@Surname,@DonorName,@DistrictName,@City,@Pin,@State,@Country,@NameOn,@Star,@Occasion,@Gothram,@Amount,@MR_No,@Remarks,@Landline,@SpecialDayId,@ServiceTypeId,@ServiceNameId,@DateTypeId,@PerformDate,@EmailId,@DonorMonth,@Thidhi,@DonorDay,@Mobile,@DonorThithi,@DoorNo,@Mandal,@TransactionTypeId,@TransactionID,@TransactionDate,@CreatedBy)";
+            string commandText = "INSERT INTO donors(Id,Donordate,Surname,DonorName,DistrictName,City,Pin,State,Country,NameOn,Star,Occasion,Gothram,Amount,MR_No,Remarks,Landline,SpecialDayId,ServiceTypeId,ServiceNameId,DateTypeId,PerformDate,EmailId,DonorMonth,Thidhi,DonorDay,Mobile,DonorThithi,DoorNo,Mandal,TransactionTypeId,TransactionID,TransactionDate,CreatedBy,Prefix_NameOn,Prefix_Name)VALUES(@Id, @Donordate,@Surname,@DonorName,@DistrictName,@City,@Pin,@State,@Country,@NameOn,@Star,@Occasion,@Gothram,@Amount,@MR_No,@Remarks,@Landline,@SpecialDayId,@ServiceTypeId,@ServiceNameId,@DateTypeId,@PerformDate,@EmailId,@DonorMonth,@Thidhi,@DonorDay,@Mobile,@DonorThithi,@DoorNo,@Mandal,@TransactionTypeId,@TransactionID,@TransactionDate,@CreatedBy,@Prefix_NameOn,@Prefix_Name)";
 
             using (MySqlConnection conn = new MySqlConnection(strConn))
             {
@@ -206,7 +207,6 @@ namespace eTemple.Data.Repositories
                             cmd.CommandType = CommandType.Text;
                             cmd.Parameters.AddWithValue("@Id", donor.Id);
                             cmd.Parameters.AddWithValue("@Donordate", donor.Donordate);
-                            
                             cmd.Parameters.AddWithValue("@Surname", donor.Surname.NullString());
                             cmd.Parameters.AddWithValue("@DonorName", donor.DonorName.NullString());
                             cmd.Parameters.AddWithValue("@DistrictName", donor.DistrictName.NullString());
@@ -239,6 +239,8 @@ namespace eTemple.Data.Repositories
                             cmd.Parameters.AddWithValue("@TransactionID", donor.TransactionId.NullString());
                             cmd.Parameters.AddWithValue("@TransactionDate", donor.TransactionDate.NullString());
                             cmd.Parameters.AddWithValue("@CreatedBy", donor.CreatedBy);
+                            cmd.Parameters.AddWithValue("@Prefix_NameOn", donor.Prefix_NameOn);
+                            cmd.Parameters.AddWithValue("@Prefix_Name", donor.Prefix_Name);
 
                             cmd.ExecuteNonQuery();
                             insertStatus = "Success";
@@ -286,13 +288,13 @@ namespace eTemple.Data.Repositories
                             cmd.CommandType = CommandType.Text;
                             cmd.Parameters.AddWithValue("@Id", donor.Id);
                             cmd.Parameters.AddWithValue("@Donordate", donor.Donordate);
-                            
+
                             cmd.Parameters.AddWithValue("@DonorName", donor.DonorName.NullString());
                             cmd.Parameters.AddWithValue("@DistrictName", donor.DistrictName.NullString());
                             cmd.Parameters.AddWithValue("@City", donor.City.NullString());
                             cmd.Parameters.AddWithValue("@Pin", donor.Pin.NullString());
                             cmd.Parameters.AddWithValue("@State", donor.State.NullString());
-                           
+
                             cmd.Parameters.AddWithValue("@NameOn", donor.NameOn);
                             cmd.Parameters.AddWithValue("@Star", donor.Star);
                             cmd.Parameters.AddWithValue("@Occasion", donor.Occasion);
@@ -383,6 +385,11 @@ namespace eTemple.Data.Repositories
             return TempleDb.Query<Donors>("SELECT distinct Mandal FROM donors").ToList();
         }
 
+        public IEnumerable<Donors> GetPurposeAsQuerable()
+        {
+            return TempleDb.Query<Donors>("SELECT distinct occasion FROM donors").ToList();
+        }
+        
         public IEnumerable<Donors> GetDistrictAsQuerable()
         {
             return TempleDb.Query<Donors>("SELECT distinct DistrictName FROM donors").ToList();

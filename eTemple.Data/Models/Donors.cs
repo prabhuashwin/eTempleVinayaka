@@ -114,6 +114,9 @@ namespace eTemple.Data.Models
         public int? ModifiedBy { get; set; }
         
         public DateTime? ModifiedDate { get; set; }
+
+        public int Prefix_Name { get; set; }
+        public int Prefix_NameOn { get; set; }
     }
 }
 

@@ -76,6 +76,7 @@
     <Compile Include="Models\MonthlyAnnaDanam.cs" />
     <Compile Include="Models\Paksha.cs" />
     <Compile Include="Models\SelectedDonorOptions.cs" />
+    <Compile Include="Models\RoleModuleMapping.cs" />
     <Compile Include="Models\TeluguCalendar.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Thidhi.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Repositories\ServiceNameRepository.cs" />
     <Compile Include="Repositories\ServiceTypeRepository.cs" />
     <Compile Include="Repositories\SpecialDayRepository.cs" />
+    <Compile Include="Repositories\RoleModuleMapRepository.cs" />
     <Compile Include="Repositories\StarsRepository.cs" />
     <Compile Include="Repositories\TeluguCalendarRepository.cs" />
     <Compile Include="Repositories\StateRepository.cs" />

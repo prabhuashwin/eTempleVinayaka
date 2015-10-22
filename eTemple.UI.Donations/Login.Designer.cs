@@ -81,7 +81,6 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(164, 25);
             this.txtPassword.TabIndex = 21;
-            this.txtPassword.Text = "hyma2259";
             // 
             // txtLoginId
             // 
@@ -91,7 +90,6 @@
             this.txtLoginId.Name = "txtLoginId";
             this.txtLoginId.Size = new System.Drawing.Size(164, 25);
             this.txtLoginId.TabIndex = 20;
-            this.txtLoginId.Text = "superadmin";
             // 
             // lblPassword
             // 

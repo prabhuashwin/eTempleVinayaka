@@ -298,9 +298,12 @@ namespace eTemple.UI
                 //Insert the Donor Information
                 string strInsertStatus = donorRepo.insertDonorInformation(donorInfo);
 
+                string performDatePrintMsg = string.Empty;
+                if(performDate_ForPrint!="" && performDate_ForPrint!=string.Empty)
+                    performDatePrintMsg = " to be performed on " + performDate_ForPrint;
                 //var selectedServiceType = cmbServiceType.SelectedItem as ServiceTypes;
 
-                string smsMessage = "Thanks " + donorInfo.NameOn + " we have recieved an amount of Rs." + donorInfo.Amount + "/- towards " + selectedServiceType.Name;
+                string smsMessage = "Sri Vighneswara Swamy Blessings:  We have recieved an amount of Rs." + donorInfo.Amount + "/- towards " + selectedServiceType.Name + performDatePrintMsg + " Visit: www.svstemple.com , Call:08856225812 ";
 
                 if (strInsertStatus == "Success")
                 {

@@ -45,6 +45,7 @@ namespace eTemple.UI
         public List<Donors> lstMandal = null;
         public List<Donors> lstPurpose = null;
         public List<Donors> lstDistrict = null;
+        public static string printerName = string.Empty;
         public DonationInformation()
         {
             //dtpDate.MinDate = DateTime.Now;
@@ -303,7 +304,7 @@ namespace eTemple.UI
                     performDatePrintMsg = " to be performed on " + performDate_ForPrint;
                 //var selectedServiceType = cmbServiceType.SelectedItem as ServiceTypes;
 
-                string smsMessage = "We have recieved an amount of Rs." + donorInfo.Amount + "/- towards " + selectedServiceType.Name + performDatePrintMsg + " Visit: www.svstemple.com , Call:08856225812 ";
+                string smsMessage = "Dear Sir/Madam, We have received an amount of Rs." + donorInfo.Amount + "/- towards " + selectedServiceType.Name + performDatePrintMsg + " Visit: www.svstemple.com , Call:08856225812 ";
 
                 if (strInsertStatus == "Success")
                 {
@@ -328,7 +329,12 @@ namespace eTemple.UI
                     PrintHelper oPrintHelper = new PrintHelper();
                     lstTokenPrint.Clear();
                     lstTokenPrint.Add(oTokenPrint);
-                    oPrintHelper.PrintTokens(lstTokenPrint, this, ConfigurationManager.AppSettings["PrinterName"].ToString(),Convert.ToBoolean(ConfigurationManager.AppSettings["ShowPrintPreview"]));
+                    if (printerName == string.Empty || printerName == "")
+                    { 
+                        MessageBox.Show("Token cannot be printed.... Please install a printer and select..");
+                    }
+                    else
+                    oPrintHelper.PrintTokens(lstTokenPrint, this, printerName, Convert.ToBoolean(ConfigurationManager.AppSettings["ShowPrintPreview"]));
                 }
                 else
                     MessageBox.Show("There was a problem inserting data, kindly try again to save the record");
@@ -1796,8 +1802,9 @@ namespace eTemple.UI
                     txtDistrict.Text = donorExists.DistrictName;
                     txtCity.Text = donorExists.City;
                     txtPin.Text = donorExists.Pin;
-                    txtState.Text = donorExists.State;                
-
+                    txtState.Text = donorExists.State;
+                    txtDoorNo.Text = donorExists.DoorNo;
+                    txtMandal.Text=donorExists.Mandal;
                     txtNameOn.Text = donorExists.NameOn;
 
                     var bindprefixName = prefixesRepo.GetAllAsQuerable(donorExists.Prefix_Name);

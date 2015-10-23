@@ -40,6 +40,8 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbPrinter = new System.Windows.Forms.ComboBox();
+            this.lblPrinter = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
@@ -142,6 +144,8 @@
             // 
             this.panel1.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.cmbPrinter);
+            this.panel1.Controls.Add(this.lblPrinter);
             this.panel1.Controls.Add(this.lblUser);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(0, 27);
@@ -149,13 +153,34 @@
             this.panel1.Size = new System.Drawing.Size(933, 51);
             this.panel1.TabIndex = 1;
             // 
+            // cmbPrinter
+            // 
+            this.cmbPrinter.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPrinter.FormattingEnabled = true;
+            this.cmbPrinter.Location = new System.Drawing.Point(731, 24);
+            this.cmbPrinter.Name = "cmbPrinter";
+            this.cmbPrinter.Size = new System.Drawing.Size(196, 28);
+            this.cmbPrinter.TabIndex = 6;
+            this.cmbPrinter.SelectedIndexChanged += new System.EventHandler(this.cmbPrinter_SelectedIndexChanged);
+            // 
+            // lblPrinter
+            // 
+            this.lblPrinter.AutoSize = true;
+            this.lblPrinter.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrinter.Image = global::eTemple.UI.Donations.Properties.Resources.wood4;
+            this.lblPrinter.Location = new System.Drawing.Point(674, 27);
+            this.lblPrinter.Name = "lblPrinter";
+            this.lblPrinter.Size = new System.Drawing.Size(51, 20);
+            this.lblPrinter.TabIndex = 5;
+            this.lblPrinter.Text = "Printer:";
+            // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
             this.lblUser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblUser.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.Image = global::eTemple.UI.Donations.Properties.Resources.wood4;
-            this.lblUser.Location = new System.Drawing.Point(727, 16);
+            this.lblUser.Location = new System.Drawing.Point(728, 4);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(0, 20);
             this.lblUser.TabIndex = 4;
@@ -164,7 +189,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.testlogo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(256, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(212, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(450, 46);
             this.pictureBox1.TabIndex = 3;
@@ -210,5 +235,7 @@
         private System.Windows.Forms.ToolStripMenuItem serviceReportWithAddressesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem operatorWiseReportToolStripMenuItem;
         private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Label lblPrinter;
+        private System.Windows.Forms.ComboBox cmbPrinter;
     }
 }

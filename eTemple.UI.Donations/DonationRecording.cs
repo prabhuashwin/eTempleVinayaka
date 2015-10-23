@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace eTemple.UI.Donations
 {
@@ -21,6 +22,7 @@ namespace eTemple.UI.Donations
         private ServiceReportForm oServiceReportForm;
         private ServerReportAddresses oServerReportAddresses;
         private ServiceReportOperatorWise oServiceReportOperatorWise;
+        public string PrinterName;
         public DonationRecording()
         {
             InitializeComponent();
@@ -31,6 +33,19 @@ namespace eTemple.UI.Donations
         private void DonationRecording_Load(object sender, EventArgs e)
         {
             lblUser.Text = "Welcome " + ApplicationElements.loggedInEmployee.LoginId;
+           foreach (string printerName in PrinterSettings.InstalledPrinters)
+            {
+                cmbPrinter.Items.Add(printerName);
+            }
+
+           if (cmbPrinter.Items.Count > 0)
+           {
+               cmbPrinter.SelectedIndex = 0;
+           }
+           else
+           {
+               MessageBox.Show("No printers found on this machine. Please install printers for token  printing.", "No Printers found !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+           }
         }
 
         private void reportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -163,6 +178,14 @@ namespace eTemple.UI.Donations
             //oDCRReportForm.MdiParent = this;
             oServiceReportOperatorWise.WindowState = FormWindowState.Maximized;
             oServiceReportOperatorWise.Show();
+        }
+
+        private void cmbPrinter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbPrinter.SelectedIndex!=-1)
+            { 
+              DonationInformation.printerName = cmbPrinter.SelectedItem.ToString();
+            }
         }
 
     }

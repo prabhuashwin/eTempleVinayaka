@@ -25,7 +25,6 @@ namespace eTemple.Data
                 DateTypeId = dateTypeId,
                 PerformDate = performDate.ToString("dd-MM"),
                 DonorMonth = month,
-                Address = address,
                 DonorName = name,
                 City = city
             };

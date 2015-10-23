@@ -31,10 +31,6 @@
             this.donorIdComboBox = new System.Windows.Forms.ComboBox();
             this.donorNameComboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.donorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.phoneNumberComboBox = new System.Windows.Forms.ComboBox();
             this.citiComboBox = new System.Windows.Forms.ComboBox();
@@ -45,6 +41,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblServiceType = new System.Windows.Forms.Label();
+            this.donorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gpbEnquiry.SuspendLayout();
             this.SuspendLayout();
@@ -79,7 +78,6 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.donorId,
-            this.surname,
             this.Column1,
             this.address});
             this.dataGridView1.Location = new System.Drawing.Point(0, 139);
@@ -90,34 +88,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(931, 150);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // donorId
-            // 
-            this.donorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.donorId.HeaderText = "DONOR ID";
-            this.donorId.Name = "donorId";
-            this.donorId.ReadOnly = true;
-            // 
-            // surname
-            // 
-            this.surname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.surname.HeaderText = "SURNAME";
-            this.surname.Name = "surname";
-            this.surname.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "NAME";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // address
-            // 
-            this.address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.address.HeaderText = "ADDRESS";
-            this.address.Name = "address";
-            this.address.ReadOnly = true;
             // 
             // button2
             // 
@@ -237,6 +207,29 @@
             this.lblServiceType.TabIndex = 7;
             this.lblServiceType.Text = "Donor ID";
             // 
+            // donorId
+            // 
+            this.donorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.donorId.FillWeight = 25F;
+            this.donorId.HeaderText = "DONOR ID";
+            this.donorId.Name = "donorId";
+            this.donorId.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.FillWeight = 50F;
+            this.Column1.HeaderText = "NAME";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // address
+            // 
+            this.address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.address.HeaderText = "ADDRESS";
+            this.address.Name = "address";
+            this.address.ReadOnly = true;
+            // 
             // EnquiryDetailsUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,10 +257,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox phoneNumberComboBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn donorId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn address;
         private System.Windows.Forms.ComboBox citiComboBox;
         private System.Windows.Forms.ComboBox mrNumberComboBox;
         private System.Windows.Forms.GroupBox gpbEnquiry;
@@ -276,5 +265,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn donorId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn address;
     }
 }

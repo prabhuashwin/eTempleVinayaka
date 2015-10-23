@@ -75,7 +75,7 @@ namespace eTemple.UI.Donations
             dataGridView1.Rows.Clear();
             foreach (var donor in matchedDonors)
             {
-                dataGridView1.Rows.Add(donor.Id, donor.Surname, donor.DonorName, donor.Address);
+                dataGridView1.Rows.Add(donor.Id,donor.DonorName, donor.DoorNo+donor.Mandal+donor.City+donor.DistrictName+donor.State);
             }
         }
      

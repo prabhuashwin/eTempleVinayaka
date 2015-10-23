@@ -16,8 +16,6 @@ namespace eTemple.Data.Models
         
         public DateTime Donordate { get; set; }
 
-        
-        public string Address { get; set; }
 
         
         public string Surname { get; set; }

@@ -179,7 +179,7 @@ namespace eTemple.Data.Repositories
 
         public Donors fetchDataFromMobileNumber(string chkMobile)
         {
-            var donors = TempleDb.SingleOrDefault<Donors>("Select D.*,max(cast(d.mr_no as SIGNED)) from Donors d  where Mobile=@0 group by Mobile", chkMobile);
+            var donors = TempleDb.SingleOrDefault<Donors>("Select * from Donors where mr_no in (Select max(cast(d.mr_no as SIGNED)) from Donors d  where Mobile=@0 group by Mobile)", chkMobile);
             if (donors != null && donors.MR_No != string.Empty)
             {
                 return donors;

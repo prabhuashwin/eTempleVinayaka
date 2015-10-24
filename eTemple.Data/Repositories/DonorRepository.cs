@@ -151,6 +151,19 @@ namespace eTemple.Data.Repositories
             }
         }
 
+        public Donors GetLastRecordbyOperator(int OperatorId)
+        {
+            var donors = TempleDb.SingleOrDefault<Donors>("Select * from Donors where mr_no in (Select max(cast(d.mr_no as SIGNED)) from Donors d  where createdby=@0)", OperatorId);
+            if (donors != null )
+            {
+                return donors;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public Donors checkModifyDonorNameExists(string chkName)
         {
             var donors = TempleDb.SingleOrDefault<Donors>("Select * from Donors where DonorName=@0", chkName);
@@ -273,7 +286,7 @@ namespace eTemple.Data.Repositories
         public string updateDonorInformation(Donors donor)
         {
             string updateStatus = string.Empty;
-            string commandText = "update donors set Donordate=@Donordate,DonorName=@DonorName,DistrictName=@DistrictName,City=@City,Pin=@Pin,State=@State,NameOn=@NameOn,Star=@Star,Occasion=@Occasion,Gothram=@Gothram,Amount=@Amount,MR_No=@MR_No,Remarks=@Remarks,Landline=@Landline,SpecialDayId=@SpecialDayId,ServiceTypeId=@ServiceTypeId,ServiceNameId=@ServiceNameId,DateTypeId=@DateTypeId,PerformDate=@PerformDate,EmailId=@EmailId,DonorMonth=@DonorMonth,Thidhi=@Thidhi,DonorDay=@DonorDay,Mobile=@Mobile,DonorThithi=@DonorThithi,DoorNo=@DoorNo,Mandal=@Mandal,TransactionTypeId=@TransactionTypeId,TransactionID=@TransactionID,TransactionDate=@TransactionDate,ModifiedBy=@ModifiedBy,ModifiedDate=@ModifiedDate WHERE Id = @Id";
+            string commandText = "update donors set  Prefix_Name=@Prefix_Name,Prefix_NameOn=@Prefix_NameOn,DonorName=@DonorName,DistrictName=@DistrictName,City=@City,Pin=@Pin,State=@State,NameOn=@NameOn,Star=@Star,Occasion=@Occasion,Gothram=@Gothram,Amount=@Amount,MR_No=@MR_No,Remarks=@Remarks,Landline=@Landline,SpecialDayId=@SpecialDayId,ServiceTypeId=@ServiceTypeId,ServiceNameId=@ServiceNameId,DateTypeId=@DateTypeId,PerformDate=@PerformDate,EmailId=@EmailId,DonorMonth=@DonorMonth,Thidhi=@Thidhi,DonorDay=@DonorDay,Mobile=@Mobile,DonorThithi=@DonorThithi,DoorNo=@DoorNo,Mandal=@Mandal,TransactionTypeId=@TransactionTypeId,TransactionID=@TransactionID,TransactionDate=@TransactionDate,ModifiedBy=@ModifiedBy,ModifiedDate=@ModifiedDate WHERE Id = @Id";
 
 
             using (MySqlConnection conn = new MySqlConnection(strConn))
@@ -287,8 +300,9 @@ namespace eTemple.Data.Repositories
                         {
                             cmd.CommandType = CommandType.Text;
                             cmd.Parameters.AddWithValue("@Id", donor.Id);
-                            cmd.Parameters.AddWithValue("@Donordate", donor.Donordate);
-
+                            cmd.Parameters.AddWithValue("@Prefix_Name", donor.Prefix_Name);
+                            cmd.Parameters.AddWithValue("@Prefix_NameOn", donor.Prefix_NameOn);
+                            
                             cmd.Parameters.AddWithValue("@DonorName", donor.DonorName.NullString());
                             cmd.Parameters.AddWithValue("@DistrictName", donor.DistrictName.NullString());
                             cmd.Parameters.AddWithValue("@City", donor.City.NullString());

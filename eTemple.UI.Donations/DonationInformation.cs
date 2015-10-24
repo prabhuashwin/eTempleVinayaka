@@ -54,7 +54,7 @@ namespace eTemple.UI
 
             dtpEnglishDateType.Format = DateTimePickerFormat.Custom;
             dtpEnglishDateType.CustomFormat = "dd/MM";
-            
+
             donorRepo = new DonorRepository();
             datetypeRepo = new DateTypeRepository();
             desigRepo = new DesignationRepository();
@@ -129,7 +129,7 @@ namespace eTemple.UI
 
                 if ((txtTransaction.Text == "") || (txtTransaction.Text == string.Empty))
                     txtTransaction.Text = null;
-                
+
                 if ((txtPin.Text == "") || (txtPin.Text == string.Empty))
                     txtPin.Text = null;
 
@@ -218,19 +218,19 @@ namespace eTemple.UI
                 {
                     Id = uniqueDonorId,
                     Donordate = donorDate,
-                    Prefix_Name=namePrefix.Id,
+                    Prefix_Name = namePrefix.Id,
                     DonorName = txtName.Text,
                     DistrictName = txtDistrict.Text,
                     City = txtCity.Text,
                     Pin = txtPin.Text,
                     State = txtState.Text,
-                    Prefix_NameOn=nameonPrefix.Id,
+                    Prefix_NameOn = nameonPrefix.Id,
                     NameOn = txtNameOn.Text,
                     Star = selectedStarId,
                     TransactionTypeId = selectedTransactionTypeId,
                     TransactionId = txtTransaction.Text,
                     TransactionDate = transactionDate,
-                    Occasion=txtPurpose.Text,
+                    Occasion = txtPurpose.Text,
                     Gothram = txtGothram.Text,
                     MR_No = uniqueMRNo,
                     Amount = Convert.ToDecimal(txtAmount.Text),
@@ -251,10 +251,10 @@ namespace eTemple.UI
                     CreatedBy = ApplicationElements.loggedInEmployee.Id
                 };
                 string performDate_ForPrint = string.Empty;
-                var selecteddtType=cmbDateType.SelectedItem as DateType;
-                var selectedMonth=cmbMonth.SelectedItem as Months;
-                var selectdThidhi = cmbThithi.SelectedItem  as Thidhi;
-                var selectdspDay = cmbSpecialDay.SelectedItem  as SpecialDay;
+                var selecteddtType = cmbDateType.SelectedItem as DateType;
+                var selectedMonth = cmbMonth.SelectedItem as Months;
+                var selectdThidhi = cmbThithi.SelectedItem as Thidhi;
+                var selectdspDay = cmbSpecialDay.SelectedItem as SpecialDay;
                 var selectedStar = cmbStar.SelectedItem as Stars;
                 if (cmbDateType.Enabled == true)
                 {
@@ -276,14 +276,14 @@ namespace eTemple.UI
                 {
                     Id = uniqueMRNo,
                     Name = txtName.Text,
-                    NameOn=txtNameOn.Text,
-                    PerformDate=performDate_ForPrint,
-                    Star = (selectedStar.Id==0)?"":selectedStar.Name,
+                    NameOn = txtNameOn.Text,
+                    PerformDate = performDate_ForPrint,
+                    Star = (selectedStar.Id == 0) ? "" : selectedStar.Name,
                     PhoneNumber = txtMobile.Text,
                     Gothram = txtGothram.Text,
                     VillageName = txtCity.Text,
                     ServiceType = selectedServiceType.Name,
-                    Cost =  Convert.ToDouble(txtAmount.Text),
+                    Cost = Convert.ToDouble(txtAmount.Text),
                     LoginName = ApplicationElements.loggedInEmployee.LoginId
                 };
 
@@ -300,11 +300,11 @@ namespace eTemple.UI
                 string strInsertStatus = donorRepo.insertDonorInformation(donorInfo);
 
                 string performDatePrintMsg = string.Empty;
-                if(performDate_ForPrint!="" && performDate_ForPrint!=string.Empty)
+                if (performDate_ForPrint != "" && performDate_ForPrint != string.Empty)
                     performDatePrintMsg = " to be performed on " + performDate_ForPrint;
                 //var selectedServiceType = cmbServiceType.SelectedItem as ServiceTypes;
 
-                string smsMessage = "Dear Sir/Madam, We have received an amount of Rs." + donorInfo.Amount + "/- towards " + selectedServiceType.Name + performDatePrintMsg + " Visit: www.svstemple.com , Call:08856225812 ";
+                string smsMessage = "We have received an amount of Rs." + donorInfo.Amount + "/- towards " + selectedServiceType.Name + performDatePrintMsg + " Visit: www.svstemple.com , Call:08856225812 ";
 
                 if (strInsertStatus == "Success")
                 {
@@ -330,18 +330,18 @@ namespace eTemple.UI
                     lstTokenPrint.Clear();
                     lstTokenPrint.Add(oTokenPrint);
                     if (printerName == string.Empty || printerName == "")
-                    { 
+                    {
                         MessageBox.Show("Token cannot be printed.... Please install a printer and select..");
                     }
                     else
-                    oPrintHelper.PrintTokens(lstTokenPrint, this, printerName, Convert.ToBoolean(ConfigurationManager.AppSettings["ShowPrintPreview"]));
+                        oPrintHelper.PrintTokens(lstTokenPrint, this, printerName, Convert.ToBoolean(ConfigurationManager.AppSettings["ShowPrintPreview"]));
                 }
                 else
                     MessageBox.Show("There was a problem inserting data, kindly try again to save the record");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There was a problem inserting data, kindly try again to save the record "+ex.Message);
+                MessageBox.Show("There was a problem inserting data, kindly try again to save the record " + ex.Message);
             }
         }
 
@@ -476,7 +476,7 @@ namespace eTemple.UI
             #endregion
 
             #region Bind Prefixes values
-            var prefixes =  prefixesRepo.GetAllAsQuerable();
+            var prefixes = prefixesRepo.GetAllAsQuerable();
             cmbNamePrefix.DataSource = prefixes;
             cmbNamePrefix.DisplayMember = "Name";
             var prefixes1 = prefixesRepo.GetAllAsQuerable();
@@ -495,7 +495,7 @@ namespace eTemple.UI
             var bindTransactionType = transTypeRepo.GetAllAsQuerable();
             cmbTransaction.DataSource = bindTransactionType;
             cmbTransaction.DisplayMember = "Name";
-            
+
             #endregion
 
             //#region Bind ServiceName values
@@ -672,6 +672,9 @@ namespace eTemple.UI
         /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            bool checkvalidate = validation();
+            if (checkvalidate == false)
+                return;
             btnUpdate.Visible = true;
             btnCancel.Visible = true;
             btnAdd.Visible = false;
@@ -721,11 +724,15 @@ namespace eTemple.UI
             if (cmbTransaction.Enabled == false)
                 selectedTransactionTypeId = 0;
 
+            var nameonprefix = cmbNameOnPrefix.SelectedItem as Prefixes;
+            var nameprefix = cmbNamePrefix.SelectedItem as Prefixes;
 
             Donors donorUpdateInfo = new Donors
             {
                 Id = txtDonorId.Text,
                 Donordate = donorDate,
+                Prefix_Name = nameprefix.Id,
+                Prefix_NameOn=nameonprefix.Id,
                 DonorName = txtName.Text,
                 DistrictName = txtDistrict.Text,
                 City = txtCity.Text,
@@ -807,7 +814,7 @@ namespace eTemple.UI
             if (donor != null)
             {
                 DateTime dt;
-                
+
                 if (!DateTime.TryParse(donor.Donordate.ToString(), out dt))
                 {
                     dtpDate.Value = dt;
@@ -824,12 +831,12 @@ namespace eTemple.UI
                 txtPurpose.Text = donor.Occasion;
 
                 txtNameOn.Text = donor.NameOn;
-                txtNameOn.Enabled = false;
+               // txtNameOn.Enabled = false;
                 txtName.Text = donor.DonorName;
-                txtName.Enabled = false;
+               // txtName.Enabled = false;
 
-                cmbNameOnPrefix.Enabled = false;
-                cmbNamePrefix.Enabled = false;
+               // cmbNameOnPrefix.Enabled = false;
+              //  cmbNamePrefix.Enabled = false;
 
                 //Get Star Info
                 var bindStarName = starRepo.GetAllAsQuerable(donor.Star);
@@ -846,10 +853,10 @@ namespace eTemple.UI
 
                 txtAmount.Text = donor.Amount.ToString();
                 txtAmount.Enabled = false;
-                
+
                 txtPurpose.Text = donor.Occasion;
                 txtGothram.Text = donor.Gothram;
-                                
+
                 txtLandline.Text = donor.Landline;
                 txtMobile.Text = donor.Mobile;
                 txtEmailId.Text = donor.EmailId;
@@ -860,7 +867,7 @@ namespace eTemple.UI
                 cmbServiceType.SelectedIndex = cmbServiceType.FindString(starTypeValue[0]);
 
                 //Get Transaction
-                if (cmbTransaction.Enabled==true)
+                if (cmbTransaction.Enabled == true)
                 {
                     var bindTransactionName = transTypeRepo.GetAllAsQuerable(donor.TransactionTypeId);
                     string[] transNameValue = bindTransactionName.Select(p => p.Name).ToArray();
@@ -1127,7 +1134,7 @@ namespace eTemple.UI
 
             if (transactionType.Id == 2 || transactionType.Id == 3)
             {
-                if (txtTransaction.Text == "" || txtTransaction.Text==string.Empty)
+                if (txtTransaction.Text == "" || txtTransaction.Text == string.Empty)
                 {
                     errorProvider1.SetError(txtTransaction, "Need to enter the details");
                     needValidate = false;
@@ -1135,8 +1142,8 @@ namespace eTemple.UI
                 }
                 else
                     errorProvider1.Clear();
-            }       
-            
+            }
+
             //if (txtOccassion.Text == "" || txtOccassion.Text == string.Empty)
             //{
             //    errorProvider1.SetError(txtOccassion, "Need to enter Occassion");
@@ -1209,7 +1216,7 @@ namespace eTemple.UI
                 needValidate = false;
                 return needValidate;
             }
-            else if ((servicetypeId.Id == 1) && (Convert.ToInt32(txtAmount.Text) < 1116))
+            else if ((servicetypeId.Id == 1) && (Convert.ToDouble(txtAmount.Text) < 1116))
             {
                 errorProvider1.SetError(txtAmount, "Amount cannot be less than Rs.1,116 for selected service type");
                 needValidate = false;
@@ -1293,13 +1300,6 @@ namespace eTemple.UI
                 }
                 else
                     errorProvider1.Clear();
-            }
-
-
-
-            if (true)
-            {
-
             }
 
             if (cmbMonthyAnnaThithi.Enabled == true)
@@ -1540,12 +1540,12 @@ namespace eTemple.UI
             txtCity.Text = string.Empty;
             txtPin.Text = string.Empty;
             txtState.Text = string.Empty;
-            
+
             txtNameOn.Text = string.Empty;
 
             txtPurpose.Text = string.Empty;
             txtGothram.Text = string.Empty;
-            
+
             txtLandline.Text = string.Empty;
             txtMobile.Text = string.Empty;
             txtEmailId.Text = string.Empty;
@@ -1599,7 +1599,7 @@ namespace eTemple.UI
             loadMandalAutoComplete();
             loadDistrictAutoComplete();
             loadPurposeAutoComplete();
-            
+
             rbdEnglish.Visible = false;
             rbdTelugu.Visible = false;
         }
@@ -1623,8 +1623,8 @@ namespace eTemple.UI
             AutoCompleteStringCollection strcoll = new AutoCompleteStringCollection();
             foreach (Donors ocityVillage in lstCityVillage)
             {
-                if(ocityVillage.City!=null)
-                strcoll.Add(ocityVillage.City);
+                if (ocityVillage.City != null)
+                    strcoll.Add(ocityVillage.City);
             }
             txtCity.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtCity.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -1652,7 +1652,7 @@ namespace eTemple.UI
             foreach (Donors oMandal in lstMandal)
             {
                 if (oMandal.Mandal != null)
-                strcoll.Add(oMandal.Mandal);
+                    strcoll.Add(oMandal.Mandal);
             }
             txtMandal.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtMandal.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -1666,7 +1666,7 @@ namespace eTemple.UI
             foreach (Donors oDistrict in lstDistrict)
             {
                 if (oDistrict.DistrictName != null)
-                strcoll.Add(oDistrict.DistrictName);
+                    strcoll.Add(oDistrict.DistrictName);
             }
             txtDistrict.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtDistrict.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -1796,7 +1796,7 @@ namespace eTemple.UI
             if (txtMobile.Text != "")
             {
                 var donorExists = donorRepo.fetchDataFromMobileNumber(txtMobile.Text);
-                if (donorExists !=null)
+                if (donorExists != null)
                 {
                     txtName.Text = donorExists.DonorName;
                     txtDistrict.Text = donorExists.DistrictName;
@@ -1804,7 +1804,7 @@ namespace eTemple.UI
                     txtPin.Text = donorExists.Pin;
                     txtState.Text = donorExists.State;
                     txtDoorNo.Text = donorExists.DoorNo;
-                    txtMandal.Text=donorExists.Mandal;
+                    txtMandal.Text = donorExists.Mandal;
                     txtNameOn.Text = donorExists.NameOn;
 
                     var bindprefixName = prefixesRepo.GetAllAsQuerable(donorExists.Prefix_Name);
@@ -1822,7 +1822,7 @@ namespace eTemple.UI
 
                     txtPurpose.Text = donorExists.Occasion;
                     txtGothram.Text = donorExists.Gothram;
-                                        
+
                     txtLandline.Text = donorExists.Landline;
                     txtMobile.Text = donorExists.Mobile;
                     txtEmailId.Text = donorExists.EmailId;
@@ -1847,18 +1847,18 @@ namespace eTemple.UI
                 cmbTransaction.Enabled = true;
                 txtTransaction.Text = "";
             }
-            else if (transactionType.Name== "Credit/Debit Card")
+            else if (transactionType.Name == "Credit/Debit Card")
             {
                 lblNumberBank.Visible = false;
                 lblTransactionID.Visible = true;
                 txtTransaction.Enabled = true;
-                txtTransaction.Visible = true;                
+                txtTransaction.Visible = true;
                 lblTransactionDate.Visible = false;
                 cmbTransactionDate.Visible = false;
                 cmbTransaction.Enabled = true;
                 txtTransaction.Text = "";
             }
-            else if (transactionType.Name== "DD")
+            else if (transactionType.Name == "DD")
             {
                 lblNumberBank.Visible = true;
                 lblTransactionID.Visible = false;
@@ -1869,7 +1869,7 @@ namespace eTemple.UI
                 cmbTransaction.Enabled = true;
                 txtTransaction.Text = "";
             }
-            else if (transactionType.Name== "Cheque")
+            else if (transactionType.Name == "Cheque")
             {
                 lblNumberBank.Visible = true;
                 lblTransactionID.Visible = false;
@@ -1880,6 +1880,70 @@ namespace eTemple.UI
                 cmbTransaction.Enabled = true;
                 txtTransaction.Text = "";
             }
+        }
+
+        private void btnReprint_Click(object sender, EventArgs e)
+        {
+
+            Donors oDonorLastRec = donorRepo.GetLastRecordbyOperator(ApplicationElements.loggedInEmployee.Id);
+            if (oDonorLastRec != null)
+            {
+                string performDate_ForPrint = string.Empty;
+                //Get Star Info
+                var bindStarName = starRepo.GetAllAsQuerable(oDonorLastRec.Star);
+                string[] starNameValue = bindStarName.Select(p => p.Name).ToArray();
+
+                //Get serviceName Info
+                var bindServiceType = serviceTypeRepo.GetAllAsQuerable(oDonorLastRec.ServiceTypeId);
+                string[] ServceType = bindServiceType.Select(p => p.Name).ToArray();
+
+                switch (oDonorLastRec.DateTypeId)
+                {
+                    case 1:
+                        var bindMonth = monthsRepo.GetAllAsQuerable(oDonorLastRec.DonorMonth);
+                        string[] months = bindMonth.Select(p => p.Name).ToArray();
+
+                        var bindThidhi = thithiRepo.GetAllAsQuerable(oDonorLastRec.Thidhi);
+                        string[] thidhi = bindThidhi.Select(p => p.Name).ToArray();
+                        performDate_ForPrint = months[0] + " " + thidhi[0];
+                        break;
+                    case 2:
+                        performDate_ForPrint = oDonorLastRec.PerformDate;
+                        break;
+                    case 3:
+                        var bindSpecialDay = specialDayRepo.GetAllAsQuerable(oDonorLastRec.SpecialDayId);
+                        string[] specialDay = bindSpecialDay.Select(p => p.Name).ToArray();
+                        performDate_ForPrint = specialDay[0];
+                        break;
+                }
+
+                TokenPrint oTokenPrint = new TokenPrint
+                {
+                    Id = oDonorLastRec.MR_No,
+                    Name = oDonorLastRec.DonorName,
+                    NameOn = oDonorLastRec.NameOn,
+                    PerformDate = performDate_ForPrint,
+                    Star = (starNameValue[0] == "Select") ? "" : starNameValue[0],
+                    PhoneNumber = oDonorLastRec.Mobile,
+                    Gothram = oDonorLastRec.Gothram,
+                    VillageName = oDonorLastRec.City,
+                    ServiceType = ServceType[0],
+                    Cost = Convert.ToDouble(oDonorLastRec.Amount),
+                    LoginName = ApplicationElements.loggedInEmployee.LoginId
+                };
+
+                PrintHelper oPrintHelper = new PrintHelper();
+                lstTokenPrint.Clear();
+                lstTokenPrint.Add(oTokenPrint);
+                if (printerName == string.Empty || printerName == "")
+                {
+                    MessageBox.Show("Token cannot be printed.... Please install a printer and select..");
+                }
+                else
+                    oPrintHelper.PrintTokens(lstTokenPrint, this, printerName, Convert.ToBoolean(ConfigurationManager.AppSettings["ShowPrintPreview"]));
+            }
+            else
+                MessageBox.Show("No Data found for this user");
         }
     }
 }

@@ -104,6 +104,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnQuickDailyAnna = new System.Windows.Forms.Button();
+            this.btnReprint = new System.Windows.Forms.Button();
             this.grpBoxGeneralInfo.SuspendLayout();
             this.grpServiceInfo.SuspendLayout();
             this.grpOtherInfo.SuspendLayout();
@@ -981,12 +982,25 @@
             this.btnQuickDailyAnna.Visible = false;
             this.btnQuickDailyAnna.Click += new System.EventHandler(this.btnQuickDailyAnna_Click);
             // 
+            // btnReprint
+            // 
+            this.btnReprint.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReprint.Location = new System.Drawing.Point(186, 559);
+            this.btnReprint.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnReprint.Name = "btnReprint";
+            this.btnReprint.Size = new System.Drawing.Size(136, 33);
+            this.btnReprint.TabIndex = 202;
+            this.btnReprint.Text = "RePrint";
+            this.btnReprint.UseVisualStyleBackColor = true;
+            this.btnReprint.Click += new System.EventHandler(this.btnReprint_Click);
+            // 
             // DonationInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::eTemple.UI.Donations.Properties.Resources.wood4;
             this.ClientSize = new System.Drawing.Size(946, 601);
+            this.Controls.Add(this.btnReprint);
             this.Controls.Add(this.btnQuickDailyAnna);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnModify);
@@ -1090,5 +1104,6 @@
         private System.Windows.Forms.Label lblMRNO;
         private System.Windows.Forms.ComboBox cmbNamePrefix;
         private System.Windows.Forms.ComboBox cmbNameOnPrefix;
+        private System.Windows.Forms.Button btnReprint;
     }
 }
